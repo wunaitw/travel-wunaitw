@@ -4,25 +4,94 @@
  *  網站：travel.wunaitw.com
  * =============================================
  *
- *  新增票券步驟：
- *  1. 用文字編輯器開啟此檔案
- *  2. 在 tickets 陣列裡新增一筆（參考下方範本）
- *  3. 存檔後上傳到 Netlify（同時上傳 data.js 和 index.html）
+ *  ★ 不用自己新增！直接告訴 Claude 你要加什麼票券，
+ *    Claude 會自動去官網抓資料、更新這個檔案給你 ★
  *
- *  每筆票券欄位說明：
+ *  如果你要自己加，每筆格式如下：
  * ─────────────────────────────────────────────
- *  platform  → 平台："Klook" 或 "KKday"（大小寫要一樣）
- *  name      → 票券完整名稱（從官網複製）
- *  country   → 國家，例如 "日本" "韓國" "泰國"
- *  region    → 地區，例如 "東京" "大阪" "首爾"
- *  type      → 票券類型，只能填以下四種之一：
- *              "交通運輸" / "景點門票" / "一日遊" / "體驗活動"
- *  price     → 每人起售價（台幣，純數字，不含逗號）
- *  url       → 票券直接購買連結（從官網複製）
+ *  platform  → "Klook" 或 "KKday"
+ *  name      → 票券完整名稱
+ *  country   → "台灣" "日本" "韓國" "泰國"
+ *  city      → "台北" "高雄" "東京" "大阪" "全國" 等
+ *  type      → "交通運輸" / "景點門票" / "一日遊" / "體驗活動"
+ *  subtype   → 細項（見下方各 type 的選項）
+ *               交通運輸：台鐵 / 高鐵 / 新幹線 / 阪急 / JR Pass / 地鐵 / 機場接送
+ *               景點門票：遊樂園 / 博物館 / 水族館 / 展覽 / 自然景觀
+ *               一日遊　：近郊一日遊 / 城市導覽 / 包車
+ *               體驗活動：料理體驗 / 文化體驗 / 戶外活動 / 溫泉
+ *  price     → 每人起售價（台幣，純數字）
+ *  url       → 票券購買直連（從官網複製）
  * ─────────────────────────────────────────────
  */
 
 const tickets = [
+
+  // ════════════════════════════════
+  //  台灣・台北
+  // ════════════════════════════════
+
+  {
+    platform: "Klook",
+    name: "台北101觀景台 89F 入場券",
+    country: "台灣",
+    city: "台北",
+    type: "景點門票",
+    subtype: "展覽",
+    price: 600,
+    url: "https://www.klook.com/zh-TW/activity/1659-taipei-101-taipei/"
+  },
+
+  {
+    platform: "KKday",
+    name: "國立故宮博物院 電子門票",
+    country: "台灣",
+    city: "台北",
+    type: "景點門票",
+    subtype: "博物館",
+    price: 120,
+    url: "https://www.kkday.com/zh-tw/product/101875"
+  },
+
+  {
+    platform: "KKday",
+    name: "北台灣包車一日遊｜十分、九份、野柳、猴硐自選",
+    country: "台灣",
+    city: "台北",
+    type: "一日遊",
+    subtype: "近郊一日遊",
+    price: 3200,
+    url: "https://www.kkday.com/zh-tw/product/11679"
+  },
+
+  // ════════════════════════════════
+  //  台灣・高雄
+  // ════════════════════════════════
+
+  {
+    platform: "KKday",
+    name: "台灣各地賓士9人座包車｜高雄出發一日遊",
+    country: "台灣",
+    city: "高雄",
+    type: "一日遊",
+    subtype: "包車",
+    price: 4500,
+    url: "https://www.kkday.com/zh-tw/product/142529"
+  },
+
+  // ════════════════════════════════
+  //  台灣・全台
+  // ════════════════════════════════
+
+  {
+    platform: "KKday",
+    name: "台灣高鐵周遊券 2日／3日無限次搭乘（外國人適用）",
+    country: "台灣",
+    city: "全台",
+    type: "交通運輸",
+    subtype: "高鐵",
+    price: 1500,
+    url: "https://www.kkday.com/zh-tw/product/2700"
+  },
 
   // ════════════════════════════════
   //  日本・東京
@@ -32,8 +101,9 @@ const tickets = [
     platform: "Klook",
     name: "東京迪士尼樂園／迪士尼海洋 1日電子門票",
     country: "日本",
-    region: "東京",
+    city: "東京",
     type: "景點門票",
+    subtype: "遊樂園",
     price: 2600,
     url: "https://www.klook.com/zh-TW/activity/695-tokyo-disney-resort-1-day-pass-tokyo/"
   },
@@ -42,8 +112,9 @@ const tickets = [
     platform: "Klook",
     name: "東京晴空塔 天望台入場券",
     country: "日本",
-    region: "東京",
+    city: "東京",
     type: "景點門票",
+    subtype: "展覽",
     price: 680,
     url: "https://www.klook.com/zh-TW/activity/41352-tokyo-skytree/"
   },
@@ -52,8 +123,9 @@ const tickets = [
     platform: "KKday",
     name: "東京豐洲 teamLab Planets 數位藝術館門票",
     country: "日本",
-    region: "東京",
+    city: "東京",
     type: "景點門票",
+    subtype: "展覽",
     price: 1050,
     url: "https://www.kkday.com/zh-tw/product/22396-japan-teamlab-planets-tokyo-ticket"
   },
@@ -66,8 +138,9 @@ const tickets = [
     platform: "Klook",
     name: "大阪環球影城 USJ 官方授權電子入場券",
     country: "日本",
-    region: "大阪",
+    city: "大阪",
     type: "景點門票",
+    subtype: "遊樂園",
     price: 1950,
     url: "https://www.klook.com/zh-TW/activity/46604-universal-studios-japan-e-ticket-osaka-qr-code-direct-entry/"
   },
@@ -76,8 +149,9 @@ const tickets = [
     platform: "Klook",
     name: "大阪周遊卡 Osaka Amazing Pass（1日／2日）",
     country: "日本",
-    region: "大阪",
+    city: "大阪",
     type: "交通運輸",
+    subtype: "地鐵",
     price: 1050,
     url: "https://www.klook.com/zh-TW/activity/82312-amazing-pass-osaka/"
   },
@@ -90,8 +164,9 @@ const tickets = [
     platform: "KKday",
     name: "京都一日遊｜嵐山・金閣寺・清水寺・伏見稻荷大社（大阪出發）",
     country: "日本",
-    region: "京都",
+    city: "京都",
     type: "一日遊",
+    subtype: "近郊一日遊",
     price: 2800,
     url: "https://www.kkday.com/zh-tw/product/39456"
   },
@@ -100,22 +175,24 @@ const tickets = [
     platform: "KKday",
     name: "日本京都 江戶茶室正統茶道體驗",
     country: "日本",
-    region: "京都",
+    city: "京都",
     type: "體驗活動",
+    subtype: "文化體驗",
     price: 1200,
     url: "https://www.kkday.com/zh-tw/product/36881"
   },
 
   // ════════════════════════════════
-  //  日本・箱根 / 富士山
+  //  日本・箱根
   // ════════════════════════════════
 
   {
     platform: "KKday",
     name: "富士箱根周遊券 3日券（含新宿出發）",
     country: "日本",
-    region: "箱根",
+    city: "箱根",
     type: "交通運輸",
+    subtype: "新幹線",
     price: 2100,
     url: "https://www.kkday.com/zh-tw/product/133992-fuji-hakone-3-day-travel-pass-tokyo"
   },
@@ -124,8 +201,9 @@ const tickets = [
     platform: "KKday",
     name: "富士急樂園一日通票＋新宿來回巴士接送套票",
     country: "日本",
-    region: "富士山",
+    city: "富士山",
     type: "景點門票",
+    subtype: "遊樂園",
     price: 1680,
     url: "https://www.kkday.com/zh-tw/product/104303"
   },
@@ -138,27 +216,17 @@ const tickets = [
     platform: "Klook",
     name: "日本 JR Pass 全國版 7天無限搭乘券",
     country: "日本",
-    region: "全國",
+    city: "全國",
     type: "交通運輸",
+    subtype: "JR Pass",
     price: 15800,
     url: "https://www.klook.com/zh-TW/activity/1420-7-day-whole-japan-rail-pass-jr-pass/"
   },
 
   // ════════════════════════════════
-  //  ↓↓↓ 新增票券貼在這裡 ↓↓↓
-  //
-  //  複製下方範本，填好後貼在上面：
-  //
-  // {
-  //   platform: "Klook",               ← Klook 或 KKday
-  //   name: "票券完整名稱",             ← 從官網複製
-  //   country: "日本",                  ← 國家
-  //   region: "東京",                   ← 地區
-  //   type: "景點門票",                 ← 四種類型之一（見上方說明）
-  //   price: 1500,                      ← 台幣起售價（純數字）
-  //   url: "https://..."               ← 從官網複製的購買連結
-  // },
-  //
+  //  ↓↓↓ 叫 Claude 幫你加票券 ↓↓↓
+  //  告訴 Claude：「幫我加 XX 的 XX 票券」
+  //  Claude 會去官網找資料，自動更新這裡
   // ════════════════════════════════
 
 ];  // ← 這個括號不要動！

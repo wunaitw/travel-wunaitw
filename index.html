@@ -7,17 +7,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --klook: #FF6B35;
+      --klook:    #FF6B35;
       --klook-dk: #C94A15;
-      --kkday: #E8304B;
+      --kkday:    #E8304B;
       --kkday-dk: #A8142B;
-      --sky: #EEF6FF;
-      --white: #fff;
-      --text: #1a1a1a;
-      --muted: #8A8A9A;
-      --border: rgba(0,0,0,.07);
-      --r: 18px;
-      --rsm: 12px;
+      --sky:      #EEF6FF;
+      --white:    #fff;
+      --text:     #1a1a1a;
+      --muted:    #8A8A9A;
+      --border:   rgba(0,0,0,.08);
+      --r:        18px;
+      --rsm:      12px;
+      /* type colours */
+      --c-transport: #0960C8;
+      --c-ticket:    #BF360C;
+      --c-tour:      #2D6A4F;
+      --c-activity:  #6A1B9A;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
@@ -33,295 +38,147 @@
     }
 
     /* ── Header ── */
-    .hdr {
-      background: var(--white);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,.08);
-    }
-    .rainbow {
-      height: 5px;
-      background: linear-gradient(90deg, #FF6B6B 0%, #FFD93D 25%, #6BCB77 50%, #4CC9F0 75%, #C77DFF 100%);
-    }
-    .hdr-inner {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px 13px;
-    }
-    .logo {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      animation: wobble 4s ease-in-out infinite;
-    }
-    @keyframes wobble {
-      0%, 100% { transform: rotate(-5deg); }
-      50%       { transform: rotate(5deg); }
-    }
-    .site-name {
-      font-family: "Nunito", sans-serif;
-      font-size: 18px;
-      font-weight: 900;
-      color: var(--klook);
-      line-height: 1.1;
-    }
-    .site-name b { color: #3AAEDC; }
-    .site-sub {
-      font-family: "Nunito", sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--muted);
-      margin-top: 2px;
-    }
+    .hdr { background: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .rainbow { height: 5px; background: linear-gradient(90deg,#FF6B6B 0%,#FFD93D 25%,#6BCB77 50%,#4CC9F0 75%,#C77DFF 100%); }
+    .hdr-inner { display: flex; align-items: center; gap: 12px; padding: 11px 16px 12px; }
+    .logo { width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; animation: wobble 4s ease-in-out infinite; }
+    @keyframes wobble { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
+    .site-name { font-family:"Nunito",sans-serif; font-size:18px; font-weight:900; color:var(--klook); line-height:1.1; }
+    .site-name b { color:#3AAEDC; }
+    .site-sub { font-family:"Nunito",sans-serif; font-size:10px; font-weight:700; color:var(--muted); margin-top:2px; }
 
     /* ── Filter panel ── */
-    .fpanel {
-      background: var(--white);
-      margin: 12px 12px 0;
-      border-radius: var(--r);
-      padding: 15px 14px 14px;
-      border: 2px solid var(--border);
-      box-shadow: 0 4px 0 rgba(0,0,0,.05);
-    }
-    .fsec { margin-bottom: 13px; }
-    .fsec:last-child { margin-bottom: 0; }
-    .ftitle {
-      font-family: "Nunito", sans-serif;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
+    .fpanel { background:var(--white); margin:12px 12px 0; border-radius:var(--r); padding:15px 14px 14px; border:2px solid var(--border); box-shadow:0 4px 0 rgba(0,0,0,.05); }
+    .fsec { margin-bottom:14px; }
+    .fsec:last-child { margin-bottom:0; }
+    .ftitle { font-family:"Nunito",sans-serif; font-size:10px; font-weight:900; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); margin-bottom:9px; display:flex; align-items:center; gap:5px; }
+    .fdot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+
+    /* Select */
+    select { width:100%; padding:8px 14px; border:2px solid var(--border); border-radius:999px; font-family:"Nunito",sans-serif; font-size:13px; font-weight:800; color:#444; background:var(--sky); appearance:none; -webkit-appearance:none; cursor:pointer; outline:none; transition:border-color .2s; }
+    select:focus { border-color:#4CC9F0; }
+
+    /* ── Radio button pills (套票類型) ── */
+    .radio-group { display:flex; flex-wrap:wrap; gap:7px; }
+    .ropt {
       display: flex;
       align-items: center;
-      gap: 5px;
-    }
-    .fdot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-
-    select {
-      width: 100%;
-      padding: 8px 14px;
+      gap: 7px;
+      padding: 7px 13px 7px 9px;
+      border-radius: 999px;
       border: 2px solid var(--border);
-      border-radius: 999px;
-      font-family: "Nunito", sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      color: #444;
       background: var(--sky);
-      appearance: none;
-      -webkit-appearance: none;
       cursor: pointer;
-      outline: none;
-      transition: border-color .2s;
+      font-family: "Nunito", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+      user-select: none;
+      transition: all .18s;
     }
-    select:focus { border-color: #4CC9F0; }
+    .ropt:active { transform: scale(.93); }
+    /* The dot */
+    .ropt-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--muted);
+      flex-shrink: 0;
+      transition: all .18s;
+      background: transparent;
+    }
+    /* Active states */
+    .ropt.active { color: #fff; border-color: transparent; }
+    .ropt.active .ropt-dot { border: 3px solid rgba(255,255,255,.5); background: rgba(255,255,255,.9); }
+    .ropt-all.active    { background: #333; }
+    .ropt-transport.active { background: var(--c-transport); }
+    .ropt-ticket.active    { background: var(--c-ticket); }
+    .ropt-tour.active      { background: var(--c-tour); }
+    .ropt-activity.active  { background: var(--c-activity); }
 
-    /* platform chips */
-    .pchips { display: flex; gap: 8px; }
-    .pchip {
-      flex: 1;
-      padding: 8px 10px;
+    /* ── Subtype chips ── */
+    .chips { display:flex; flex-wrap:wrap; gap:7px; }
+    .chip {
+      padding: 6px 13px;
       border-radius: 999px;
       font-family: "Nunito", sans-serif;
-      font-size: 13px;
-      font-weight: 900;
-      border: 2.5px solid var(--border);
+      font-size: 11px;
+      font-weight: 800;
+      border: 2px solid var(--border);
       background: var(--sky);
       color: var(--muted);
       cursor: pointer;
-      text-align: center;
       user-select: none;
       transition: all .15s;
     }
-    .pchip:active { transform: scale(.94); }
-    .pchip.on-all   { background: #1a1a1a; border-color: #000; color: #fff; }
-    .pchip.on-klook { background: var(--klook); border-color: var(--klook-dk); color: #fff; }
-    .pchip.on-kkday { background: var(--kkday); border-color: var(--kkday-dk); color: #fff; }
+    .chip:active { transform: scale(.93); }
+    .chip.active-transport { background:var(--c-transport); border-color:var(--c-transport); color:#fff; }
+    .chip.active-ticket    { background:var(--c-ticket);    border-color:var(--c-ticket);    color:#fff; }
+    .chip.active-tour      { background:var(--c-tour);      border-color:var(--c-tour);      color:#fff; }
+    .chip.active-activity  { background:var(--c-activity);  border-color:var(--c-activity);  color:#fff; }
 
-    /* price slider */
-    .price-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: "Nunito", sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .price-val { font-size: 15px; font-weight: 900; color: var(--klook); }
+    /* ── Platform chips ── */
+    .pchips { display:flex; gap:8px; }
+    .pchip { flex:1; padding:8px 10px; border-radius:999px; font-family:"Nunito",sans-serif; font-size:13px; font-weight:900; border:2.5px solid var(--border); background:var(--sky); color:var(--muted); cursor:pointer; text-align:center; user-select:none; transition:all .15s; }
+    .pchip:active { transform:scale(.94); }
+    .pchip.on-all   { background:#1a1a1a; border-color:#000; color:#fff; }
+    .pchip.on-klook { background:var(--klook); border-color:var(--klook-dk); color:#fff; }
+    .pchip.on-kkday { background:var(--kkday); border-color:var(--kkday-dk); color:#fff; }
 
-    input[type="range"] {
-      width: 100%;
-      -webkit-appearance: none;
-      height: 5px;
-      border-radius: 3px;
-      background: var(--sky);
-      border: 2px solid var(--border);
-      outline: none;
-      cursor: pointer;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--klook);
-      border: 3px solid #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,.2);
-      cursor: pointer;
-    }
+    /* ── Price slider ── */
+    .price-label { display:flex; justify-content:space-between; align-items:center; font-family:"Nunito",sans-serif; font-size:11px; font-weight:800; color:var(--muted); margin-bottom:8px; }
+    .price-val { font-size:15px; font-weight:900; color:var(--klook); }
+    input[type="range"] { width:100%; -webkit-appearance:none; height:5px; border-radius:3px; background:var(--sky); border:2px solid var(--border); outline:none; cursor:pointer; }
+    input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:24px; height:24px; border-radius:50%; background:var(--klook); border:3px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.2); cursor:pointer; }
 
-    .clear-btn {
-      font-family: "Nunito", sans-serif;
-      font-size: 11px;
-      font-weight: 900;
-      color: var(--muted);
-      background: none;
-      border: 1.5px solid var(--border);
-      border-radius: 999px;
-      padding: 4px 13px;
-      cursor: pointer;
-      margin-left: auto;
-      display: block;
-      margin-top: 12px;
-    }
-    .clear-btn:active { transform: scale(.95); }
+    .clear-btn { font-family:"Nunito",sans-serif; font-size:11px; font-weight:900; color:var(--muted); background:none; border:1.5px solid var(--border); border-radius:999px; padding:4px 13px; cursor:pointer; margin-left:auto; display:block; margin-top:12px; }
+    .clear-btn:active { transform:scale(.95); }
 
     /* ── Results bar ── */
-    .rbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 13px 16px 7px;
-    }
-    .rtxt { font-family: "Nunito", sans-serif; font-size: 12px; font-weight: 900; color: var(--muted); }
-    .rcnt { font-family: "Nunito", sans-serif; font-size: 12px; font-weight: 900; background: var(--klook); color: #fff; padding: 3px 12px; border-radius: 999px; }
+    .rbar { display:flex; align-items:center; justify-content:space-between; padding:13px 16px 7px; }
+    .rtxt { font-family:"Nunito",sans-serif; font-size:12px; font-weight:900; color:var(--muted); }
+    .rcnt { font-family:"Nunito",sans-serif; font-size:12px; font-weight:900; background:var(--klook); color:#fff; padding:3px 12px; border-radius:999px; }
 
     /* ── Cards ── */
-    .clist { padding: 0 12px; }
-
-    .card {
-      background: var(--white);
-      border-radius: var(--r);
-      margin-bottom: 12px;
-      border: 2px solid var(--border);
-      box-shadow: 0 4px 0 rgba(0,0,0,.06);
-      overflow: hidden;
-      animation: popin .28s ease backwards;
-    }
-    .card:active { transform: scale(.985); }
-    @keyframes popin {
-      from { opacity: 0; transform: translateY(10px) scale(.97); }
-      to   { opacity: 1; transform: none; }
-    }
-
-    .cstripe { height: 6px; }
-    .stripe-klook { background: var(--klook); }
-    .stripe-kkday { background: var(--kkday); }
-
-    .cbody { padding: 13px 15px 14px; }
-
-    /* Big platform name */
-    .platform-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 9px;
-    }
-    .platform-name {
-      font-family: "Nunito", sans-serif;
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: -.3px;
-      line-height: 1;
-    }
-    .name-klook { color: var(--klook); }
-    .name-kkday { color: var(--kkday); }
-
-    .type-badge {
-      font-family: "Nunito", sans-serif;
-      font-size: 10px;
-      font-weight: 900;
-      padding: 3px 10px;
-      border-radius: 999px;
-    }
-    .tb-transport { background: #E3F0FF; color: #0960C8; border: 1.5px solid #BDDAFF; }
-    .tb-ticket    { background: #FFF3E0; color: #BF360C; border: 1.5px solid #FFD0A0; }
-    .tb-daytour   { background: #E3FAF8; color: #2D6A4F; border: 1.5px solid #B2EDE8; }
-    .tb-activity  { background: #F3ECFF; color: #6A1B9A; border: 1.5px solid #D8C0F8; }
-
-    .cname {
-      font-family: "Nunito", sans-serif;
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.45;
-      margin-bottom: 10px;
-    }
-
-    .ctags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
-    .ctag {
-      font-family: "Nunito", sans-serif;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 2px 9px;
-      border-radius: 999px;
-    }
-    .ctag-country { background: #F3E5F5; color: #6A1B9A; border: 1.5px solid #D8C0F8; }
-    .ctag-region  { background: #E3F2FD; color: #0D47A1; border: 1.5px solid #B3D4F5; }
-
-    .cfoot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1.5px dashed var(--sky);
-      padding-top: 11px;
-    }
-    .cprice-lbl { font-size: 10px; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
-    .cprice {
-      font-family: "Nunito", sans-serif;
-      font-size: 23px;
-      font-weight: 900;
-      color: var(--text);
-      line-height: 1;
-    }
-    .cprice span { font-size: 13px; color: var(--muted); font-weight: 700; }
-
-    .cbtn {
-      font-family: "Nunito", sans-serif;
-      font-size: 13px;
-      font-weight: 900;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: var(--rsm);
-      border-bottom: 3px solid;
-      white-space: nowrap;
-      transition: opacity .15s;
-    }
-    .cbtn:active { opacity: .75; }
-    .cbtn-klook { background: var(--klook); border-color: var(--klook-dk); }
-    .cbtn-kkday { background: var(--kkday); border-color: var(--kkday-dk); }
+    .clist { padding:0 12px; }
+    .card { background:var(--white); border-radius:var(--r); margin-bottom:12px; border:2px solid var(--border); box-shadow:0 4px 0 rgba(0,0,0,.06); overflow:hidden; animation:popin .28s ease backwards; }
+    .card:active { transform:scale(.985); }
+    @keyframes popin { from{opacity:0;transform:translateY(10px) scale(.97)} to{opacity:1;transform:none} }
+    .cstripe { height:6px; }
+    .stripe-klook { background:var(--klook); }
+    .stripe-kkday { background:var(--kkday); }
+    .cbody { padding:13px 15px 14px; }
+    .platform-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
+    .platform-name { font-family:"Nunito",sans-serif; font-size:22px; font-weight:900; letter-spacing:-.3px; line-height:1; }
+    .name-klook { color:var(--klook); }
+    .name-kkday { color:var(--kkday); }
+    .type-badge { font-family:"Nunito",sans-serif; font-size:10px; font-weight:900; padding:3px 10px; border-radius:999px; }
+    .tb-transport { background:#E3F0FF; color:var(--c-transport); border:1.5px solid #BDDAFF; }
+    .tb-ticket    { background:#FFF3E0; color:var(--c-ticket);    border:1.5px solid #FFD0A0; }
+    .tb-tour      { background:#E3FAF8; color:var(--c-tour);      border:1.5px solid #B2EDE8; }
+    .tb-activity  { background:#F3ECFF; color:var(--c-activity);  border:1.5px solid #D8C0F8; }
+    .cname { font-family:"Nunito",sans-serif; font-size:14px; font-weight:800; color:var(--text); line-height:1.45; margin-bottom:10px; }
+    .ctags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px; }
+    .ctag { font-family:"Nunito",sans-serif; font-size:10px; font-weight:800; padding:2px 9px; border-radius:999px; }
+    .ctag-country { background:#F3E5F5; color:#6A1B9A; border:1.5px solid #D8C0F8; }
+    .ctag-city    { background:#E3F2FD; color:#0D47A1; border:1.5px solid #B3D4F5; }
+    .ctag-sub     { background:#FFF8E1; color:#BF6F00; border:1.5px solid #FFE082; }
+    .cfoot { display:flex; align-items:center; justify-content:space-between; border-top:1.5px dashed var(--sky); padding-top:11px; }
+    .cprice-lbl { font-size:10px; color:var(--muted); font-weight:600; margin-bottom:2px; }
+    .cprice { font-family:"Nunito",sans-serif; font-size:23px; font-weight:900; color:var(--text); line-height:1; }
+    .cprice span { font-size:13px; color:var(--muted); font-weight:700; }
+    .cbtn { font-family:"Nunito",sans-serif; font-size:13px; font-weight:900; color:#fff; text-decoration:none; padding:10px 18px; border-radius:var(--rsm); border-bottom:3px solid; white-space:nowrap; transition:opacity .15s; }
+    .cbtn:active { opacity:.75; }
+    .cbtn-klook { background:var(--klook); border-color:var(--klook-dk); }
+    .cbtn-kkday { background:var(--kkday); border-color:var(--kkday-dk); }
 
     /* ── Empty ── */
-    .empty { text-align: center; padding: 52px 20px; color: var(--muted); }
-    .empty-ico { font-size: 48px; margin-bottom: 12px; }
-    .empty-txt { font-family: "Nunito", sans-serif; font-size: 15px; font-weight: 800; line-height: 1.6; }
+    .empty { text-align:center; padding:52px 20px; color:var(--muted); }
+    .empty-ico { font-size:48px; margin-bottom:12px; }
+    .empty-txt { font-family:"Nunito",sans-serif; font-size:15px; font-weight:800; line-height:1.6; }
 
     /* ── Footer ── */
-    .footer {
-      text-align: center;
-      padding: 20px 16px;
-      font-family: "Nunito", sans-serif;
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.9;
-    }
+    .footer { text-align:center; padding:20px 16px; font-family:"Nunito",sans-serif; font-size:11px; color:var(--muted); line-height:1.9; }
   </style>
 </head>
 <body>
@@ -330,7 +187,7 @@
 <div class="hdr">
   <div class="rainbow"></div>
   <div class="hdr-inner">
-    <img src="wunai_fixed.png" alt="出發！育兒趣" class="logo">
+    <img src="wunai_fixed.png" alt="軟糖媽咪Ivy" class="logo">
     <div>
       <div class="site-name">軟糖媽咪<b>Ivy</b></div>
       <div class="site-sub">自由行票券精選・海外景點比較筆記</div>
@@ -349,27 +206,43 @@
     </select>
   </div>
 
-  <!-- 2. 地區（動態） -->
-  <div class="fsec" id="region-sec" style="display:none">
-    <div class="ftitle"><span class="fdot" style="background:#3AAEDC"></span>地區</div>
-    <select id="sel-region" onchange="render()">
-      <option value="">📍 所有地區</option>
+  <!-- 2. 城市（動態） -->
+  <div class="fsec" id="city-sec" style="display:none">
+    <div class="ftitle"><span class="fdot" style="background:#3AAEDC"></span>城市</div>
+    <select id="sel-city" onchange="render()">
+      <option value="">📍 所有城市</option>
     </select>
   </div>
 
-  <!-- 3. 套票類型 -->
+  <!-- 3. 套票類型（radio 原點） -->
   <div class="fsec">
     <div class="ftitle"><span class="fdot" style="background:#9B72CF"></span>套票類型</div>
-    <select id="sel-type" onchange="render()">
-      <option value="">🎫 所有類型</option>
-      <option value="交通運輸">🚄 交通運輸</option>
-      <option value="景點門票">🏯 景點門票</option>
-      <option value="一日遊">🗺️ 一日遊</option>
-      <option value="體驗活動">🎭 體驗活動</option>
-    </select>
+    <div class="radio-group" id="type-group">
+      <div class="ropt ropt-all active" onclick="setType('')">
+        <div class="ropt-dot"></div>全部
+      </div>
+      <div class="ropt ropt-transport" onclick="setType('交通運輸')">
+        <div class="ropt-dot"></div>🚄 交通運輸
+      </div>
+      <div class="ropt ropt-ticket" onclick="setType('景點門票')">
+        <div class="ropt-dot"></div>🏯 景點門票
+      </div>
+      <div class="ropt ropt-tour" onclick="setType('一日遊')">
+        <div class="ropt-dot"></div>🗺️ 一日遊
+      </div>
+      <div class="ropt ropt-activity" onclick="setType('體驗活動')">
+        <div class="ropt-dot"></div>🎭 體驗活動
+      </div>
+    </div>
   </div>
 
-  <!-- 4. 平台 -->
+  <!-- 4. 細項（動態，依套票類型顯示） -->
+  <div class="fsec" id="subtype-sec" style="display:none">
+    <div class="ftitle"><span class="fdot" style="background:#FF9A3C"></span>細項</div>
+    <div class="chips" id="subtype-chips"></div>
+  </div>
+
+  <!-- 5. 平台 -->
   <div class="fsec">
     <div class="ftitle"><span class="fdot" style="background:#FF6B35"></span>平台</div>
     <div class="pchips">
@@ -379,7 +252,7 @@
     </div>
   </div>
 
-  <!-- 5. 最高預算 -->
+  <!-- 6. 最高預算 -->
   <div class="fsec">
     <div class="ftitle"><span class="fdot" style="background:#52B788"></span>最高預算</div>
     <div class="price-label">
@@ -409,60 +282,119 @@
 
 <script src="data.js"></script>
 <script>
-  const TYPE_CLASS = {
-    "交通運輸": "tb-transport",
-    "景點門票": "tb-ticket",
-    "一日遊":   "tb-daytour",
-    "體驗活動": "tb-activity"
+  // ── 細項分類對應 ──────────────────────────────
+  const SUBTYPES = {
+    "交通運輸": ["台鐵","高鐵","新幹線","阪急","JR Pass","地鐵","機場接送"],
+    "景點門票": ["遊樂園","博物館","水族館","展覽","自然景觀"],
+    "一日遊":   ["近郊一日遊","城市導覽","包車"],
+    "體驗活動": ["料理體驗","文化體驗","戶外活動","溫泉"]
   };
 
+  // type → badge class
+  const TYPE_CLS = {
+    "交通運輸":"tb-transport", "景點門票":"tb-ticket",
+    "一日遊":"tb-tour", "體驗活動":"tb-activity"
+  };
+
+  // type → chip active class
+  const CHIP_CLS = {
+    "交通運輸":"active-transport", "景點門票":"active-ticket",
+    "一日遊":"active-tour", "體驗活動":"active-activity"
+  };
+
+  // ── 狀態 ──────────────────────────────────────
+  let selType     = "";
+  let selSubtype  = "";
   let selPlatform = "";
   let maxPrice    = 0;
 
+  // ── 初始化 ────────────────────────────────────
   function init() {
     maxPrice = Math.ceil(Math.max(...tickets.map(t => t.price)) / 1000) * 1000;
-    const slider = document.getElementById("slider-price");
-    slider.max   = maxPrice;
-    slider.value = maxPrice;
+    const sl = document.getElementById("slider-price");
+    sl.max = maxPrice; sl.value = maxPrice;
 
     const countries = [...new Set(tickets.map(t => t.country))].sort();
-    const selC = document.getElementById("sel-country");
+    const sc = document.getElementById("sel-country");
     countries.forEach(c => {
       const o = document.createElement("option");
-      o.value = c; o.textContent = c;
-      selC.appendChild(o);
+      o.value = c; o.textContent = c; sc.appendChild(o);
     });
-
     render();
   }
 
+  // ── 國家變更 → 更新城市 ───────────────────────
   function onCountryChange() {
     const country = document.getElementById("sel-country").value;
-    const selR    = document.getElementById("sel-region");
-    const secR    = document.getElementById("region-sec");
+    const sCty    = document.getElementById("sel-city");
+    const secCty  = document.getElementById("city-sec");
 
-    selR.innerHTML = '<option value="">📍 所有地區</option>';
-    const regions = [...new Set(
-      tickets.filter(t => !country || t.country === country).map(t => t.region)
+    sCty.innerHTML = '<option value="">📍 所有城市</option>';
+    const cities = [...new Set(
+      tickets.filter(t => !country || t.country === country).map(t => t.city)
     )].sort();
-    regions.forEach(r => {
+    cities.forEach(c => {
       const o = document.createElement("option");
-      o.value = r; o.textContent = r;
-      selR.appendChild(o);
+      o.value = c; o.textContent = c; sCty.appendChild(o);
     });
-
-    secR.style.display = country ? "" : "none";
+    secCty.style.display = country ? "" : "none";
     render();
   }
 
+  // ── 套票類型 ──────────────────────────────────
+  function setType(val) {
+    selType    = val;
+    selSubtype = "";
+
+    // Update radio pills
+    document.querySelectorAll(".ropt").forEach(el => el.classList.remove("active"));
+    const map = { "":"ropt-all","交通運輸":"ropt-transport","景點門票":"ropt-ticket","一日遊":"ropt-tour","體驗活動":"ropt-activity" };
+    document.querySelector("." + map[val]).classList.add("active");
+
+    // Update subtype chips
+    const sec   = document.getElementById("subtype-sec");
+    const chips = document.getElementById("subtype-chips");
+    if (val && SUBTYPES[val]) {
+      // only show subtypes that exist in current filtered data
+      const available = new Set(tickets.map(t => t.subtype));
+      const opts = SUBTYPES[val].filter(s => available.has(s));
+      if (opts.length) {
+        chips.innerHTML = `<div class="chip active-${CHIP_CLS[val]?.replace('active-','')}" data-sub="" onclick="setSubtype('')">全部</div>`
+          + opts.map(s =>
+            `<div class="chip" data-sub="${s}" onclick="setSubtype('${s}')">${s}</div>`
+          ).join("");
+        sec.style.display = "";
+      } else {
+        sec.style.display = "none";
+      }
+    } else {
+      sec.style.display = "none";
+      chips.innerHTML   = "";
+    }
+    render();
+  }
+
+  // ── 細項 ──────────────────────────────────────
+  function setSubtype(val) {
+    selSubtype = val;
+    const activeCls = CHIP_CLS[selType] || "";
+    document.querySelectorAll("#subtype-chips .chip").forEach(el => {
+      el.classList.remove(...Object.values(CHIP_CLS));
+      if (el.dataset.sub === val) el.classList.add(activeCls);
+    });
+    render();
+  }
+
+  // ── 平台 ──────────────────────────────────────
   function setPlatform(val) {
     selPlatform = val;
-    document.getElementById("chip-all").className   = "pchip" + (!val           ? " on-all"   : "");
-    document.getElementById("chip-klook").className = "pchip" + (val === "Klook" ? " on-klook" : "");
-    document.getElementById("chip-kkday").className = "pchip" + (val === "KKday" ? " on-kkday" : "");
+    document.getElementById("chip-all").className   = "pchip" + (!val ? " on-all" : "");
+    document.getElementById("chip-klook").className = "pchip" + (val==="Klook" ? " on-klook" : "");
+    document.getElementById("chip-kkday").className = "pchip" + (val==="KKday" ? " on-kkday" : "");
     render();
   }
 
+  // ── 滑桿 ──────────────────────────────────────
   function onSlider() {
     const val = parseInt(document.getElementById("slider-price").value);
     document.getElementById("price-display").textContent =
@@ -470,34 +402,39 @@
     render();
   }
 
+  // ── 清除 ──────────────────────────────────────
   function clearAll() {
     document.getElementById("sel-country").value = "";
-    document.getElementById("sel-region").innerHTML = '<option value="">📍 所有地區</option>';
-    document.getElementById("region-sec").style.display = "none";
-    document.getElementById("sel-type").value = "";
+    document.getElementById("sel-city").innerHTML = '<option value="">📍 所有城市</option>';
+    document.getElementById("city-sec").style.display    = "none";
+    document.getElementById("subtype-sec").style.display = "none";
     document.getElementById("slider-price").value = maxPrice;
     document.getElementById("price-display").textContent = "不限";
+    selType = ""; selSubtype = ""; selPlatform = "";
+    document.querySelectorAll(".ropt").forEach(el => el.classList.remove("active"));
+    document.querySelector(".ropt-all").classList.add("active");
     setPlatform("");
   }
 
+  // ── 渲染 ──────────────────────────────────────
   function render() {
     const country = document.getElementById("sel-country").value;
-    const region  = document.getElementById("sel-region").value;
-    const type    = document.getElementById("sel-type").value;
+    const city    = document.getElementById("sel-city")?.value || "";
     const budget  = parseInt(document.getElementById("slider-price").value);
 
     const list = tickets.filter(t => {
       if (country     && t.country  !== country)     return false;
-      if (region      && t.region   !== region)      return false;
-      if (type        && t.type     !== type)        return false;
+      if (city        && t.city     !== city)        return false;
+      if (selType     && t.type     !== selType)     return false;
+      if (selSubtype  && t.subtype  !== selSubtype)  return false;
       if (selPlatform && t.platform !== selPlatform) return false;
       if (t.price > budget)                          return false;
       return true;
     });
 
     document.getElementById("rcnt").textContent = list.length + " 筆";
-
     const container = document.getElementById("clist");
+
     if (!list.length) {
       container.innerHTML = `
         <div class="empty">
@@ -508,31 +445,32 @@
     }
 
     container.innerHTML = list.map((t, i) => {
-      const isKlook   = t.platform === "Klook";
-      const stripe    = isKlook ? "stripe-klook"  : "stripe-kkday";
-      const nameClass = isKlook ? "name-klook"    : "name-kkday";
-      const btnClass  = isKlook ? "cbtn-klook"    : "cbtn-kkday";
-      const typeCls   = TYPE_CLASS[t.type] || "tb-ticket";
+      const isKlook  = t.platform === "Klook";
+      const stripe   = isKlook ? "stripe-klook"  : "stripe-kkday";
+      const nameCls  = isKlook ? "name-klook"    : "name-kkday";
+      const btnCls   = isKlook ? "cbtn-klook"    : "cbtn-kkday";
+      const typeCls  = TYPE_CLS[t.type] || "tb-ticket";
 
       return `
         <div class="card" style="animation-delay:${i * 0.04}s">
           <div class="cstripe ${stripe}"></div>
           <div class="cbody">
             <div class="platform-row">
-              <div class="platform-name ${nameClass}">${t.platform}</div>
+              <div class="platform-name ${nameCls}">${t.platform}</div>
               <div class="type-badge ${typeCls}">${t.type}</div>
             </div>
             <div class="cname">${t.name}</div>
             <div class="ctags">
               <span class="ctag ctag-country">${t.country}</span>
-              <span class="ctag ctag-region">${t.region}</span>
+              <span class="ctag ctag-city">${t.city}</span>
+              <span class="ctag ctag-sub">${t.subtype}</span>
             </div>
             <div class="cfoot">
               <div>
                 <div class="cprice-lbl">每人起</div>
                 <div class="cprice">NT$&thinsp;${t.price.toLocaleString()}<span> 起</span></div>
               </div>
-              <a class="cbtn ${btnClass}" href="${t.url}" target="_blank" rel="noopener noreferrer">立即預訂</a>
+              <a class="cbtn ${btnCls}" href="${t.url}" target="_blank" rel="noopener noreferrer">立即預訂</a>
             </div>
           </div>
         </div>`;
