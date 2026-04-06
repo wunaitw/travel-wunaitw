@@ -1,0 +1,3 @@
+# 停用 Netlify 圖片壓縮，避免 PNG 被轉成 JPEG
+[build.processing.images]
+  compress = false
