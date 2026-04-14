@@ -1,521 +1,462 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>軟糖媽咪Ivy的旅遊筆記 | 自由行票券精選</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --klook:    #FF6B35;
-      --klook-dk: #C94A15;
-      --kkday:    #E8304B;
-      --kkday-dk: #A8142B;
-      --sky:      #EEF6FF;
-      --white:    #fff;
-      --text:     #1a1a1a;
-      --muted:    #8A8A9A;
-      --border:   rgba(0,0,0,.08);
-      --r:        18px;
-      --rsm:      12px;
-      /* type colours */
-      --c-transport: #0960C8;
-      --c-ticket:    #BF360C;
-      --c-tour:      #2D6A4F;
-      --c-activity:  #6A1B9A;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="與軟糖媽咪Ivy的共玩筆記">
+<meta name="theme-color" content="#ffffff">
+<title>與軟糖媽咪Ivy的共玩筆記 | 自由行票券精選</title>
 
-    body {
-      font-family: "Noto Sans TC", sans-serif;
-      background: var(--sky);
-      color: var(--text);
-      min-height: 100vh;
-      max-width: 480px;
-      margin: 0 auto;
-      padding-bottom: 40px;
-      overflow-x: hidden;
-    }
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4396964540234247" crossorigin="anonymous"></script>
 
-    /* ── Header ── */
-    .hdr { background: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
-    .rainbow { height: 5px; background: linear-gradient(90deg,#FF6B6B 0%,#FFD93D 25%,#6BCB77 50%,#4CC9F0 75%,#C77DFF 100%); }
-    .hdr-inner { display: flex; align-items: center; gap: 12px; padding: 11px 16px 12px; }
-    .logo { width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; animation: wobble 4s ease-in-out infinite; }
-    @keyframes wobble { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
-    .site-name { font-family:"Nunito",sans-serif; font-size:18px; font-weight:900; color:var(--klook); line-height:1.1; }
-    .site-name b { color:#3AAEDC; }
-    .site-sub { font-family:"Nunito",sans-serif; font-size:10px; font-weight:700; color:var(--muted); margin-top:2px; }
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JQZWV3TVD8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JQZWV3TVD8');
+</script>
 
-    /* ── Filter panel ── */
-    .fpanel { background:var(--white); margin:12px 12px 0; border-radius:var(--r); padding:15px 14px 14px; border:2px solid var(--border); box-shadow:0 4px 0 rgba(0,0,0,.05); }
-    .fsec { margin-bottom:14px; }
-    .fsec:last-child { margin-bottom:0; }
-    .ftitle { font-family:"Nunito",sans-serif; font-size:10px; font-weight:900; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); margin-bottom:9px; display:flex; align-items:center; gap:5px; }
-    .fdot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
-
-    /* Select */
-    select { width:100%; padding:8px 14px; border:2px solid var(--border); border-radius:999px; font-family:"Nunito",sans-serif; font-size:13px; font-weight:800; color:#444; background:var(--sky); appearance:none; -webkit-appearance:none; cursor:pointer; outline:none; transition:border-color .2s; }
-    select:focus { border-color:#4CC9F0; }
-
-    /* Name search */
-    .search-input { width:100%; padding:8px 14px; border:2px solid var(--border); border-radius:999px; font-family:"Noto Sans TC",sans-serif; font-size:13px; color:#444; background:var(--sky); outline:none; transition:border-color .2s; }
-    .search-input:focus { border-color:#4CC9F0; }
-    .search-input::placeholder { color:var(--muted); }
-
-    /* ── Radio button pills (票券類別) ── */
-    .radio-group { display:flex; flex-wrap:wrap; gap:7px; }
-    .ropt {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 13px 7px 9px;
-      border-radius: 999px;
-      border: 2px solid var(--border);
-      background: var(--sky);
-      cursor: pointer;
-      font-family: "Nunito", sans-serif;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--muted);
-      user-select: none;
-      transition: all .18s;
-    }
-    .ropt:active { transform: scale(.93); }
-    .ropt-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      border: 2px solid var(--muted);
-      flex-shrink: 0;
-      transition: all .18s;
-      background: transparent;
-    }
-    .ropt.active { color: #fff; border-color: transparent; }
-    .ropt.active .ropt-dot { border: 3px solid rgba(255,255,255,.5); background: rgba(255,255,255,.9); }
-    .ropt-all.active       { background: #333; }
-    .ropt-transport.active { background: var(--c-transport); }
-    .ropt-ticket.active    { background: var(--c-ticket); }
-    .ropt-tour.active      { background: var(--c-tour); }
-    .ropt-activity.active  { background: var(--c-activity); }
-
-    /* ── Subtype chips ── */
-    .chips { display:flex; flex-wrap:wrap; gap:7px; }
-    .chip { padding:6px 13px; border-radius:999px; font-family:"Nunito",sans-serif; font-size:11px; font-weight:800; border:2px solid var(--border); background:var(--sky); color:var(--muted); cursor:pointer; user-select:none; transition:all .15s; }
-    .chip:active { transform:scale(.93); }
-    .chip.active-transport { background:var(--c-transport); border-color:var(--c-transport); color:#fff; }
-    .chip.active-ticket    { background:var(--c-ticket);    border-color:var(--c-ticket);    color:#fff; }
-    .chip.active-tour      { background:var(--c-tour);      border-color:var(--c-tour);      color:#fff; }
-    .chip.active-activity  { background:var(--c-activity);  border-color:var(--c-activity);  color:#fff; }
-
-    /* ── Platform chips ── */
-    .pchips { display:flex; gap:8px; }
-    .pchip { flex:1; padding:8px 10px; border-radius:999px; font-family:"Nunito",sans-serif; font-size:13px; font-weight:900; border:2.5px solid var(--border); background:var(--sky); color:var(--muted); cursor:pointer; text-align:center; user-select:none; transition:all .15s; }
-    .pchip:active { transform:scale(.94); }
-    .pchip.on-all   { background:#1a1a1a; border-color:#000; color:#fff; }
-    .pchip.on-klook { background:var(--klook); border-color:var(--klook-dk); color:#fff; }
-    .pchip.on-kkday { background:var(--kkday); border-color:var(--kkday-dk); color:#fff; }
-
-    /* ── Price slider ── */
-    .price-label { display:flex; justify-content:space-between; align-items:center; font-family:"Nunito",sans-serif; font-size:11px; font-weight:800; color:var(--muted); margin-bottom:8px; }
-    .price-val { font-size:15px; font-weight:900; color:var(--klook); }
-    input[type="range"] { width:100%; -webkit-appearance:none; height:5px; border-radius:3px; background:var(--sky); border:2px solid var(--border); outline:none; cursor:pointer; }
-    input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:24px; height:24px; border-radius:50%; background:var(--klook); border:3px solid #fff; box-shadow:0 2px 5px rgba(0,0,0,.2); cursor:pointer; }
-
-    .clear-btn { font-family:"Nunito",sans-serif; font-size:11px; font-weight:900; color:var(--muted); background:none; border:1.5px solid var(--border); border-radius:999px; padding:4px 13px; cursor:pointer; margin-left:auto; display:block; margin-top:12px; }
-    .clear-btn:active { transform:scale(.95); }
-
-    /* ── Results bar ── */
-    .rbar { display:flex; align-items:center; justify-content:space-between; padding:13px 16px 7px; }
-    .rtxt { font-family:"Nunito",sans-serif; font-size:12px; font-weight:900; color:var(--muted); }
-    .rcnt { font-family:"Nunito",sans-serif; font-size:12px; font-weight:900; background:var(--klook); color:#fff; padding:3px 12px; border-radius:999px; }
-
-    /* ── Cards ── */
-    .clist { padding:0 12px; }
-    .card { background:var(--white); border-radius:var(--r); margin-bottom:12px; border:2px solid var(--border); box-shadow:0 4px 0 rgba(0,0,0,.06); overflow:hidden; animation:popin .28s ease backwards; }
-    .card:active { transform:scale(.985); }
-    @keyframes popin { from{opacity:0;transform:translateY(10px) scale(.97)} to{opacity:1;transform:none} }
-    .cstripe { height:6px; }
-    .cbody { padding:13px 15px 14px; }
-
-    /* Card head: type badge */
-    .card-head { margin-bottom:8px; }
-    .type-badge { display:inline-block; font-family:"Nunito",sans-serif; font-size:10px; font-weight:900; padding:3px 10px; border-radius:999px; }
-    .tb-transport { background:#E3F0FF; color:var(--c-transport); border:1.5px solid #BDDAFF; }
-    .tb-ticket    { background:#FFF3E0; color:var(--c-ticket);    border:1.5px solid #FFD0A0; }
-    .tb-tour      { background:#E3FAF8; color:var(--c-tour);      border:1.5px solid #B2EDE8; }
-    .tb-activity  { background:#F3ECFF; color:var(--c-activity);  border:1.5px solid #D8C0F8; }
-
-    /* Attraction title (main heading) */
-    .attraction-title { font-family:"Noto Sans TC",sans-serif; font-size:15px; font-weight:700; color:var(--text); line-height:1.45; margin-bottom:10px; }
-
-    /* Tags */
-    .ctags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:2px; }
-    .ctag { font-family:"Nunito",sans-serif; font-size:10px; font-weight:800; padding:2px 9px; border-radius:999px; }
-    .ctag-country { background:#F3E5F5; color:#6A1B9A; border:1.5px solid #D8C0F8; }
-    .ctag-city    { background:#E3F2FD; color:#0D47A1; border:1.5px solid #B3D4F5; }
-    .ctag-sub     { background:#FFF8E1; color:#BF6F00; border:1.5px solid #FFE082; }
-
-    /* Platform rows */
-    .prows { margin-top:10px; }
-    .prow { display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1.5px dashed var(--border); }
-    .prow-brand { font-family:"Nunito",sans-serif; font-size:15px; font-weight:900; min-width:55px; flex-shrink:0; }
-    .brand-klook { color:var(--klook); }
-    .brand-kkday { color:var(--kkday); }
-    .prow-price { flex:1; font-family:"Nunito",sans-serif; font-size:18px; font-weight:900; color:var(--text); line-height:1; }
-    .prow-price small { font-size:11px; font-weight:700; color:var(--muted); }
-    .cbtn { font-family:"Nunito",sans-serif; font-size:12px; font-weight:900; color:#fff; text-decoration:none; padding:9px 16px; border-radius:var(--rsm); border-bottom:3px solid; white-space:nowrap; transition:opacity .15s; flex-shrink:0; }
-    .cbtn:active { opacity:.75; }
-    .cbtn-klook { background:var(--klook); border-color:var(--klook-dk); }
-    .cbtn-kkday { background:var(--kkday); border-color:var(--kkday-dk); }
-
-    /* ── Empty ── */
-    .empty { text-align:center; padding:52px 20px; color:var(--muted); }
-    .empty-ico { font-size:48px; margin-bottom:12px; }
-    .empty-txt { font-family:"Nunito",sans-serif; font-size:15px; font-weight:800; line-height:1.6; }
-
-    /* ── Footer ── */
-    .footer { text-align:center; padding:20px 16px; font-family:"Nunito",sans-serif; font-size:11px; color:var(--muted); line-height:1.9; }
-  </style>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--klook:#FF6B35;--klook-dk:#C94A15;--kkday:#3AAEDC;--kkday-dk:#1A8BB8;--sky:#EEF6FF;--white:#fff;--text:#1a1a1a;--muted:#8A8A9A;--border:rgba(0,0,0,.08);--sun:#FFD93D;--r:18px;--rsm:12px;--c-transport:#0960C8;--c-ticket:#BF360C;--c-activity:#6A1B9A;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:"Noto Sans TC",sans-serif;background:var(--sky);color:var(--text);max-width:480px;margin:0 auto;padding-bottom:80px;overflow-x:hidden}
+.hdr{background:var(--white);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.rainbow{height:5px;background:linear-gradient(90deg,#FF6B6B 0%,#FFD93D 25%,#6BCB77 50%,#4CC9F0 75%,#C77DFF 100%)}
+.hdr-inner{display:flex;align-items:center;gap:12px;padding:11px 16px 12px}
+.logo-circle{width:52px;height:52px;border-radius:50%;flex-shrink:0;background:url(wunai_fixed.png) center/cover no-repeat;border:2.5px solid var(--sun)}
+.site-name{font-family:"Nunito",sans-serif;font-size:18px;font-weight:900;color:var(--klook);line-height:1.1}
+.site-name b{color:#3AAEDC}
+.site-sub{font-family:"Nunito",sans-serif;font-size:10px;font-weight:700;color:var(--muted);margin-top:2px}
+/* Bottom nav */
+.bnav{position:sticky;bottom:0;width:100%;background:var(--white);border-top:2px solid var(--border);display:flex;padding:6px 0 16px;z-index:200}
+.nbtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;font-family:"Nunito",sans-serif;color:var(--muted);padding:4px 0}
+.nbtn.on{color:var(--klook)}
+.nico{font-size:20px;line-height:1}
+.nlbl{font-size:9px;font-weight:800}
+/* Filter panel */
+.fpanel{background:var(--white);margin:12px 12px 0;border-radius:var(--r);padding:15px 14px 14px;border:2px solid var(--border);box-shadow:0 4px 0 rgba(0,0,0,.05)}
+.fsec{margin-bottom:14px}.fsec:last-child{margin-bottom:0}
+.ftitle{font-family:"Nunito",sans-serif;font-size:10px;font-weight:900;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.fdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+/* Pills */
+.pill-group{display:flex;flex-wrap:wrap;gap:7px}
+.pill{display:flex;align-items:center;gap:6px;padding:6px 12px 6px 9px;border-radius:999px;border:2px solid var(--border);background:var(--sky);cursor:pointer;font-family:"Nunito",sans-serif;font-size:12px;font-weight:800;color:var(--muted);user-select:none;transition:all .18s}
+.pill:active{transform:scale(.93)}
+.pill-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--muted);flex-shrink:0;transition:all .18s}
+.pill.active{color:#fff;border-color:transparent}
+.pill.active .pill-dot{border:2.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.9)}
+.pill-all.active{background:#333}
+.pill-country.active{background:#0f3460}
+.pill-city.active{background:#3AAEDC}
+.pill-type-transport.active{background:var(--c-transport)}
+.pill-type-ticket.active{background:var(--c-ticket)}
+.pill-type-activity.active{background:var(--c-activity)}
+.pill-sub.active-transport{background:var(--c-transport);color:#fff;border-color:transparent}
+.pill-sub.active-ticket{background:var(--c-ticket);color:#fff;border-color:transparent}
+.pill-sub.active-activity{background:var(--c-activity);color:#fff;border-color:transparent}
+.pill-sub.active-transport .pill-dot,.pill-sub.active-ticket .pill-dot,.pill-sub.active-activity .pill-dot{border:2.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.9)}
+/* Platform chips */
+.pchips{display:flex;gap:8px}
+.pchip{flex:1;padding:8px 10px;border-radius:999px;font-family:"Nunito",sans-serif;font-size:13px;font-weight:900;border:2.5px solid var(--border);background:var(--sky);color:var(--muted);cursor:pointer;text-align:center;user-select:none;transition:all .15s}
+.pchip:active{transform:scale(.94)}
+.pchip.on-all{background:#1a1a1a;border-color:#000;color:#fff}
+.pchip.on-klook{background:var(--klook);border-color:var(--klook-dk);color:#fff}
+.pchip.on-kkday{background:var(--kkday);border-color:var(--kkday-dk);color:#fff}
+/* Price slider */
+.price-label{display:flex;justify-content:space-between;align-items:center;font-family:"Nunito",sans-serif;font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px}
+.price-val{font-size:15px;font-weight:900;color:var(--klook)}
+input[type="range"]{width:100%;-webkit-appearance:none;height:5px;border-radius:3px;background:var(--sky);border:2px solid var(--border);outline:none;cursor:pointer}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--klook);border:3px solid #fff;box-shadow:0 2px 5px rgba(0,0,0,.2);cursor:pointer}
+/* Search */
+.search-input{width:100%;padding:8px 14px;border:2px solid var(--border);border-radius:999px;font-family:"Noto Sans TC",sans-serif;font-size:13px;color:#444;background:var(--sky);outline:none;transition:border-color .2s}
+.search-input:focus{border-color:#4CC9F0}
+.search-input::placeholder{color:var(--muted)}
+/* Clear btn */
+.clear-btn{font-family:"Nunito",sans-serif;font-size:11px;font-weight:900;color:var(--muted);background:none;border:1.5px solid var(--border);border-radius:999px;padding:4px 13px;cursor:pointer;margin-left:auto;display:block;margin-top:12px}
+.clear-btn:active{transform:scale(.95)}
+/* Results bar */
+.rbar{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 7px}
+.rtxt{font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;color:var(--muted)}
+.rcnt{font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;background:var(--klook);color:#fff;padding:3px 12px;border-radius:999px}
+/* Cards */
+.clist{padding:0 12px}
+.card{background:var(--white);border-radius:var(--r);margin-bottom:12px;border:2px solid var(--border);box-shadow:0 4px 0 rgba(0,0,0,.06);overflow:hidden;animation:popin .28s ease backwards}
+@keyframes popin{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+.cstripe{height:6px}
+.cbody{padding:13px 15px 14px}
+.card-head{margin-bottom:8px}
+.type-badge{display:inline-block;font-family:"Nunito",sans-serif;font-size:10px;font-weight:900;padding:3px 10px;border-radius:999px}
+.tb-transport{background:#E3F0FF;color:var(--c-transport);border:1.5px solid #BDDAFF}
+.tb-ticket{background:#FFF3E0;color:var(--c-ticket);border:1.5px solid #FFD0A0}
+.tb-activity{background:#F3ECFF;color:var(--c-activity);border:1.5px solid #D8C0F8}
+.attraction-title{font-family:"Noto Sans TC",sans-serif;font-size:15px;font-weight:700;color:var(--text);line-height:1.45;margin-bottom:8px}
+.ctags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:2px}
+.ctag{font-family:"Nunito",sans-serif;font-size:10px;font-weight:800;padding:2px 9px;border-radius:999px}
+.ctag-country{background:#F3E5F5;color:#6A1B9A;border:1.5px solid #D8C0F8}
+.ctag-city{background:#E3F2FD;color:#0D47A1;border:1.5px solid #B3D4F5}
+.ctag-sub{background:#FFF8E1;color:#BF6F00;border:1.5px solid #FFE082}
+/* Platform rows — 兩欄並排 */
+.prows{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.prow{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border-radius:var(--rsm);border:1.5px solid var(--border);background:var(--sky)}
+.prow-brand{font-family:"Nunito",sans-serif;font-size:13px;font-weight:900}
+.brand-klook{color:var(--klook)}
+.brand-kkday{color:var(--kkday)}
+.prow-price{font-family:"Nunito",sans-serif;font-size:16px;font-weight:900;color:var(--text);line-height:1}
+.prow-price small{font-size:10px;font-weight:700;color:var(--muted)}
+.cbtn{font-family:"Nunito",sans-serif;font-size:11px;font-weight:900;color:#fff;text-decoration:none;padding:7px 0;border-radius:var(--rsm);border-bottom:3px solid;text-align:center;display:block;transition:opacity .15s}
+.cbtn:active{opacity:.75}
+.cbtn-klook{background:var(--klook);border-color:var(--klook-dk)}
+.cbtn-kkday{background:var(--kkday);border-color:var(--kkday-dk)}
+/* 單平台時橫排 */
+.prows.single{grid-template-columns:1fr}
+.prows.single .prow{flex-direction:row;align-items:center;gap:10px}
+.prows.single .prow-price{flex:1}
+.prows.single .cbtn{padding:9px 16px;display:inline-block;width:auto}
+/* Star / save */
+.star-btn{font-family:"Nunito",sans-serif;font-size:13px;font-weight:900;background:var(--white);color:var(--muted);border:2px solid var(--border);border-radius:999px;padding:5px 14px;cursor:pointer;margin-top:8px;display:inline-block;transition:all .15s}
+.star-btn.on{background:var(--sun);color:#7a5000;border-color:#e0b000}
+.star-btn:active{transform:scale(.95)}
+/* Empty */
+.empty{text-align:center;padding:52px 20px;color:var(--muted)}
+.empty-ico{font-size:48px;margin-bottom:12px}
+.empty-txt{font-family:"Nunito",sans-serif;font-size:15px;font-weight:800;line-height:1.6}
+/* Contact links */
+.contact-link{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--white);border-radius:14px;border:2px solid var(--border);text-decoration:none;margin-bottom:10px}
+/* Toast */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(10px);background:#222;color:#fff;padding:10px 20px;border-radius:999px;font-size:13px;font-weight:700;font-family:"Nunito",sans-serif;opacity:0;transition:all .22s;pointer-events:none;z-index:999;white-space:nowrap;max-width:90%}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* Footer */
+.footer{text-align:center;padding:20px 16px;font-family:"Nunito",sans-serif;font-size:11px;color:var(--muted);line-height:1.9}
+</style>
 </head>
 <body>
 
-<!-- Header -->
 <div class="hdr">
   <div class="rainbow"></div>
   <div class="hdr-inner">
-    <img src="wunai_fixed.png" alt="軟糖媽咪Ivy" class="logo">
+    <div class="logo-circle"></div>
     <div>
-      <div class="site-name">軟糖媽咪<b>Ivy</b></div>
+      <div class="site-name">與軟糖媽咪<b>Ivy</b>的共玩筆記</div>
       <div class="site-sub">自由行票券精選・海外景點比較筆記</div>
     </div>
   </div>
 </div>
 
-<!-- Filter panel -->
-<div class="fpanel">
+<div id="mc"></div>
+<div class="toast" id="toast"></div>
 
-  <!-- 1. 國家 -->
-  <div class="fsec">
-    <div class="ftitle"><span class="fdot" style="background:#0f3460"></span>國家</div>
-    <select id="sel-country" onchange="onCountryChange()">
-      <option value="">🌏 所有國家</option>
-    </select>
-  </div>
-
-  <!-- 2. 城市（動態） -->
-  <div class="fsec" id="city-sec" style="display:none">
-    <div class="ftitle"><span class="fdot" style="background:#3AAEDC"></span>城市</div>
-    <select id="sel-city" onchange="render()">
-      <option value="">📍 所有城市</option>
-    </select>
-  </div>
-
-  <!-- 3. 票券類別 -->
-  <div class="fsec">
-    <div class="ftitle"><span class="fdot" style="background:#9B72CF"></span>票券類別</div>
-    <div class="radio-group" id="type-group">
-      <div class="ropt ropt-all active" onclick="setType('')">
-        <div class="ropt-dot"></div>全部
-      </div>
-      <div class="ropt ropt-transport" onclick="setType('交通運輸')">
-        <div class="ropt-dot"></div>🚄 交通運輸
-      </div>
-      <div class="ropt ropt-ticket" onclick="setType('景點門票')">
-        <div class="ropt-dot"></div>🏯 景點門票
-      </div>
-      <div class="ropt ropt-tour" onclick="setType('一日遊')">
-        <div class="ropt-dot"></div>🗺️ 一日遊
-      </div>
-      <div class="ropt ropt-activity" onclick="setType('體驗活動')">
-        <div class="ropt-dot"></div>🎭 體驗活動
-      </div>
-    </div>
-  </div>
-
-  <!-- 4. 細項（動態，依票券類別顯示） -->
-  <div class="fsec" id="subtype-sec" style="display:none">
-    <div class="ftitle"><span class="fdot" style="background:#FF9A3C"></span>細項</div>
-    <div class="chips" id="subtype-chips"></div>
-  </div>
-
-  <!-- 5. 景點 / 票券名稱 -->
-  <div class="fsec">
-    <div class="ftitle"><span class="fdot" style="background:#52B788"></span>景點 / 票券名稱</div>
-    <input type="text" id="inp-name" class="search-input" placeholder="🔍 搜尋景點或票券名稱" oninput="render()">
-  </div>
-
-  <!-- 6. 平台 -->
-  <div class="fsec">
-    <div class="ftitle"><span class="fdot" style="background:#FF6B35"></span>平台</div>
-    <div class="pchips">
-      <div class="pchip on-all"  id="chip-all"   onclick="setPlatform('')">全部</div>
-      <div class="pchip"         id="chip-klook" onclick="setPlatform('Klook')">🟠 Klook</div>
-      <div class="pchip"         id="chip-kkday" onclick="setPlatform('KKday')">🔴 KKday</div>
-    </div>
-  </div>
-
-  <!-- 7. 最高預算 -->
-  <div class="fsec">
-    <div class="ftitle"><span class="fdot" style="background:#C9A0DC"></span>最高預算</div>
-    <div class="price-label">
-      <span>💰 預算上限</span>
-      <span class="price-val" id="price-display">不限</span>
-    </div>
-    <input type="range" id="slider-price" min="0" step="100" value="99999" oninput="onSlider()">
-  </div>
-
-  <button class="clear-btn" onclick="clearAll()">✕ 清除篩選</button>
-</div>
-
-<!-- Results bar -->
-<div class="rbar">
-  <span class="rtxt">搜尋結果</span>
-  <span class="rcnt" id="rcnt">0 筆</span>
-</div>
-
-<!-- Cards -->
-<div class="clist" id="clist"></div>
-
-<div class="footer">
-  軟糖媽咪Ivy的旅遊筆記 | travel.wunaitw.com<br>
-  票券資料來源：各平台官方網站<br>
-  價格以官網當日為準，僅供參考
+<div class="bnav">
+  <button class="nbtn on" id="nb-tickets" onclick="goTab('tickets')"><span class="nico">🎟️</span><span class="nlbl">票券</span></button>
+  <button class="nbtn" id="nb-saved" onclick="goTab('saved')"><span class="nico">⭐</span><span class="nlbl">收藏</span></button>
+  <button class="nbtn" id="nb-info" onclick="goTab('info')"><span class="nico">💡</span><span class="nlbl">說明/聯絡</span></button>
 </div>
 
 <script src="data.js"></script>
 <script>
-  // ── 細項分類對應 ──────────────────────────────
-  const SUBTYPES = {
-    "交通運輸": ["台鐵","高鐵","新幹線","阪急","JR Pass","地鐵","機場接送"],
-    "景點門票": ["遊樂園","博物館","水族館","展覽","自然景觀"],
-    "一日遊":   ["近郊一日遊","城市導覽","包車"],
-    "體驗活動": ["料理體驗","文化體驗","戶外活動","溫泉"]
-  };
+const TYPE_CLS={"交通運輸":"tb-transport","景點門票":"tb-ticket","活動體驗":"tb-activity"};
+const SUB_TYPE_MAP={
+  '台鐵':'交通運輸','高鐵':'交通運輸','新幹線':'交通運輸','阪急':'交通運輸','JR Pass':'交通運輸','地鐵':'交通運輸','機場接送':'交通運輸','巴士':'交通運輸',
+  '遊樂園':'景點門票','博物館':'景點門票','水族館':'景點門票','展覽':'景點門票','自然景觀':'景點門票','觀光景點':'景點門票','美術館':'景點門票','動物園':'景點門票',
+  '料理體驗':'活動體驗','文化體驗':'活動體驗','戶外活動':'活動體驗','溫泉':'活動體驗','卡丁車':'活動體驗'
+};
+const SUB_ACTIVE_CLS={"交通運輸":"active-transport","景點門票":"active-ticket","活動體驗":"active-activity"};
 
-  // type → badge class
-  const TYPE_CLS = {
-    "交通運輸":"tb-transport", "景點門票":"tb-ticket",
-    "一日遊":"tb-tour", "體驗活動":"tb-activity"
-  };
+let selCountry="",selCity="",selType="",selSubtype="",selPlatform="",maxPrice=0,tab="tickets";
 
-  // type → chip active class
-  const CHIP_CLS = {
-    "交通運輸":"active-transport", "景點門票":"active-ticket",
-    "一日遊":"active-tour", "體驗活動":"active-activity"
-  };
+function getSaved(){try{return JSON.parse(localStorage.getItem('ivy_tickets')||'[]')}catch{return[]}}
+function setSaved(arr){try{localStorage.setItem('ivy_tickets',JSON.stringify(arr))}catch{}}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2000)}
 
-  // ── 狀態 ──────────────────────────────────────
-  let selType     = "";
-  let selSubtype  = "";
-  let selPlatform = "";
-  let maxPrice    = 0;
+function goTab(t){
+  tab=t;
+  ['tickets','saved','info'].forEach(x=>{
+    const el=document.getElementById('nb-'+x);
+    if(el)el.className='nbtn'+(x===t?' on':'');
+  });
+  render();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-  // ── 初始化 ────────────────────────────────────
-  function init() {
-    maxPrice = Math.ceil(Math.max(...tickets.map(t => t.price)) / 1000) * 1000;
-    const sl = document.getElementById("slider-price");
-    sl.max = maxPrice; sl.value = maxPrice;
+function buildCountryPills(){
+  const countries=[...new Set(tickets.map(t=>t.country))].sort();
+  const g=document.getElementById('country-group');if(!g)return;
+  g.innerHTML=`<div class="pill pill-all pill-country ${selCountry===''?'active':''}" onclick="setCountry('')"><div class="pill-dot"></div>🌏 所有國家</div>`
+    +countries.map(v=>`<div class="pill pill-country ${selCountry===v?'active':''}" onclick="setCountry('${v}')" data-val="${v}"><div class="pill-dot"></div>${v}</div>`).join('');
+}
 
-    const countries = [...new Set(tickets.map(t => t.country))].sort();
-    const sc = document.getElementById("sel-country");
-    countries.forEach(c => {
-      const o = document.createElement("option");
-      o.value = c; o.textContent = c; sc.appendChild(o);
-    });
-    render();
-  }
+function buildCityPills(){
+  const cities=[...new Set(tickets.filter(t=>!selCountry||t.country===selCountry).map(t=>t.city))].sort();
+  const g=document.getElementById('city-group');if(!g)return;
+  g.innerHTML=`<div class="pill pill-all pill-city ${selCity===''?'active':''}" onclick="setCity('')"><div class="pill-dot"></div>📍 所有城市</div>`
+    +cities.map(v=>`<div class="pill pill-city ${selCity===v?'active':''}" onclick="setCity('${v}')" data-val="${v}"><div class="pill-dot"></div>${v}</div>`).join('');
+}
 
-  // ── 國家變更 → 更新城市 ───────────────────────
-  function onCountryChange() {
-    const country = document.getElementById("sel-country").value;
-    const sCty    = document.getElementById("sel-city");
-    const secCty  = document.getElementById("city-sec");
+function buildSubtypePills(){
+  const avail=tickets.filter(t=>{
+    if(selCountry&&t.country!==selCountry)return false;
+    if(selCity&&t.city!==selCity)return false;
+    if(selType&&t.type!==selType)return false;
+    return true;
+  });
+  const subtypes=[...new Set(avail.map(t=>t.subtype))].sort();
+  const g=document.getElementById('sub-group');if(!g)return;
+  if(!subtypes.length){g.innerHTML='<span style="font-size:11px;color:var(--muted)">（請先選擇上方條件）</span>';return;}
+  g.innerHTML=`<div class="pill pill-all ${selSubtype===''?'active':''}" style="${selSubtype===''?'background:#555;color:#fff;border-color:transparent':''}" onclick="setSubtype('')"><div class="pill-dot"></div>全部</div>`
+    +subtypes.map(v=>{
+      const parentType=SUB_TYPE_MAP[v]||'';
+      const activeCls=SUB_ACTIVE_CLS[parentType]||'';
+      const isActive=selSubtype===v;
+      return `<div class="pill pill-sub ${isActive?activeCls:''}" onclick="setSubtype('${v}')" data-val="${v}"><div class="pill-dot"></div>${v}</div>`;
+    }).join('');
+}
 
-    sCty.innerHTML = '<option value="">📍 所有城市</option>';
-    const cities = [...new Set(
-      tickets.filter(t => !country || t.country === country).map(t => t.city)
-    )].sort();
-    cities.forEach(c => {
-      const o = document.createElement("option");
-      o.value = c; o.textContent = c; sCty.appendChild(o);
-    });
-    secCty.style.display = country ? "" : "none";
-    render();
-  }
+function setCountry(val){selCountry=val;selCity='';selSubtype='';updatePills();renderTickets();}
+function setCity(val){selCity=val;selSubtype='';updatePills();renderTickets();}
 
-  // ── 票券類別 ──────────────────────────────────
-  function setType(val) {
-    selType    = val;
-    selSubtype = "";
+function setType(val){
+  selType=val;selSubtype='';
+  document.querySelectorAll('#type-group .pill').forEach(el=>el.classList.remove('active'));
+  const typeMap={'':'pill-all','交通運輸':'pill-type-transport','景點門票':'pill-type-ticket','活動體驗':'pill-type-activity'};
+  const el=document.querySelector('.'+typeMap[val]);if(el)el.classList.add('active');
+  buildSubtypePills();
+  renderTickets();
+}
 
-    document.querySelectorAll(".ropt").forEach(el => el.classList.remove("active"));
-    const map = { "":"ropt-all","交通運輸":"ropt-transport","景點門票":"ropt-ticket","一日遊":"ropt-tour","體驗活動":"ropt-activity" };
-    document.querySelector("." + map[val]).classList.add("active");
+function setSubtype(val){
+  selSubtype=val;
+  buildSubtypePills();
+  renderTickets();
+}
 
-    const sec   = document.getElementById("subtype-sec");
-    const chips = document.getElementById("subtype-chips");
-    if (val && SUBTYPES[val]) {
-      const available = new Set(tickets.map(t => t.subtype));
-      const opts = SUBTYPES[val].filter(s => available.has(s));
-      if (opts.length) {
-        chips.innerHTML = `<div class="chip active-${CHIP_CLS[val]?.replace('active-','')}" data-sub="" onclick="setSubtype('')">全部</div>`
-          + opts.map(s =>
-            `<div class="chip" data-sub="${s}" onclick="setSubtype('${s}')">${s}</div>`
-          ).join("");
-        sec.style.display = "";
-      } else {
-        sec.style.display = "none";
-      }
-    } else {
-      sec.style.display = "none";
-      chips.innerHTML   = "";
-    }
-    render();
-  }
+function setPlatform(val){
+  selPlatform=val;
+  document.getElementById('chip-all').className='pchip'+(val===''?' on-all':'');
+  document.getElementById('chip-klook').className='pchip'+(val==='Klook'?' on-klook':'');
+  document.getElementById('chip-kkday').className='pchip'+(val==='KKday'?' on-kkday':'');
+  renderTickets();
+}
 
-  // ── 細項 ──────────────────────────────────────
-  function setSubtype(val) {
-    selSubtype = val;
-    const activeCls = CHIP_CLS[selType] || "";
-    document.querySelectorAll("#subtype-chips .chip").forEach(el => {
-      el.classList.remove(...Object.values(CHIP_CLS));
-      if (el.dataset.sub === val) el.classList.add(activeCls);
-    });
-    render();
-  }
+function onSlider(){
+  const val=parseInt(document.getElementById('slider-price').value);
+  document.getElementById('price-display').textContent=val>=maxPrice?'不限':'NT$ '+val.toLocaleString();
+  renderTickets();
+}
 
-  // ── 平台 ──────────────────────────────────────
-  function setPlatform(val) {
-    selPlatform = val;
-    document.getElementById("chip-all").className   = "pchip" + (!val ? " on-all" : "");
-    document.getElementById("chip-klook").className = "pchip" + (val==="Klook" ? " on-klook" : "");
-    document.getElementById("chip-kkday").className = "pchip" + (val==="KKday" ? " on-kkday" : "");
-    render();
-  }
+function updatePills(){
+  buildCountryPills();
+  buildCityPills();
+  buildSubtypePills();
+}
 
-  // ── 滑桿 ──────────────────────────────────────
-  function onSlider() {
-    const val = parseInt(document.getElementById("slider-price").value);
-    document.getElementById("price-display").textContent =
-      val >= maxPrice ? "不限" : "NT$ " + val.toLocaleString();
-    render();
-  }
+function clearAll(){
+  selCountry='';selCity='';selType='';selSubtype='';selPlatform='';
+  document.querySelectorAll('#type-group .pill').forEach(el=>el.classList.remove('active'));
+  const all=document.querySelector('#type-group .pill-all');if(all)all.classList.add('active');
+  setPlatform('');
+  const sl=document.getElementById('slider-price');if(sl)sl.value=maxPrice;
+  const pd=document.getElementById('price-display');if(pd)pd.textContent='不限';
+  const inp=document.getElementById('inp-name');if(inp)inp.value='';
+  updatePills();
+  renderTickets();
+}
 
-  // ── 清除 ──────────────────────────────────────
-  function clearAll() {
-    document.getElementById("sel-country").value = "";
-    document.getElementById("sel-city").innerHTML = '<option value="">📍 所有城市</option>';
-    document.getElementById("city-sec").style.display    = "none";
-    document.getElementById("subtype-sec").style.display = "none";
-    document.getElementById("slider-price").value = maxPrice;
-    document.getElementById("price-display").textContent = "不限";
-    document.getElementById("inp-name").value = "";
-    selType = ""; selSubtype = ""; selPlatform = "";
-    document.querySelectorAll(".ropt").forEach(el => el.classList.remove("active"));
-    document.querySelector(".ropt-all").classList.add("active");
-    setPlatform("");
-  }
+function toggleSave(attrKey){
+  const saved=getSaved();
+  const idx=saved.indexOf(attrKey);
+  if(idx>-1){saved.splice(idx,1);setSaved(saved);toast('已取消收藏');}
+  else{saved.push(attrKey);setSaved(saved);toast('已加入收藏 ⭐');}
+  render();
+}
 
-  // ── 渲染（依景點分組） ────────────────────────
-  function render() {
-    const country    = document.getElementById("sel-country").value;
-    const city       = document.getElementById("sel-city")?.value || "";
-    const budget     = parseInt(document.getElementById("slider-price").value);
-    const nameSearch = (document.getElementById("inp-name")?.value || "").trim().toLowerCase();
+function getFiltered(){
+  const sliderVal=parseInt(document.getElementById('slider-price').value);
+  const budget=sliderVal<=maxPrice?sliderVal:maxPrice||99999;
+  const nameSearch=(document.getElementById('inp-name')?.value||'').trim().toLowerCase();
+  return tickets.filter(t=>{
+    if(selCountry&&t.country!==selCountry)return false;
+    if(selCity&&t.city!==selCity)return false;
+    if(selType&&t.type!==selType)return false;
+    if(selSubtype&&t.subtype!==selSubtype)return false;
+    if(selPlatform&&t.platform!==selPlatform)return false;
+    if(t.price>budget)return false;
+    if(nameSearch){const k=(t.attraction||t.name).toLowerCase();if(!k.includes(nameSearch))return false;}
+    return true;
+  });
+}
 
-    // 篩選個別票券
-    const filtered = tickets.filter(t => {
-      if (country     && t.country   !== country)     return false;
-      if (city        && t.city      !== city)        return false;
-      if (selType     && t.type      !== selType)     return false;
-      if (selSubtype  && t.subtype   !== selSubtype)  return false;
-      if (selPlatform && t.platform  !== selPlatform) return false;
-      if (t.price > budget)                           return false;
-      if (nameSearch) {
-        const key = (t.attraction || t.name).toLowerCase();
-        if (!key.includes(nameSearch)) return false;
-      }
-      return true;
-    });
+function toGroups(arr){
+  const m=new Map();
+  arr.forEach(t=>{
+    const k=t.attraction||t.name;
+    if(!m.has(k))m.set(k,{attraction:k,country:t.country,city:t.city,type:t.type,subtype:t.subtype,tickets:[]});
+    m.get(k).tickets.push(t);
+  });
+  return Array.from(m.values());
+}
 
-    // 依 attraction 分組
-    const groupMap = new Map();
-    filtered.forEach(t => {
-      const key = t.attraction || t.name;
-      if (!groupMap.has(key)) {
-        groupMap.set(key, {
-          attraction: t.attraction || t.name,
-          country:    t.country,
-          city:       t.city,
-          type:       t.type,
-          subtype:    t.subtype,
-          tickets:    []
-        });
-      }
-      groupMap.get(key).tickets.push(t);
-    });
+function buildCards(groups,savedList){
+  return groups.map((g,i)=>{
+    const hasKlook=g.tickets.some(t=>t.platform==='Klook');
+    const hasKKday=g.tickets.some(t=>t.platform==='KKday');
+    let stripe=hasKlook&&hasKKday?'linear-gradient(90deg,#FF6B35 50%,#3AAEDC 50%)':hasKlook?'#FF6B35':'#3AAEDC';
+    const typeCls=TYPE_CLS[g.type]||'tb-ticket';
+    const isSingle=g.tickets.length===1;
+    const isSaved=savedList.includes(g.attraction);
+    const rows=g.tickets.map(t=>{
+      const isK=t.platform==='Klook';
+      return `<div class="prow"><div class="prow-brand ${isK?'brand-klook':'brand-kkday'}">${t.platform}</div><div class="prow-price">NT$&thinsp;${t.price.toLocaleString()}<small> 起</small></div><a class="cbtn ${isK?'cbtn-klook':'cbtn-kkday'}" href="${t.url}" target="_blank" rel="noopener noreferrer">立即預訂</a></div>`;
+    }).join('');
+    return `<div class="card" style="animation-delay:${i*0.04}s">
+      <div class="cstripe" style="background:${stripe}"></div>
+      <div class="cbody">
+        <div class="card-head"><div class="type-badge ${typeCls}">${g.type}</div></div>
+        <div class="attraction-title">${g.attraction}</div>
+        <div class="ctags"><span class="ctag ctag-country">${g.country}</span><span class="ctag ctag-city">${g.city}</span><span class="ctag ctag-sub">${g.subtype}</span></div>
+        <div class="prows${isSingle?' single':''}">${rows}</div>
+        <button class="star-btn${isSaved?' on':''}" onclick="toggleSave('${g.attraction.replace(/'/g,"\\'")}')">
+          ${isSaved?'⭐ 已收藏':'☆ 收藏'}
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
 
-    const groups = Array.from(groupMap.values());
-    document.getElementById("rcnt").textContent = groups.length + " 筆";
-    const container = document.getElementById("clist");
+function renderTickets(){
+  const filtered=getFiltered();
+  const groups=toGroups(filtered);
+  const rcnt=document.getElementById('rcnt');if(rcnt)rcnt.textContent=groups.length+' 筆';
+  const container=document.getElementById('clist');if(!container)return;
+  if(!groups.length){container.innerHTML=`<div class="empty"><div class="empty-ico">🔍</div><div class="empty-txt">沒有符合條件的票券<br>試試調整篩選條件</div></div>`;return;}
+  container.innerHTML=buildCards(groups,getSaved());
+}
 
-    if (!groups.length) {
-      container.innerHTML = `
-        <div class="empty">
-          <div class="empty-ico">🔍</div>
-          <div class="empty-txt">沒有符合條件的票券<br>試試調整篩選條件</div>
-        </div>`;
-      return;
-    }
+function renderSaved(){
+  const mc=document.getElementById('mc');
+  const saved=getSaved();
+  if(!saved.length){mc.innerHTML=`<div class="empty"><div class="empty-ico">⭐</div><div class="empty-txt">還沒有收藏的票券<br>在票券頁點「☆ 收藏」就會出現在這裡</div></div>`;return;}
+  const m=new Map();
+  tickets.forEach(t=>{
+    const k=t.attraction||t.name;
+    if(!saved.includes(k))return;
+    if(!m.has(k))m.set(k,{attraction:k,country:t.country,city:t.city,type:t.type,subtype:t.subtype,tickets:[]});
+    m.get(k).tickets.push(t);
+  });
+  const groups=Array.from(m.values());
+  mc.innerHTML=`<div class="rbar"><span class="rtxt">我的收藏</span><span class="rcnt">${groups.length} 筆</span></div><div class="clist">${buildCards(groups,saved)}</div>`;
+}
 
-    container.innerHTML = groups.map((g, i) => {
-      const hasKlook = g.tickets.some(t => t.platform === "Klook");
-      const hasKKday = g.tickets.some(t => t.platform === "KKday");
+function renderInfo(){
+  const mc=document.getElementById('mc');
+  const tips=[
+    ['🌏','國家 / 城市篩選','點選 pill 按鈕快速切換，選了國家後城市自動更新'],
+    ['🏯','票券類別','景點門票 / 交通運輸 / 活動體驗，細項也會對應篩選'],
+    ['🏷️','細項','直接點選細項快速縮小範圍，選了類別後選項更精確'],
+    ['💰','最高預算','拖曳滑桿設定上限，超出金額的票券自動隱藏'],
+    ['🟠','平台篩選','切換 Klook / KKday，或同時比較兩個平台的價格'],
+    ['⭐','收藏功能','點「☆ 收藏」存到收藏頁，關掉頁面也不會消失'],
+    ['📋','價格更新','票價以各平台官網當日為準，僅供參考'],
+  ];
+  const tipsHTML=tips.map(([ic,t,d])=>`<div style="display:flex;gap:12px;margin-bottom:13px"><span style="font-size:20px;flex-shrink:0">${ic}</span><div><div style="font-family:Nunito,sans-serif;font-weight:900;font-size:14px;margin-bottom:2px">${t}</div><div style="font-size:12px;color:var(--muted);line-height:1.6">${d}</div></div></div>`).join('');
+  const contacts=[
+    {icon:'📸',label:'Instagram',color:'#dc2743',url:'https://www.instagram.com/ivyhuanglichia/'},
+    {icon:'🧵',label:'Threads',color:'#000000',url:'https://www.threads.com/@ivyhuanglichia'},
+    {icon:'💬',label:'Facebook',color:'#1877F2',url:'https://www.facebook.com/ivy.huanglichia'},
+    {icon:'✉️',label:'Email',color:'#EA4335',url:'mailto:wunai.learning@gmail.com'},
+  ];
+  const contactHTML=contacts.map(c=>`<a href="${c.url}" target="_blank" class="contact-link"><span style="font-size:22px">${c.icon}</span><span style="font-family:Nunito,sans-serif;font-weight:900;font-size:15px;color:${c.color}">${c.label}</span><span style="margin-left:auto;color:var(--muted);font-size:18px">›</span></a>`).join('');
+  mc.innerHTML=`<div style="padding:16px">
+    <div style="font-family:Nunito,sans-serif;font-size:19px;font-weight:900;text-align:center;margin-bottom:16px">💡 使用說明</div>
+    ${tipsHTML}
+    <div style="margin-top:4px;padding:12px;background:var(--sky);border-radius:12px;font-size:12px;color:var(--muted);line-height:1.75">
+      📋 <strong>涵蓋地區：</strong>台灣、日本（持續更新中）<br>
+      ⚠️ 前往購票前，請至各平台官網確認最新票價
+    </div>
+    <div style="margin-top:20px">
+      <div style="font-family:Nunito,sans-serif;font-size:17px;font-weight:900;margin-bottom:12px">🌸 聯絡軟糖媽咪Ivy</div>
+      ${contactHTML}
+    </div>
+    <div style="margin-top:20px;padding:16px;background:#fff;border-radius:16px;border:2px solid var(--border)">
+      <div style="font-family:Nunito,sans-serif;font-weight:900;font-size:15px;margin-bottom:10px">👋 嗨！我是軟糖媽咪Ivy</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.9">
+        台北土生土長的職業媽媽，家裡有一個男孩和一隻長得很無奈的狗 🐶<br><br>
+        每次規劃出遊都要在 Klook 和 KKday 之間比來比去，乾脆整理成一頁讓大家方便比較！<br><br>
+        <strong>票券資料持續更新中，歡迎追蹤 Ivy 🌸</strong>
+      </div>
+    </div>
+  </div>`;
+}
 
-      // 頂部彩條：雙平台用漸層，單平台用單色
-      let stripeStyle;
-      if (hasKlook && hasKKday) {
-        stripeStyle = "linear-gradient(90deg,#FF6B35 50%,#E8304B 50%)";
-      } else if (hasKlook) {
-        stripeStyle = "#FF6B35";
-      } else {
-        stripeStyle = "#E8304B";
-      }
+function render(){
+  if(tab==='saved'){renderSaved();return;}
+  if(tab==='info'){renderInfo();return;}
+  const mc=document.getElementById('mc');
+  mc.innerHTML=`
+    <div class="fpanel">
+      <div class="fsec">
+        <div class="ftitle"><span class="fdot" style="background:#0f3460"></span>國家</div>
+        <div class="pill-group" id="country-group"></div>
+      </div>
+      <div class="fsec">
+        <div class="ftitle"><span class="fdot" style="background:#3AAEDC"></span>城市</div>
+        <div class="pill-group" id="city-group"></div>
+      </div>
+      <div class="fsec">
+        <div class="ftitle"><span class="fdot" style="background:#9B72CF"></span>票券類別</div>
+        <div class="pill-group" id="type-group">
+          <div class="pill pill-all active" onclick="setType('')"><div class="pill-dot"></div>全部</div>
+          <div class="pill pill-type-transport" onclick="setType('交通運輸')"><div class="pill-dot"></div>🚄 交通運輸</div>
+          <div class="pill pill-type-ticket" onclick="setType('景點門票')"><div class="pill-dot"></div>🏯 景點門票</div>
+          <div class="pill pill-type-activity" onclick="setType('活動體驗')"><div class="pill-dot"></div>🎭 活動體驗</div>
+        </div>
+      </div>
+      <div class="fsec">
+        <div class="ftitle"><span class="fdot" style="background:#FF9A3C"></span>細項</div>
+        <div class="pill-group" id="sub-group"></div>
+      </div>
+      <div class="fsec">
+        <div class="ftitle"><span class="fdot" style="background:#52B788"></span>景點 / 票券名稱</div>
+        <input type="text" id="inp-name" class="search-input" placeholder="🔍 搜尋景點或票券名稱" oninput="renderTickets()">
+      </div>
+      <div class="fsec">
+        <div class="ftitle"><span class="fdot" style="background:#FF6B35"></span>平台</div>
+        <div class="pchips">
+          <div class="pchip on-all" id="chip-all" onclick="setPlatform('')">全部</div>
+          <div class="pchip" id="chip-klook" onclick="setPlatform('Klook')">🟠 Klook</div>
+          <div class="pchip" id="chip-kkday" onclick="setPlatform('KKday')">🔵 KKday</div>
+        </div>
+      </div>
+      <div class="fsec">
+        <div class="ftitle"><span class="fdot" style="background:#C9A0DC"></span>最高預算</div>
+        <div class="price-label"><span>💰 預算上限</span><span class="price-val" id="price-display">不限</span></div>
+        <input type="range" id="slider-price" min="0" step="100" value="99999" oninput="onSlider()">
+      </div>
+      <button class="clear-btn" onclick="clearAll()">✕ 清除篩選</button>
+    </div>
+    <div class="rbar"><span class="rtxt">搜尋結果</span><span class="rcnt" id="rcnt">0 筆</span></div>
+    <div class="clist" id="clist"></div>
+    <div class="footer">
+      軟糖媽咪Ivy的旅遊筆記 | travel.wunaitw.com<br>
+      票券資料來源：各平台官方網站<br>
+      價格以官網當日為準，僅供參考
+    </div>`;
 
-      const typeCls = TYPE_CLS[g.type] || "tb-ticket";
+  maxPrice=Math.ceil(Math.max(...tickets.map(t=>t.price))/1000)*1000;
+  const sl=document.getElementById('slider-price');
+  if(sl){sl.max=maxPrice;sl.value=maxPrice;}
 
-      // 各平台列
-      const platformRows = g.tickets.map(t => {
-        const isK = t.platform === "Klook";
-        return `
-          <div class="prow">
-            <div class="prow-brand ${isK ? "brand-klook" : "brand-kkday"}">${t.platform}</div>
-            <div class="prow-price">NT$&thinsp;${t.price.toLocaleString()}<small> 起</small></div>
-            <a class="cbtn ${isK ? "cbtn-klook" : "cbtn-kkday"}" href="${t.url}" target="_blank" rel="noopener noreferrer">立即預訂</a>
-          </div>`;
-      }).join("");
+  buildCountryPills();
+  buildCityPills();
+  buildSubtypePills();
+  renderTickets();
+}
 
-      return `
-        <div class="card" style="animation-delay:${i * 0.04}s">
-          <div class="cstripe" style="background:${stripeStyle}"></div>
-          <div class="cbody">
-            <div class="card-head">
-              <div class="type-badge ${typeCls}">${g.type}</div>
-            </div>
-            <div class="attraction-title">${g.attraction}</div>
-            <div class="ctags">
-              <span class="ctag ctag-country">${g.country}</span>
-              <span class="ctag ctag-city">${g.city}</span>
-              <span class="ctag ctag-sub">${g.subtype}</span>
-            </div>
-            <div class="prows">${platformRows}</div>
-          </div>
-        </div>`;
-    }).join("");
-  }
-
-  init();
+render();
 </script>
 </body>
 </html>
