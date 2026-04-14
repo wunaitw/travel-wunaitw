@@ -9,20 +9,21 @@
  *
  *  如果你要自己加，每筆格式如下：
  * ─────────────────────────────────────────────
- *  attraction → 景點 / 票券主標題（★ 同景點不同平台請填相同名稱，
- *               這樣卡片才會合併成一張，下方並排各平台價格與連結 ★）
- *  platform   → "Klook" 或 "KKday"
- *  name       → 票券在平台上的完整名稱
- *  country    → "台灣" "日本" "韓國" "泰國"
- *  city       → "台北" "高雄" "東京" "大阪" "全國" 等
- *  type       → "交通運輸" / "景點門票" / "一日遊" / "體驗活動"
- *  subtype    → 細項（見下方各 type 的選項）
- *               交通運輸：台鐵 / 高鐵 / 新幹線 / 阪急 / JR Pass / 地鐵 / 機場接送
- *               景點門票：遊樂園 / 博物館 / 水族館 / 展覽 / 自然景觀
- *               一日遊　：近郊一日遊 / 城市導覽 / 包車
- *               體驗活動：料理體驗 / 文化體驗 / 戶外活動 / 溫泉
- *  price      → 每人起售價（台幣，純數字）
- *  url        → 票券購買直連（可直接修改此欄更換連結）
+ *  attraction   → 景點 / 票券主標題（★ 同景點不同平台請填相同名稱 ★）
+ *  platform     → "Klook" 或 "KKday"
+ *  name         → 票券在平台上的完整名稱
+ *  country      → "台灣" "日本" "韓國" "泰國"
+ *  city         → "台北" "高雄" "東京" "大阪" "全國" 等
+ *  type         → "交通運輸" / "景點門票" / "一日遊" / "體驗活動"
+ *  subtype      → 細項（見下方各 type 的選項）
+ *                 交通運輸：台鐵 / 高鐵 / 新幹線 / 阪急 / JR Pass / 地鐵 / 機場接送
+ *                 景點門票：遊樂園 / 博物館 / 水族館 / 展覽 / 自然景觀
+ *                 一日遊　：近郊一日遊 / 城市導覽 / 包車
+ *                 體驗活動：料理體驗 / 文化體驗 / 戶外活動 / 溫泉
+ *  price        → 每人起售價（台幣，純數字）
+ *  url_scrape   → 平台官方原始網址（Claude 爬價格用）
+ *  url_affiliate → 聯盟行銷轉址連結（使用者點「立即預訂」按鈕用）
+ *                  ※ 若尚未設定聯盟連結，填與 url_scrape 相同即可
  * ─────────────────────────────────────────────
  */
 
@@ -41,7 +42,8 @@ const tickets = [
     type: "景點門票",
     subtype: "展覽",
     price: 600,
-    url: "https://www.klook.com/zh-TW/activity/1659-taipei-101-taipei/"
+    url_scrape: "https://www.klook.com/zh-TW/activity/1659-taipei-101-taipei/",
+    url_affiliate: "https://www.klook.com/zh-TW/activity/1659-taipei-101-taipei/"
   },
 
   {
@@ -53,7 +55,8 @@ const tickets = [
     type: "景點門票",
     subtype: "博物館",
     price: 120,
-    url: "https://www.kkday.com/zh-tw/product/101875"
+    url_scrape: "https://www.kkday.com/zh-tw/product/101875",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/101875"
   },
 
   {
@@ -65,7 +68,8 @@ const tickets = [
     type: "一日遊",
     subtype: "近郊一日遊",
     price: 3200,
-    url: "https://www.kkday.com/zh-tw/product/11679"
+    url_scrape: "https://www.kkday.com/zh-tw/product/11679",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/11679"
   },
 
   // ════════════════════════════════
@@ -81,7 +85,8 @@ const tickets = [
     type: "一日遊",
     subtype: "包車",
     price: 4500,
-    url: "https://www.kkday.com/zh-tw/product/142529"
+    url_scrape: "https://www.kkday.com/zh-tw/product/142529",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/142529"
   },
 
   // ════════════════════════════════
@@ -97,11 +102,12 @@ const tickets = [
     type: "交通運輸",
     subtype: "高鐵",
     price: 1500,
-    url: "https://www.kkday.com/zh-tw/product/2700"
+    url_scrape: "https://www.kkday.com/zh-tw/product/2700",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/2700"
   },
 
   // ════════════════════════════════
-  //  日本・東京  ← 東京迪士尼 Klook + KKday 合併同一景點
+  //  日本・東京
   // ════════════════════════════════
 
   {
@@ -113,7 +119,8 @@ const tickets = [
     type: "景點門票",
     subtype: "遊樂園",
     price: 2600,
-    url: "https://www.klook.com/zh-TW/activity/695-tokyo-disney-resort-1-day-pass-tokyo/"
+    url_scrape: "https://www.klook.com/zh-TW/activity/695-tokyo-disney-resort-1-day-pass-tokyo/",
+    url_affiliate: "https://www.klook.com/zh-TW/activity/695-tokyo-disney-resort-1-day-pass-tokyo/"
   },
 
   {
@@ -125,7 +132,8 @@ const tickets = [
     type: "景點門票",
     subtype: "遊樂園",
     price: 2600,         // ← 請至官網確認最新起售價格
-    url: "https://www.kkday.com/zh-tw/product/19252-tokyo-disney-resort-disneyland-disneysea"
+    url_scrape: "https://www.kkday.com/zh-tw/product/19252-tokyo-disney-resort-disneyland-disneysea",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/19252-tokyo-disney-resort-disneyland-disneysea"
   },
 
   {
@@ -137,7 +145,8 @@ const tickets = [
     type: "景點門票",
     subtype: "展覽",
     price: 680,
-    url: "https://www.klook.com/zh-TW/activity/41352-tokyo-skytree/"
+    url_scrape: "https://www.klook.com/zh-TW/activity/41352-tokyo-skytree/",
+    url_affiliate: "https://www.klook.com/zh-TW/activity/41352-tokyo-skytree/"
   },
 
   {
@@ -149,7 +158,8 @@ const tickets = [
     type: "景點門票",
     subtype: "展覽",
     price: 1050,
-    url: "https://www.kkday.com/zh-tw/product/22396-japan-teamlab-planets-tokyo-ticket"
+    url_scrape: "https://www.kkday.com/zh-tw/product/22396-japan-teamlab-planets-tokyo-ticket",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/22396-japan-teamlab-planets-tokyo-ticket"
   },
 
   // ════════════════════════════════
@@ -165,7 +175,8 @@ const tickets = [
     type: "景點門票",
     subtype: "遊樂園",
     price: 1950,
-    url: "https://www.klook.com/zh-TW/activity/46604-universal-studios-japan-e-ticket-osaka-qr-code-direct-entry/"
+    url_scrape: "https://www.klook.com/zh-TW/activity/46604-universal-studios-japan-e-ticket-osaka-qr-code-direct-entry/",
+    url_affiliate: "https://www.klook.com/zh-TW/activity/46604-universal-studios-japan-e-ticket-osaka-qr-code-direct-entry/"
   },
 
   {
@@ -177,7 +188,8 @@ const tickets = [
     type: "交通運輸",
     subtype: "地鐵",
     price: 1050,
-    url: "https://www.klook.com/zh-TW/activity/82312-amazing-pass-osaka/"
+    url_scrape: "https://www.klook.com/zh-TW/activity/82312-amazing-pass-osaka/",
+    url_affiliate: "https://www.klook.com/zh-TW/activity/82312-amazing-pass-osaka/"
   },
 
   // ════════════════════════════════
@@ -193,7 +205,8 @@ const tickets = [
     type: "一日遊",
     subtype: "近郊一日遊",
     price: 2800,
-    url: "https://www.kkday.com/zh-tw/product/39456"
+    url_scrape: "https://www.kkday.com/zh-tw/product/39456",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/39456"
   },
 
   {
@@ -205,7 +218,8 @@ const tickets = [
     type: "體驗活動",
     subtype: "文化體驗",
     price: 1200,
-    url: "https://www.kkday.com/zh-tw/product/36881"
+    url_scrape: "https://www.kkday.com/zh-tw/product/36881",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/36881"
   },
 
   // ════════════════════════════════
@@ -221,7 +235,8 @@ const tickets = [
     type: "交通運輸",
     subtype: "新幹線",
     price: 2100,
-    url: "https://www.kkday.com/zh-tw/product/133992-fuji-hakone-3-day-travel-pass-tokyo"
+    url_scrape: "https://www.kkday.com/zh-tw/product/133992-fuji-hakone-3-day-travel-pass-tokyo",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/133992-fuji-hakone-3-day-travel-pass-tokyo"
   },
 
   {
@@ -233,7 +248,8 @@ const tickets = [
     type: "景點門票",
     subtype: "遊樂園",
     price: 1680,
-    url: "https://www.kkday.com/zh-tw/product/104303"
+    url_scrape: "https://www.kkday.com/zh-tw/product/104303",
+    url_affiliate: "https://www.kkday.com/zh-tw/product/104303"
   },
 
   // ════════════════════════════════
@@ -249,7 +265,8 @@ const tickets = [
     type: "交通運輸",
     subtype: "JR Pass",
     price: 15800,
-    url: "https://www.klook.com/zh-TW/activity/1420-7-day-whole-japan-rail-pass-jr-pass/"
+    url_scrape: "https://www.klook.com/zh-TW/activity/1420-7-day-whole-japan-rail-pass-jr-pass/",
+    url_affiliate: "https://www.klook.com/zh-TW/activity/1420-7-day-whole-japan-rail-pass-jr-pass/"
   },
 
   // ════════════════════════════════
