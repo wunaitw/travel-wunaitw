@@ -5,8 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="與軟糖媽咪Ivy的共玩筆記">
-<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-title" content="軟糖媽咪票券">
+<meta name="theme-color" content="#FF6B35">
+<meta name="description" content="與軟糖媽咪Ivy的共玩筆記 — 自由行票券精選，Klook vs KKday 一站比價">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./wunai_fixed.png">
+<link rel="icon" href="./wunai_fixed.png">
 <title>與軟糖媽咪Ivy的共玩筆記 | 自由行票券精選</title>
 
 <!-- Google AdSense -->
@@ -33,18 +37,15 @@ body{font-family:"Noto Sans TC",sans-serif;background:var(--sky);color:var(--tex
 .site-name{font-family:"Nunito",sans-serif;font-size:18px;font-weight:900;color:var(--klook);line-height:1.1}
 .site-name b{color:#3AAEDC}
 .site-sub{font-family:"Nunito",sans-serif;font-size:10px;font-weight:700;color:var(--muted);margin-top:2px}
-/* Bottom nav */
 .bnav{position:sticky;bottom:0;width:100%;background:var(--white);border-top:2px solid var(--border);display:flex;padding:6px 0 16px;z-index:200}
 .nbtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;font-family:"Nunito",sans-serif;color:var(--muted);padding:4px 0}
 .nbtn.on{color:var(--klook)}
 .nico{font-size:20px;line-height:1}
 .nlbl{font-size:9px;font-weight:800}
-/* Filter panel */
 .fpanel{background:var(--white);margin:12px 12px 0;border-radius:var(--r);padding:15px 14px 14px;border:2px solid var(--border);box-shadow:0 4px 0 rgba(0,0,0,.05)}
 .fsec{margin-bottom:14px}.fsec:last-child{margin-bottom:0}
 .ftitle{font-family:"Nunito",sans-serif;font-size:10px;font-weight:900;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;display:flex;align-items:center;gap:5px}
 .fdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-/* Pills */
 .pill-group{display:flex;flex-wrap:wrap;gap:7px}
 .pill{display:flex;align-items:center;gap:6px;padding:6px 12px 6px 9px;border-radius:999px;border:2px solid var(--border);background:var(--sky);cursor:pointer;font-family:"Nunito",sans-serif;font-size:12px;font-weight:800;color:var(--muted);user-select:none;transition:all .18s}
 .pill:active{transform:scale(.93)}
@@ -61,30 +62,24 @@ body{font-family:"Noto Sans TC",sans-serif;background:var(--sky);color:var(--tex
 .pill-sub.active-ticket{background:var(--c-ticket);color:#fff;border-color:transparent}
 .pill-sub.active-activity{background:var(--c-activity);color:#fff;border-color:transparent}
 .pill-sub.active-transport .pill-dot,.pill-sub.active-ticket .pill-dot,.pill-sub.active-activity .pill-dot{border:2.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.9)}
-/* Platform chips */
 .pchips{display:flex;gap:8px}
 .pchip{flex:1;padding:8px 10px;border-radius:999px;font-family:"Nunito",sans-serif;font-size:13px;font-weight:900;border:2.5px solid var(--border);background:var(--sky);color:var(--muted);cursor:pointer;text-align:center;user-select:none;transition:all .15s}
 .pchip:active{transform:scale(.94)}
 .pchip.on-all{background:#1a1a1a;border-color:#000;color:#fff}
 .pchip.on-klook{background:var(--klook);border-color:var(--klook-dk);color:#fff}
 .pchip.on-kkday{background:var(--kkday);border-color:var(--kkday-dk);color:#fff}
-/* Price slider */
 .price-label{display:flex;justify-content:space-between;align-items:center;font-family:"Nunito",sans-serif;font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px}
 .price-val{font-size:15px;font-weight:900;color:var(--klook)}
 input[type="range"]{width:100%;-webkit-appearance:none;height:5px;border-radius:3px;background:var(--sky);border:2px solid var(--border);outline:none;cursor:pointer}
 input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--klook);border:3px solid #fff;box-shadow:0 2px 5px rgba(0,0,0,.2);cursor:pointer}
-/* Search */
 .search-input{width:100%;padding:8px 14px;border:2px solid var(--border);border-radius:999px;font-family:"Noto Sans TC",sans-serif;font-size:13px;color:#444;background:var(--sky);outline:none;transition:border-color .2s}
 .search-input:focus{border-color:#4CC9F0}
 .search-input::placeholder{color:var(--muted)}
-/* Clear btn */
 .clear-btn{font-family:"Nunito",sans-serif;font-size:11px;font-weight:900;color:var(--muted);background:none;border:1.5px solid var(--border);border-radius:999px;padding:4px 13px;cursor:pointer;margin-left:auto;display:block;margin-top:12px}
 .clear-btn:active{transform:scale(.95)}
-/* Results bar */
 .rbar{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 7px}
 .rtxt{font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;color:var(--muted)}
 .rcnt{font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;background:var(--klook);color:#fff;padding:3px 12px;border-radius:999px}
-/* Cards */
 .clist{padding:0 12px}
 .card{background:var(--white);border-radius:var(--r);margin-bottom:12px;border:2px solid var(--border);box-shadow:0 4px 0 rgba(0,0,0,.06);overflow:hidden;animation:popin .28s ease backwards}
 @keyframes popin{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
@@ -101,7 +96,6 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
 .ctag-country{background:#F3E5F5;color:#6A1B9A;border:1.5px solid #D8C0F8}
 .ctag-city{background:#E3F2FD;color:#0D47A1;border:1.5px solid #B3D4F5}
 .ctag-sub{background:#FFF8E1;color:#BF6F00;border:1.5px solid #FFE082}
-/* Platform rows — 兩欄並排 */
 .prows{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .prow{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border-radius:var(--rsm);border:1.5px solid var(--border);background:var(--sky)}
 .prow-brand{font-family:"Nunito",sans-serif;font-size:13px;font-weight:900}
@@ -113,25 +107,19 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
 .cbtn:active{opacity:.75}
 .cbtn-klook{background:var(--klook);border-color:var(--klook-dk)}
 .cbtn-kkday{background:var(--kkday);border-color:var(--kkday-dk)}
-/* 單平台時橫排 */
 .prows.single{grid-template-columns:1fr}
 .prows.single .prow{flex-direction:row;align-items:center;gap:10px}
 .prows.single .prow-price{flex:1}
 .prows.single .cbtn{padding:9px 16px;display:inline-block;width:auto}
-/* Star / save */
 .star-btn{font-family:"Nunito",sans-serif;font-size:13px;font-weight:900;background:var(--white);color:var(--muted);border:2px solid var(--border);border-radius:999px;padding:5px 14px;cursor:pointer;margin-top:8px;display:inline-block;transition:all .15s}
 .star-btn.on{background:var(--sun);color:#7a5000;border-color:#e0b000}
 .star-btn:active{transform:scale(.95)}
-/* Empty */
 .empty{text-align:center;padding:52px 20px;color:var(--muted)}
 .empty-ico{font-size:48px;margin-bottom:12px}
 .empty-txt{font-family:"Nunito",sans-serif;font-size:15px;font-weight:800;line-height:1.6}
-/* Contact links */
 .contact-link{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--white);border-radius:14px;border:2px solid var(--border);text-decoration:none;margin-bottom:10px}
-/* Toast */
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(10px);background:#222;color:#fff;padding:10px 20px;border-radius:999px;font-size:13px;font-weight:700;font-family:"Nunito",sans-serif;opacity:0;transition:all .22s;pointer-events:none;z-index:999;white-space:nowrap;max-width:90%}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-/* Footer */
 .footer{text-align:center;padding:20px 16px;font-family:"Nunito",sans-serif;font-size:11px;color:var(--muted);line-height:1.9}
 </style>
 </head>
