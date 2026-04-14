@@ -9,18 +9,20 @@
  *
  *  如果你要自己加，每筆格式如下：
  * ─────────────────────────────────────────────
- *  platform  → "Klook" 或 "KKday"
- *  name      → 票券完整名稱
- *  country   → "台灣" "日本" "韓國" "泰國"
- *  city      → "台北" "高雄" "東京" "大阪" "全國" 等
- *  type      → "交通運輸" / "景點門票" / "一日遊" / "體驗活動"
- *  subtype   → 細項（見下方各 type 的選項）
+ *  attraction → 景點 / 票券主標題（★ 同景點不同平台請填相同名稱，
+ *               這樣卡片才會合併成一張，下方並排各平台價格與連結 ★）
+ *  platform   → "Klook" 或 "KKday"
+ *  name       → 票券在平台上的完整名稱
+ *  country    → "台灣" "日本" "韓國" "泰國"
+ *  city       → "台北" "高雄" "東京" "大阪" "全國" 等
+ *  type       → "交通運輸" / "景點門票" / "一日遊" / "體驗活動"
+ *  subtype    → 細項（見下方各 type 的選項）
  *               交通運輸：台鐵 / 高鐵 / 新幹線 / 阪急 / JR Pass / 地鐵 / 機場接送
  *               景點門票：遊樂園 / 博物館 / 水族館 / 展覽 / 自然景觀
  *               一日遊　：近郊一日遊 / 城市導覽 / 包車
  *               體驗活動：料理體驗 / 文化體驗 / 戶外活動 / 溫泉
- *  price     → 每人起售價（台幣，純數字）
- *  url       → 票券購買直連（從官網複製）
+ *  price      → 每人起售價（台幣，純數字）
+ *  url        → 票券購買直連（可直接修改此欄更換連結）
  * ─────────────────────────────────────────────
  */
 
@@ -31,6 +33,7 @@ const tickets = [
   // ════════════════════════════════
 
   {
+    attraction: "台北101觀景台",
     platform: "Klook",
     name: "台北101觀景台 89F 入場券",
     country: "台灣",
@@ -42,6 +45,7 @@ const tickets = [
   },
 
   {
+    attraction: "國立故宮博物院",
     platform: "KKday",
     name: "國立故宮博物院 電子門票",
     country: "台灣",
@@ -53,6 +57,7 @@ const tickets = [
   },
 
   {
+    attraction: "北台灣包車一日遊",
     platform: "KKday",
     name: "北台灣包車一日遊｜十分、九份、野柳、猴硐自選",
     country: "台灣",
@@ -68,6 +73,7 @@ const tickets = [
   // ════════════════════════════════
 
   {
+    attraction: "高雄包車一日遊",
     platform: "KKday",
     name: "台灣各地賓士9人座包車｜高雄出發一日遊",
     country: "台灣",
@@ -83,6 +89,7 @@ const tickets = [
   // ════════════════════════════════
 
   {
+    attraction: "台灣高鐵周遊券",
     platform: "KKday",
     name: "台灣高鐵周遊券 2日／3日無限次搭乘（外國人適用）",
     country: "台灣",
@@ -94,10 +101,11 @@ const tickets = [
   },
 
   // ════════════════════════════════
-  //  日本・東京
+  //  日本・東京  ← 東京迪士尼 Klook + KKday 合併同一景點
   // ════════════════════════════════
 
   {
+    attraction: "東京迪士尼樂園 / 迪士尼海洋",
     platform: "Klook",
     name: "東京迪士尼樂園／迪士尼海洋 1日電子門票",
     country: "日本",
@@ -109,6 +117,19 @@ const tickets = [
   },
 
   {
+    attraction: "東京迪士尼樂園 / 迪士尼海洋",
+    platform: "KKday",
+    name: "東京迪士尼樂園 & 迪士尼海洋 1日電子門票",
+    country: "日本",
+    city: "東京",
+    type: "景點門票",
+    subtype: "遊樂園",
+    price: 2600,         // ← 請至官網確認最新起售價格
+    url: "https://www.kkday.com/zh-tw/product/19252-tokyo-disney-resort-disneyland-disneysea"
+  },
+
+  {
+    attraction: "東京晴空塔",
     platform: "Klook",
     name: "東京晴空塔 天望台入場券",
     country: "日本",
@@ -120,6 +141,7 @@ const tickets = [
   },
 
   {
+    attraction: "teamLab Planets 東京豐洲",
     platform: "KKday",
     name: "東京豐洲 teamLab Planets 數位藝術館門票",
     country: "日本",
@@ -135,6 +157,7 @@ const tickets = [
   // ════════════════════════════════
 
   {
+    attraction: "大阪環球影城 USJ",
     platform: "Klook",
     name: "大阪環球影城 USJ 官方授權電子入場券",
     country: "日本",
@@ -146,6 +169,7 @@ const tickets = [
   },
 
   {
+    attraction: "大阪周遊卡",
     platform: "Klook",
     name: "大阪周遊卡 Osaka Amazing Pass（1日／2日）",
     country: "日本",
@@ -161,6 +185,7 @@ const tickets = [
   // ════════════════════════════════
 
   {
+    attraction: "京都一日遊（嵐山・金閣寺・清水寺）",
     platform: "KKday",
     name: "京都一日遊｜嵐山・金閣寺・清水寺・伏見稻荷大社（大阪出發）",
     country: "日本",
@@ -172,6 +197,7 @@ const tickets = [
   },
 
   {
+    attraction: "京都江戶茶室茶道體驗",
     platform: "KKday",
     name: "日本京都 江戶茶室正統茶道體驗",
     country: "日本",
@@ -183,10 +209,11 @@ const tickets = [
   },
 
   // ════════════════════════════════
-  //  日本・箱根
+  //  日本・箱根 / 富士山
   // ════════════════════════════════
 
   {
+    attraction: "富士箱根周遊券",
     platform: "KKday",
     name: "富士箱根周遊券 3日券（含新宿出發）",
     country: "日本",
@@ -198,6 +225,7 @@ const tickets = [
   },
 
   {
+    attraction: "富士急樂園",
     platform: "KKday",
     name: "富士急樂園一日通票＋新宿來回巴士接送套票",
     country: "日本",
@@ -213,6 +241,7 @@ const tickets = [
   // ════════════════════════════════
 
   {
+    attraction: "日本 JR Pass 全國版",
     platform: "Klook",
     name: "日本 JR Pass 全國版 7天無限搭乘券",
     country: "日本",
