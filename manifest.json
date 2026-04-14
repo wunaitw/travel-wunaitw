@@ -1,0 +1,22 @@
+{
+  "name": "與軟糖媽咪Ivy的共玩筆記",
+  "short_name": "軟糖票券",
+  "description": "自由行票券精選，Klook vs KKday 一站比價",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#EEF6FF",
+  "theme_color": "#FF6B35",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./wunai_fixed.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./wunai_fixed.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
