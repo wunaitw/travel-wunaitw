@@ -58,7 +58,12 @@
     select { width:100%; padding:8px 14px; border:2px solid var(--border); border-radius:999px; font-family:"Nunito",sans-serif; font-size:13px; font-weight:800; color:#444; background:var(--sky); appearance:none; -webkit-appearance:none; cursor:pointer; outline:none; transition:border-color .2s; }
     select:focus { border-color:#4CC9F0; }
 
-    /* ── Radio button pills (套票類型) ── */
+    /* Name search */
+    .search-input { width:100%; padding:8px 14px; border:2px solid var(--border); border-radius:999px; font-family:"Noto Sans TC",sans-serif; font-size:13px; color:#444; background:var(--sky); outline:none; transition:border-color .2s; }
+    .search-input:focus { border-color:#4CC9F0; }
+    .search-input::placeholder { color:var(--muted); }
+
+    /* ── Radio button pills (票券類別) ── */
     .radio-group { display:flex; flex-wrap:wrap; gap:7px; }
     .ropt {
       display: flex;
@@ -77,7 +82,6 @@
       transition: all .18s;
     }
     .ropt:active { transform: scale(.93); }
-    /* The dot */
     .ropt-dot {
       width: 12px;
       height: 12px;
@@ -87,10 +91,9 @@
       transition: all .18s;
       background: transparent;
     }
-    /* Active states */
     .ropt.active { color: #fff; border-color: transparent; }
     .ropt.active .ropt-dot { border: 3px solid rgba(255,255,255,.5); background: rgba(255,255,255,.9); }
-    .ropt-all.active    { background: #333; }
+    .ropt-all.active       { background: #333; }
     .ropt-transport.active { background: var(--c-transport); }
     .ropt-ticket.active    { background: var(--c-ticket); }
     .ropt-tour.active      { background: var(--c-tour); }
@@ -98,20 +101,8 @@
 
     /* ── Subtype chips ── */
     .chips { display:flex; flex-wrap:wrap; gap:7px; }
-    .chip {
-      padding: 6px 13px;
-      border-radius: 999px;
-      font-family: "Nunito", sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      border: 2px solid var(--border);
-      background: var(--sky);
-      color: var(--muted);
-      cursor: pointer;
-      user-select: none;
-      transition: all .15s;
-    }
-    .chip:active { transform: scale(.93); }
+    .chip { padding:6px 13px; border-radius:999px; font-family:"Nunito",sans-serif; font-size:11px; font-weight:800; border:2px solid var(--border); background:var(--sky); color:var(--muted); cursor:pointer; user-select:none; transition:all .15s; }
+    .chip:active { transform:scale(.93); }
     .chip.active-transport { background:var(--c-transport); border-color:var(--c-transport); color:#fff; }
     .chip.active-ticket    { background:var(--c-ticket);    border-color:var(--c-ticket);    color:#fff; }
     .chip.active-tour      { background:var(--c-tour);      border-color:var(--c-tour);      color:#fff; }
@@ -145,29 +136,35 @@
     .card:active { transform:scale(.985); }
     @keyframes popin { from{opacity:0;transform:translateY(10px) scale(.97)} to{opacity:1;transform:none} }
     .cstripe { height:6px; }
-    .stripe-klook { background:var(--klook); }
-    .stripe-kkday { background:var(--kkday); }
     .cbody { padding:13px 15px 14px; }
-    .platform-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:9px; }
-    .platform-name { font-family:"Nunito",sans-serif; font-size:22px; font-weight:900; letter-spacing:-.3px; line-height:1; }
-    .name-klook { color:var(--klook); }
-    .name-kkday { color:var(--kkday); }
-    .type-badge { font-family:"Nunito",sans-serif; font-size:10px; font-weight:900; padding:3px 10px; border-radius:999px; }
+
+    /* Card head: type badge */
+    .card-head { margin-bottom:8px; }
+    .type-badge { display:inline-block; font-family:"Nunito",sans-serif; font-size:10px; font-weight:900; padding:3px 10px; border-radius:999px; }
     .tb-transport { background:#E3F0FF; color:var(--c-transport); border:1.5px solid #BDDAFF; }
     .tb-ticket    { background:#FFF3E0; color:var(--c-ticket);    border:1.5px solid #FFD0A0; }
     .tb-tour      { background:#E3FAF8; color:var(--c-tour);      border:1.5px solid #B2EDE8; }
     .tb-activity  { background:#F3ECFF; color:var(--c-activity);  border:1.5px solid #D8C0F8; }
-    .cname { font-family:"Nunito",sans-serif; font-size:14px; font-weight:800; color:var(--text); line-height:1.45; margin-bottom:10px; }
-    .ctags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px; }
+
+    /* Attraction title (main heading) */
+    .attraction-title { font-family:"Noto Sans TC",sans-serif; font-size:15px; font-weight:700; color:var(--text); line-height:1.45; margin-bottom:10px; }
+
+    /* Tags */
+    .ctags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:2px; }
     .ctag { font-family:"Nunito",sans-serif; font-size:10px; font-weight:800; padding:2px 9px; border-radius:999px; }
     .ctag-country { background:#F3E5F5; color:#6A1B9A; border:1.5px solid #D8C0F8; }
     .ctag-city    { background:#E3F2FD; color:#0D47A1; border:1.5px solid #B3D4F5; }
     .ctag-sub     { background:#FFF8E1; color:#BF6F00; border:1.5px solid #FFE082; }
-    .cfoot { display:flex; align-items:center; justify-content:space-between; border-top:1.5px dashed var(--sky); padding-top:11px; }
-    .cprice-lbl { font-size:10px; color:var(--muted); font-weight:600; margin-bottom:2px; }
-    .cprice { font-family:"Nunito",sans-serif; font-size:23px; font-weight:900; color:var(--text); line-height:1; }
-    .cprice span { font-size:13px; color:var(--muted); font-weight:700; }
-    .cbtn { font-family:"Nunito",sans-serif; font-size:13px; font-weight:900; color:#fff; text-decoration:none; padding:10px 18px; border-radius:var(--rsm); border-bottom:3px solid; white-space:nowrap; transition:opacity .15s; }
+
+    /* Platform rows */
+    .prows { margin-top:10px; }
+    .prow { display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1.5px dashed var(--border); }
+    .prow-brand { font-family:"Nunito",sans-serif; font-size:15px; font-weight:900; min-width:55px; flex-shrink:0; }
+    .brand-klook { color:var(--klook); }
+    .brand-kkday { color:var(--kkday); }
+    .prow-price { flex:1; font-family:"Nunito",sans-serif; font-size:18px; font-weight:900; color:var(--text); line-height:1; }
+    .prow-price small { font-size:11px; font-weight:700; color:var(--muted); }
+    .cbtn { font-family:"Nunito",sans-serif; font-size:12px; font-weight:900; color:#fff; text-decoration:none; padding:9px 16px; border-radius:var(--rsm); border-bottom:3px solid; white-space:nowrap; transition:opacity .15s; flex-shrink:0; }
     .cbtn:active { opacity:.75; }
     .cbtn-klook { background:var(--klook); border-color:var(--klook-dk); }
     .cbtn-kkday { background:var(--kkday); border-color:var(--kkday-dk); }
@@ -214,9 +211,9 @@
     </select>
   </div>
 
-  <!-- 3. 套票類型（radio 原點） -->
+  <!-- 3. 票券類別 -->
   <div class="fsec">
-    <div class="ftitle"><span class="fdot" style="background:#9B72CF"></span>套票類型</div>
+    <div class="ftitle"><span class="fdot" style="background:#9B72CF"></span>票券類別</div>
     <div class="radio-group" id="type-group">
       <div class="ropt ropt-all active" onclick="setType('')">
         <div class="ropt-dot"></div>全部
@@ -236,13 +233,19 @@
     </div>
   </div>
 
-  <!-- 4. 細項（動態，依套票類型顯示） -->
+  <!-- 4. 細項（動態，依票券類別顯示） -->
   <div class="fsec" id="subtype-sec" style="display:none">
     <div class="ftitle"><span class="fdot" style="background:#FF9A3C"></span>細項</div>
     <div class="chips" id="subtype-chips"></div>
   </div>
 
-  <!-- 5. 平台 -->
+  <!-- 5. 景點 / 票券名稱 -->
+  <div class="fsec">
+    <div class="ftitle"><span class="fdot" style="background:#52B788"></span>景點 / 票券名稱</div>
+    <input type="text" id="inp-name" class="search-input" placeholder="🔍 搜尋景點或票券名稱" oninput="render()">
+  </div>
+
+  <!-- 6. 平台 -->
   <div class="fsec">
     <div class="ftitle"><span class="fdot" style="background:#FF6B35"></span>平台</div>
     <div class="pchips">
@@ -252,9 +255,9 @@
     </div>
   </div>
 
-  <!-- 6. 最高預算 -->
+  <!-- 7. 最高預算 -->
   <div class="fsec">
-    <div class="ftitle"><span class="fdot" style="background:#52B788"></span>最高預算</div>
+    <div class="ftitle"><span class="fdot" style="background:#C9A0DC"></span>最高預算</div>
     <div class="price-label">
       <span>💰 預算上限</span>
       <span class="price-val" id="price-display">不限</span>
@@ -341,21 +344,18 @@
     render();
   }
 
-  // ── 套票類型 ──────────────────────────────────
+  // ── 票券類別 ──────────────────────────────────
   function setType(val) {
     selType    = val;
     selSubtype = "";
 
-    // Update radio pills
     document.querySelectorAll(".ropt").forEach(el => el.classList.remove("active"));
     const map = { "":"ropt-all","交通運輸":"ropt-transport","景點門票":"ropt-ticket","一日遊":"ropt-tour","體驗活動":"ropt-activity" };
     document.querySelector("." + map[val]).classList.add("active");
 
-    // Update subtype chips
     const sec   = document.getElementById("subtype-sec");
     const chips = document.getElementById("subtype-chips");
     if (val && SUBTYPES[val]) {
-      // only show subtypes that exist in current filtered data
       const available = new Set(tickets.map(t => t.subtype));
       const opts = SUBTYPES[val].filter(s => available.has(s));
       if (opts.length) {
@@ -410,32 +410,57 @@
     document.getElementById("subtype-sec").style.display = "none";
     document.getElementById("slider-price").value = maxPrice;
     document.getElementById("price-display").textContent = "不限";
+    document.getElementById("inp-name").value = "";
     selType = ""; selSubtype = ""; selPlatform = "";
     document.querySelectorAll(".ropt").forEach(el => el.classList.remove("active"));
     document.querySelector(".ropt-all").classList.add("active");
     setPlatform("");
   }
 
-  // ── 渲染 ──────────────────────────────────────
+  // ── 渲染（依景點分組） ────────────────────────
   function render() {
-    const country = document.getElementById("sel-country").value;
-    const city    = document.getElementById("sel-city")?.value || "";
-    const budget  = parseInt(document.getElementById("slider-price").value);
+    const country    = document.getElementById("sel-country").value;
+    const city       = document.getElementById("sel-city")?.value || "";
+    const budget     = parseInt(document.getElementById("slider-price").value);
+    const nameSearch = (document.getElementById("inp-name")?.value || "").trim().toLowerCase();
 
-    const list = tickets.filter(t => {
-      if (country     && t.country  !== country)     return false;
-      if (city        && t.city     !== city)        return false;
-      if (selType     && t.type     !== selType)     return false;
-      if (selSubtype  && t.subtype  !== selSubtype)  return false;
-      if (selPlatform && t.platform !== selPlatform) return false;
-      if (t.price > budget)                          return false;
+    // 篩選個別票券
+    const filtered = tickets.filter(t => {
+      if (country     && t.country   !== country)     return false;
+      if (city        && t.city      !== city)        return false;
+      if (selType     && t.type      !== selType)     return false;
+      if (selSubtype  && t.subtype   !== selSubtype)  return false;
+      if (selPlatform && t.platform  !== selPlatform) return false;
+      if (t.price > budget)                           return false;
+      if (nameSearch) {
+        const key = (t.attraction || t.name).toLowerCase();
+        if (!key.includes(nameSearch)) return false;
+      }
       return true;
     });
 
-    document.getElementById("rcnt").textContent = list.length + " 筆";
+    // 依 attraction 分組
+    const groupMap = new Map();
+    filtered.forEach(t => {
+      const key = t.attraction || t.name;
+      if (!groupMap.has(key)) {
+        groupMap.set(key, {
+          attraction: t.attraction || t.name,
+          country:    t.country,
+          city:       t.city,
+          type:       t.type,
+          subtype:    t.subtype,
+          tickets:    []
+        });
+      }
+      groupMap.get(key).tickets.push(t);
+    });
+
+    const groups = Array.from(groupMap.values());
+    document.getElementById("rcnt").textContent = groups.length + " 筆";
     const container = document.getElementById("clist");
 
-    if (!list.length) {
+    if (!groups.length) {
       container.innerHTML = `
         <div class="empty">
           <div class="empty-ico">🔍</div>
@@ -444,34 +469,47 @@
       return;
     }
 
-    container.innerHTML = list.map((t, i) => {
-      const isKlook  = t.platform === "Klook";
-      const stripe   = isKlook ? "stripe-klook"  : "stripe-kkday";
-      const nameCls  = isKlook ? "name-klook"    : "name-kkday";
-      const btnCls   = isKlook ? "cbtn-klook"    : "cbtn-kkday";
-      const typeCls  = TYPE_CLS[t.type] || "tb-ticket";
+    container.innerHTML = groups.map((g, i) => {
+      const hasKlook = g.tickets.some(t => t.platform === "Klook");
+      const hasKKday = g.tickets.some(t => t.platform === "KKday");
+
+      // 頂部彩條：雙平台用漸層，單平台用單色
+      let stripeStyle;
+      if (hasKlook && hasKKday) {
+        stripeStyle = "linear-gradient(90deg,#FF6B35 50%,#E8304B 50%)";
+      } else if (hasKlook) {
+        stripeStyle = "#FF6B35";
+      } else {
+        stripeStyle = "#E8304B";
+      }
+
+      const typeCls = TYPE_CLS[g.type] || "tb-ticket";
+
+      // 各平台列
+      const platformRows = g.tickets.map(t => {
+        const isK = t.platform === "Klook";
+        return `
+          <div class="prow">
+            <div class="prow-brand ${isK ? "brand-klook" : "brand-kkday"}">${t.platform}</div>
+            <div class="prow-price">NT$&thinsp;${t.price.toLocaleString()}<small> 起</small></div>
+            <a class="cbtn ${isK ? "cbtn-klook" : "cbtn-kkday"}" href="${t.url}" target="_blank" rel="noopener noreferrer">立即預訂</a>
+          </div>`;
+      }).join("");
 
       return `
         <div class="card" style="animation-delay:${i * 0.04}s">
-          <div class="cstripe ${stripe}"></div>
+          <div class="cstripe" style="background:${stripeStyle}"></div>
           <div class="cbody">
-            <div class="platform-row">
-              <div class="platform-name ${nameCls}">${t.platform}</div>
-              <div class="type-badge ${typeCls}">${t.type}</div>
+            <div class="card-head">
+              <div class="type-badge ${typeCls}">${g.type}</div>
             </div>
-            <div class="cname">${t.name}</div>
+            <div class="attraction-title">${g.attraction}</div>
             <div class="ctags">
-              <span class="ctag ctag-country">${t.country}</span>
-              <span class="ctag ctag-city">${t.city}</span>
-              <span class="ctag ctag-sub">${t.subtype}</span>
+              <span class="ctag ctag-country">${g.country}</span>
+              <span class="ctag ctag-city">${g.city}</span>
+              <span class="ctag ctag-sub">${g.subtype}</span>
             </div>
-            <div class="cfoot">
-              <div>
-                <div class="cprice-lbl">每人起</div>
-                <div class="cprice">NT$&thinsp;${t.price.toLocaleString()}<span> 起</span></div>
-              </div>
-              <a class="cbtn ${btnCls}" href="${t.url}" target="_blank" rel="noopener noreferrer">立即預訂</a>
-            </div>
+            <div class="prows">${platformRows}</div>
           </div>
         </div>`;
     }).join("");
