@@ -58,10 +58,14 @@ body{font-family:"Noto Sans TC",sans-serif;background:var(--sky);color:var(--tex
 .pill-type-transport.active{background:var(--c-transport)}
 .pill-type-ticket.active{background:var(--c-ticket)}
 .pill-type-activity.active{background:var(--c-activity)}
+.pill-type-tour.active{background:#2D6A4F}
+.pill-type-bundle.active{background:#C77DFF}
 .pill-sub.active-transport{background:var(--c-transport);color:#fff;border-color:transparent}
 .pill-sub.active-ticket{background:var(--c-ticket);color:#fff;border-color:transparent}
 .pill-sub.active-activity{background:var(--c-activity);color:#fff;border-color:transparent}
-.pill-sub.active-transport .pill-dot,.pill-sub.active-ticket .pill-dot,.pill-sub.active-activity .pill-dot{border:2.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.9)}
+.pill-sub.active-tour{background:#2D6A4F;color:#fff;border-color:transparent}
+.pill-sub.active-bundle{background:#C77DFF;color:#fff;border-color:transparent}
+.pill-sub.active-transport .pill-dot,.pill-sub.active-ticket .pill-dot,.pill-sub.active-activity .pill-dot,.pill-sub.active-tour .pill-dot,.pill-sub.active-bundle .pill-dot{border:2.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.9)}
 .pchips{display:flex;gap:8px}
 .pchip{flex:1;padding:8px 10px;border-radius:999px;font-family:"Nunito",sans-serif;font-size:13px;font-weight:900;border:2.5px solid var(--border);background:var(--sky);color:var(--muted);cursor:pointer;text-align:center;user-select:none;transition:all .15s}
 .pchip:active{transform:scale(.94)}
@@ -90,6 +94,8 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
 .tb-transport{background:#E3F0FF;color:var(--c-transport);border:1.5px solid #BDDAFF}
 .tb-ticket{background:#FFF3E0;color:var(--c-ticket);border:1.5px solid #FFD0A0}
 .tb-activity{background:#F3ECFF;color:var(--c-activity);border:1.5px solid #D8C0F8}
+.tb-tour{background:#E3FAF8;color:#2D6A4F;border:1.5px solid #B2EDE8}
+.tb-bundle{background:#F5EAFF;color:#7B2FBE;border:1.5px solid #DDB8F8}
 .attraction-title{font-family:"Noto Sans TC",sans-serif;font-size:15px;font-weight:700;color:var(--text);line-height:1.45;margin-bottom:8px}
 .ctags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:2px}
 .ctag{font-family:"Nunito",sans-serif;font-size:10px;font-weight:800;padding:2px 9px;border-radius:999px}
@@ -147,13 +153,15 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
 
 <script src="data.js"></script>
 <script>
-const TYPE_CLS={"交通運輸":"tb-transport","景點門票":"tb-ticket","活動體驗":"tb-activity"};
+const TYPE_CLS={"交通運輸":"tb-transport","景點門票":"tb-ticket","活動體驗":"tb-activity","一日遊":"tb-tour","套票":"tb-bundle"};
 const SUB_TYPE_MAP={
-  '台鐵':'交通運輸','高鐵':'交通運輸','新幹線':'交通運輸','阪急':'交通運輸','JR Pass':'交通運輸','地鐵':'交通運輸','機場接送':'交通運輸','巴士':'交通運輸',
-  '遊樂園':'景點門票','博物館':'景點門票','水族館':'景點門票','展覽':'景點門票','自然景觀':'景點門票','觀光景點':'景點門票','美術館':'景點門票','動物園':'景點門票',
-  '料理體驗':'活動體驗','文化體驗':'活動體驗','戶外活動':'活動體驗','溫泉':'活動體驗','卡丁車':'活動體驗'
+  '台鐵':'交通運輸','高鐵':'交通運輸','新幹線':'交通運輸','阪急':'交通運輸','JR Pass':'交通運輸','地鐵':'交通運輸','機場接送':'交通運輸','巴士':'交通運輸','火車':'交通運輸','纜車':'交通運輸',
+  '遊樂園':'景點門票','博物館':'景點門票','水族館':'景點門票','展覽':'景點門票','自然景觀':'景點門票','觀光景點':'景點門票','美術館':'景點門票','動物園':'景點門票','植物園':'景點門票','船票':'景點門票',
+  '料理體驗':'活動體驗','文化體驗':'活動體驗','戶外活動':'活動體驗','溫泉':'活動體驗','卡丁車':'活動體驗',
+  '近郊一日遊':'一日遊','城市導覽':'一日遊','包車':'一日遊','一日券':'一日遊',
+  '套票':'套票'
 };
-const SUB_ACTIVE_CLS={"交通運輸":"active-transport","景點門票":"active-ticket","活動體驗":"active-activity"};
+const SUB_ACTIVE_CLS={"交通運輸":"active-transport","景點門票":"active-ticket","活動體驗":"active-activity","一日遊":"active-tour","套票":"active-bundle"};
 
 let selCountry="",selCity="",selType="",selSubtype="",selPlatform="",maxPrice=0,tab="tickets";
 
@@ -210,7 +218,7 @@ function setCity(val){selCity=val;selSubtype='';updatePills();renderTickets();}
 function setType(val){
   selType=val;selSubtype='';
   document.querySelectorAll('#type-group .pill').forEach(el=>el.classList.remove('active'));
-  const typeMap={'':'pill-all','交通運輸':'pill-type-transport','景點門票':'pill-type-ticket','活動體驗':'pill-type-activity'};
+  const typeMap={'':'pill-all','交通運輸':'pill-type-transport','景點門票':'pill-type-ticket','活動體驗':'pill-type-activity','一日遊':'pill-type-tour','套票':'pill-type-bundle'};
   const el=document.querySelector('.'+typeMap[val]);if(el)el.classList.add('active');
   buildSubtypePills();
   renderTickets();
@@ -401,6 +409,8 @@ function render(){
           <div class="pill pill-type-transport" onclick="setType('交通運輸')"><div class="pill-dot"></div>🚄 交通運輸</div>
           <div class="pill pill-type-ticket" onclick="setType('景點門票')"><div class="pill-dot"></div>🏯 景點門票</div>
           <div class="pill pill-type-activity" onclick="setType('活動體驗')"><div class="pill-dot"></div>🎭 活動體驗</div>
+          <div class="pill pill-type-tour" onclick="setType('一日遊')"><div class="pill-dot"></div>🗺️ 一日遊</div>
+          <div class="pill pill-type-bundle" onclick="setType('套票')"><div class="pill-dot"></div>🎁 套票</div>
         </div>
       </div>
       <div class="fsec">
