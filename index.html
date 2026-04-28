@@ -97,6 +97,9 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
 .tb-tour{background:#E3FAF8;color:#2D6A4F;border:1.5px solid #B2EDE8}
 .tb-bundle{background:#F5EAFF;color:#7B2FBE;border:1.5px solid #DDB8F8}
 .attraction-title{font-family:"Noto Sans TC",sans-serif;font-size:15px;font-weight:700;color:var(--text);line-height:1.45;margin-bottom:8px}
+.attraction-link{color:var(--text);text-decoration:none;display:block}
+.attraction-link:active{opacity:.7}
+.detail-arrow{font-family:"Nunito",sans-serif;font-size:13px;color:var(--klook);font-weight:900;margin-left:3px}
 .ctags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:2px}
 .ctag{font-family:"Nunito",sans-serif;font-size:10px;font-weight:800;padding:2px 9px;border-radius:999px}
 .ctag-country{background:#F3E5F5;color:#6A1B9A;border:1.5px solid #D8C0F8}
@@ -296,6 +299,8 @@ function toGroups(arr){
   return Array.from(m.values());
 }
 
+const SLUG_MAP={'台北101觀景台':'taipei-101','國立故宮博物院':'national-palace-museum','東京迪士尼樂園 / 迪士尼海洋':'tokyo-disney','東京晴空塔':'tokyo-skytree','teamLab Planets 東京豐洲':'teamlab-planets-tokyo','大阪環球影城 USJ':'osaka-usj','大阪周遊卡':'osaka-amazing-pass','富士箱根周遊券':'fuji-hakone-pass','富士急樂園':'fujiq-highland','JR Pass 東日本鐵路周遊券':'jr-pass-east','澀谷Shibuya Sky展望台門票':'shibuya-sky','東京哈利波特製片廠之旅':'harry-potter-tokyo','大阪城門票 Osaka Castle':'osaka-castle','大阪海遊館門票':'osaka-kaiyukan','梅田藍天大廈空中庭園展望台門票':'umeda-sky-building','阿倍野展望台門票 HARUKAS 300':'harukas-300','大阪長居植物園 teamLab Botanical Garden Osaka 門票':'teamlab-botanical-osaka','大阪空庭溫泉門票 OSAKA BAY TOWER':'solaniwa-onsen-osaka','大阪通天閣門票':'tsutenkaku-osaka','大阪樂高樂園':'legoland-osaka','澀谷Akiba Kart 澀谷卡丁車體驗':'akiba-kart-shibuya','大阪兒童樂園':'kids-plaza-osaka','大阪灣聖瑪麗亞觀光遊船一日票':'santa-maria-osaka','天保山大摩天輪':'tempozan-ferris-wheel','大阪天王寺動物園門票':'tennoji-zoo','三鷹之森吉卜力美術館＆井之頭公園':'ghibli-museum','三鷹之森吉卜力美術館 & 吉卜力動畫巡禮巴士之旅':'ghibli-museum-tour','六本木之丘':'roppongi-hills','東京鐵塔':'tokyo-tower','東京三麗鷗彩虹樂園 ':'sanrio-puroland','大阪卡丁車體驗（Akiba Kart提供）':'akiba-kart-osaka','成田機場往返東京利木津巴士(成田機場往澀谷)':'narita-limousine-bus','關西機場到大阪市區(關西往梅田)':'kansai-airport-bus','羽田機場往返東京利木津巴士(羽田機場往池袋)':'haneda-limousine-bus'};
+
 function buildCards(groups,savedList){
   return groups.map((g,i)=>{
     const hasKlook=g.tickets.some(t=>t.platform==='Klook');
@@ -304,6 +309,8 @@ function buildCards(groups,savedList){
     const typeCls=TYPE_CLS[g.type]||'tb-ticket';
     const isSingle=g.tickets.length===1;
     const isSaved=savedList.includes(g.attraction);
+    const slug=SLUG_MAP[g.attraction.trim()];
+    const titleHTML=slug?`<a class="attraction-title attraction-link" href="./${slug}/">${g.attraction} <span class="detail-arrow">›</span></a>`:`<div class="attraction-title">${g.attraction}</div>`;
     const rows=g.tickets.map(t=>{
       const isK=t.platform==='Klook';
       return `<div class="prow"><div class="prow-brand ${isK?'brand-klook':'brand-kkday'}">${t.platform}</div><div class="prow-price">NT$&thinsp;${t.price.toLocaleString()}<small> 起</small></div><a class="cbtn ${isK?'cbtn-klook':'cbtn-kkday'}" href="${t.url}" target="_blank" rel="noopener noreferrer">立即預訂</a></div>`;
@@ -312,7 +319,7 @@ function buildCards(groups,savedList){
       <div class="cstripe" style="background:${stripe}"></div>
       <div class="cbody">
         <div class="card-head"><div class="type-badge ${typeCls}">${g.type}</div></div>
-        <div class="attraction-title">${g.attraction}</div>
+        ${titleHTML}
         <div class="ctags"><span class="ctag ctag-country">${g.country}</span><span class="ctag ctag-city">${g.city}</span><span class="ctag ctag-sub">${g.subtype}</span></div>
         <div class="prows${isSingle?' single':''}">${rows}</div>
         <button class="star-btn${isSaved?' on':''}" onclick="toggleSave('${g.attraction.replace(/'/g,"\\'")}')">
