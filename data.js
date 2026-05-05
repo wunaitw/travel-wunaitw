@@ -120,4 +120,14 @@ const tickets = [
   { attraction:'琉球村門票', platform:'KKday', name:'琉球村門票', country:'日本', city:'沖繩', type:'景點門票', subtype:'植物園', price:318, url:'https://linkgo.one/s/VsEHe' },
   { attraction:'沖繩 FunPASS（超值系列）三合一', platform:'Klook', name:'沖繩 FunPASS（超值系列）', country:'日本', city:'沖繩', type:'套票', subtype:'套票', price:950, url:'https://linkgo.one/s/6zFn3' },
   { attraction:'沖繩 FunPASS（超值系列）三合一', platform:'KKday', name:'沖繩 Fun Pass｜美麗海水族館＋任選組合優惠套票｜Okinawa FunPass', country:'日本', city:'沖繩', type:'套票', subtype:'套票', price:1080, url:'https://onelink.one/s/DwzEi' },
+,
+  { attraction:'嵐山嵯峨野觀光小火車', platform:'KKday', name:'嵐山嵯峨野觀光小火車（トロッコ）車票', country:'日本', city:'京都', type:'交通運輸', subtype:'觀光小火車', price:177, url:'https://onelink.one/s/auZVO' },
+  { attraction:'嵐山嵯峨野觀光小火車', platform:'Klook', name:'嵐山嵯峨野觀光小火車車票', country:'日本', city:'京都', type:'交通運輸', subtype:'觀光小火車', price:180, url:'https://afflink.one/s/Cxrpe' },
+  { attraction:'京都和服租借體驗', platform:'KKday', name:'京都八坂神社·祇園｜人氣和服租借體驗｜和服·浴衣·振袖·化妝·外拍攝影服務｜MOCOMOCO和服八坂神社·祇園店', country:'日本', city:'京都', type:'活動體驗', subtype:'文化體驗', price:554, url:'https://afflink.one/s/XDrJr' },
+  { attraction:'京都和服租借體驗', platform:'Klook', name:'NEW OPEN 京都八坂神社・祇園｜人氣和服租借體驗｜和服・浴衣・振袖・化妝・外拍攝影服務｜MOCOMOCO和服八坂神社・祇園店', country:'日本', city:'京都', type:'活動體驗', subtype:'文化體驗', price:554, url:'https://linkgo.one/s/SsncN' },
+  { attraction:'東映太秦映画村門票', platform:'KKday', name:'京都東映太秦映画村入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'觀光景點', price:403, url:'https://afflink.one/s/flrDM' },
+  { attraction:'東映太秦映画村門票', platform:'Klook', name:'京都東映太秦映画村入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'觀光景點', price:401, url:'https://onelink.one/s/CaUHY' },
+  { attraction:'京都鐵道博物館門票', platform:'KKday', name:'京都鐵道博物館入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'博物館', price:302, url:'https://linkgo.one/s/9cPqk' },
+  { attraction:'京都水族館門票', platform:'KKday', name:'京都水族館入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'水族館', price:524, url:'https://afflink.one/s/HeHeW' },
+  { attraction:'京都水族館門票', platform:'Klook', name:'京都水族館入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'水族館', price:524, url:'https://onelink.one/s/HMUBt' }
 ];
