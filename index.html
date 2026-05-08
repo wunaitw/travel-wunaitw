@@ -130,6 +130,112 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(10px);background:#222;color:#fff;padding:10px 20px;border-radius:999px;font-size:13px;font-weight:700;font-family:"Nunito",sans-serif;opacity:0;transition:all .22s;pointer-events:none;z-index:999;white-space:nowrap;max-width:90%}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .footer{text-align:center;padding:20px 16px;font-family:"Nunito",sans-serif;font-size:11px;color:var(--muted);line-height:1.9}
+
+/* ── 團體行懶人包 ── */
+:root{--tour-green:#2D6A4F;--tour-green-dk:#1B4332;--tour-amber:#FF9A3C;--tour-amber-dk:#C96A00;}
+.tour-hero{margin:12px 12px 0;border-radius:var(--r);overflow:hidden;background:linear-gradient(135deg,#1B4332 0%,#2D6A4F 50%,#40916C 100%);padding:12px 16px 12px;position:relative}
+.tour-hero::after{content:'✈️';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:48px;opacity:.18}
+.tour-hero-label{font-family:"Nunito",sans-serif;font-size:10px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:4px}
+.tour-hero-title{font-family:"Nunito",sans-serif;font-size:20px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:4px}
+.tour-hero-sub{font-family:"Nunito",sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.75)}
+.tour-theme-tabs{display:flex;gap:8px;padding:12px 12px 0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tour-theme-tabs::-webkit-scrollbar{display:none}
+.ttab{flex-shrink:0;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;border:2px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;transition:all .18s;white-space:nowrap}
+.ttab:active{transform:scale(.94)}
+.ttab.on-disney{background:#3B5BDB;border-color:#2F4AC9;color:#fff}
+.ttab.on-usj{background:#CC3300;border-color:#AA2200;color:#fff}
+.ttab.on-kansai{background:var(--tour-green);border-color:var(--tour-green-dk);color:#fff}
+.tour-filter{background:var(--white);margin:10px 12px 0;border-radius:var(--r);padding:12px;border:2px solid var(--border);box-shadow:0 4px 0 rgba(0,0,0,.05)}
+.tfsec{margin-bottom:10px}.tfsec:last-child{margin-bottom:0}
+.tftitle{font-family:"Nunito",sans-serif;font-size:10px;font-weight:900;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.tour-pills{display:flex;flex-wrap:wrap;gap:6px}
+.tpill{display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:999px;border:2px solid var(--border);background:var(--sky);cursor:pointer;font-family:"Nunito",sans-serif;font-size:12px;font-weight:800;color:var(--muted);user-select:none;transition:all .15s;white-space:nowrap}
+.tpill:active{transform:scale(.93)}
+.tpill.on{color:#fff;border-color:transparent;background:#333}
+.tpill.on-city-taipei{background:#0f3460}
+.tpill.on-city-taichung{background:#C96A00}
+.tpill.on-city-kaohsiung{background:#B91C1C}
+.tpill.on-park-single{background:var(--tour-green)}
+.tpill.on-park-double{background:#7C3AED}
+.tpill.on-days{background:#0369A1}
+.tpill.on-family{background:#BE185D}
+.spot-chip{padding:5px 11px;border-radius:999px;border:2px solid var(--border);background:var(--sky);cursor:pointer;font-family:"Nunito",sans-serif;font-size:11px;font-weight:800;color:var(--muted);user-select:none;transition:all .15s;white-space:nowrap}
+.spot-chip:active{transform:scale(.93)}
+.spot-chip.on{background:#0D7247;color:#fff;border-color:#0A5C38}
+.tour-rbar{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 7px}
+.tour-rcnt{font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;background:var(--tour-green);color:#fff;padding:3px 12px;border-radius:999px}
+.tour-card{background:var(--white);border-radius:var(--r);margin-bottom:10px;border:2px solid var(--border);box-shadow:0 4px 0 rgba(0,0,0,.06);overflow:hidden;animation:popin .28s ease backwards}
+.tour-stripe{height:5px}
+.tour-cbody{padding:12px 14px 13px}
+.tour-agency-badge{display:inline-flex;align-items:center;gap:4px;font-family:"Nunito",sans-serif;font-size:10px;font-weight:900;padding:2px 9px;border-radius:999px;margin-bottom:7px}
+.badge-lion{background:#E3F0FF;color:#1E40AF;border:1.5px solid #BDDAFF}
+.badge-settour{background:#FFF3E0;color:#9A3412;border:1.5px solid #FED7AA}
+.badge-eztravel{background:#ECFDF5;color:#065F46;border:1.5px solid #A7F3D0}
+.badge-cola{background:#F5F3FF;color:#5B21B6;border:1.5px solid #DDD6FE}
+.badge-star{background:#FFFBEB;color:#92400E;border:1.5px solid #FDE68A}
+.tour-title{font-family:"Noto Sans TC",sans-serif;font-size:14px;font-weight:700;color:var(--text);line-height:1.5;margin-bottom:8px}
+.tour-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.ttag{font-family:"Nunito",sans-serif;font-size:10px;font-weight:800;padding:2px 8px;border-radius:999px}
+.ttag-city-taipei{background:#DBEAFE;color:#1E40AF;border:1.5px solid #BFDBFE}
+.ttag-city-taichung{background:#FEF3C7;color:#92400E;border:1.5px solid #FDE68A}
+.ttag-city-kaohsiung{background:#FEE2E2;color:#991B1B;border:1.5px solid #FECACA}
+.ttag-park-single{background:#D1FAE5;color:#065F46;border:1.5px solid #A7F3D0}
+.ttag-park-double{background:#EDE9FE;color:#4C1D95;border:1.5px solid #DDD6FE}
+.ttag-days{background:#F1F5F9;color:#475569;border:1.5px solid #E2E8F0}
+.ttag-family{background:#FCE7F3;color:#831843;border:1.5px solid #FBCFE8}
+.spot-match-row{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.spot-match-chip{font-family:"Nunito",sans-serif;font-size:10px;font-weight:900;padding:2px 8px;border-radius:999px;background:#D1FAE5;color:#065F46;border:1.5px solid #6EE7B7}
+.tour-goto-btn{display:block;text-align:center;font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;color:#fff;background:var(--tour-green);border-radius:var(--rsm);padding:9px 0;text-decoration:none;border-bottom:3px solid var(--tour-green-dk);transition:opacity .15s}
+.tour-goto-btn:active{opacity:.75}
+.tour-goto-btn-noaff{display:block;text-align:center;font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;color:#fff;background:#94A3B8;border-radius:var(--rsm);padding:9px 0;text-decoration:none;border-bottom:3px solid #64748B;transition:opacity .15s}
+.tour-goto-btn-noaff:active{opacity:.75}
+.tclear-btn{font-family:"Nunito",sans-serif;font-size:11px;font-weight:900;color:var(--muted);background:none;border:1.5px solid var(--border);border-radius:999px;padding:4px 13px;cursor:pointer;margin-left:auto;display:block;margin-top:10px}
+
+/* ── 兩個入口按鈕 ── */
+.tour-entry-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 12px 0}
+.tour-entry-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 8px;border-radius:var(--r);border:2.5px solid transparent;cursor:pointer;transition:all .18s;font-family:"Nunito",sans-serif}
+.tour-entry-btn:active{transform:scale(.96)}
+.tour-entry-quiz{background:linear-gradient(135deg,#667eea,#764ba2);border-color:transparent;box-shadow:0 4px 0 rgba(102,126,234,.35)}
+.tour-entry-quiz.active{background:linear-gradient(135deg,#4f46e5,#6d28d9);box-shadow:0 2px 0 rgba(102,126,234,.35)}
+.tour-entry-filter{background:var(--white);border-color:var(--border);box-shadow:0 4px 0 rgba(0,0,0,.06)}
+.tour-entry-ico{font-size:26px;line-height:1}
+.tour-entry-txt{font-size:14px;font-weight:900;color:#fff}
+.tour-entry-filter .tour-entry-txt{color:var(--text)}
+.tour-entry-sub{font-size:10px;font-weight:700;color:rgba(255,255,255,.8);text-align:center;line-height:1.3}
+.tour-entry-filter .tour-entry-sub{color:var(--muted)}
+
+/* ── Quiz 問答流程 ── */
+.quiz-toggle{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 12px 0;padding:12px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:var(--r);border:none;width:calc(100% - 24px);cursor:pointer;font-family:"Nunito",sans-serif;font-size:14px;font-weight:900;color:#fff;box-shadow:0 4px 0 rgba(102,126,234,.4);transition:opacity .15s}
+.quiz-toggle:active{opacity:.8}
+.quiz-toggle-sub{font-size:10px;font-weight:700;opacity:.85;margin-top:2px}
+.quiz-box{background:var(--white);margin:10px 12px 0;border-radius:var(--r);border:2px solid #DDD6FE;box-shadow:0 4px 0 rgba(118,75,162,.15);overflow:hidden;display:none}
+.quiz-box.open{display:block}
+.quiz-progress{height:4px;background:#F3F0FF}
+.quiz-progress-bar{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);transition:width .3s}
+.quiz-inner{padding:16px 14px 14px}
+.quiz-step{display:none}.quiz-step.active{display:block}
+.quiz-qlabel{font-family:"Nunito",sans-serif;font-size:10px;font-weight:900;color:#7C3AED;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.quiz-q{font-family:"Noto Sans TC",sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;line-height:1.4}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.quiz-opts.single-col{grid-template-columns:1fr}
+.quiz-opt{padding:11px 10px;border-radius:var(--rsm);border:2px solid var(--border);background:var(--sky);cursor:pointer;font-family:"Nunito",sans-serif;font-size:13px;font-weight:800;color:var(--text);text-align:center;transition:all .15s;line-height:1.3}
+.quiz-opt:active{transform:scale(.96)}
+.quiz-opt.selected{border-color:#7C3AED;background:#F5F3FF;color:#5B21B6}
+.quiz-spot-grid{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.quiz-spot{padding:7px 12px;border-radius:999px;border:2px solid var(--border);background:var(--sky);cursor:pointer;font-family:"Nunito",sans-serif;font-size:12px;font-weight:800;color:var(--muted);transition:all .15s}
+.quiz-spot.selected{border-color:#0D7247;background:#D1FAE5;color:#065F46}
+.quiz-nav{display:flex;gap:8px;align-items:center}
+.quiz-next{flex:1;padding:10px;background:#7C3AED;color:#fff;border:none;border-radius:var(--rsm);font-family:"Nunito",sans-serif;font-size:13px;font-weight:900;cursor:pointer;border-bottom:3px solid #5B21B6;transition:opacity .15s}
+.quiz-next:active{opacity:.8}
+.quiz-next:disabled{opacity:.35;cursor:not-allowed}
+.quiz-back{padding:10px 14px;background:none;border:1.5px solid var(--border);border-radius:var(--rsm);font-family:"Nunito",sans-serif;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer}
+.quiz-skip{background:none;border:none;font-family:"Nunito",sans-serif;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;text-decoration:underline;padding:0 4px}
+.quiz-done{text-align:center;padding:16px 8px 8px}
+.quiz-done-ico{font-size:36px;margin-bottom:8px}
+.quiz-done-txt{font-family:"Nunito",sans-serif;font-size:14px;font-weight:900;color:var(--text);margin-bottom:4px}
+.quiz-done-sub{font-family:"Nunito",sans-serif;font-size:11px;color:var(--muted);margin-bottom:14px}
+.quiz-apply-btn{display:block;width:100%;padding:11px;background:var(--tour-green);color:#fff;border:none;border-radius:var(--rsm);font-family:"Nunito",sans-serif;font-size:14px;font-weight:900;cursor:pointer;border-bottom:3px solid var(--tour-green-dk)}
+.quiz-reset{display:block;width:100%;margin-top:8px;padding:8px;background:none;border:1.5px solid var(--border);border-radius:var(--rsm);font-family:"Nunito",sans-serif;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer}
 </style>
 </head>
 <body>
@@ -150,11 +256,167 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
 
 <div class="bnav">
   <button class="nbtn on" id="nb-tickets" onclick="goTab('tickets')"><span class="nico">🎟️</span><span class="nlbl">票券</span></button>
+  <button class="nbtn" id="nb-tours" onclick="goTab('tours')"><span class="nico">🗾</span><span class="nlbl">跟團旅行</span></button>
   <button class="nbtn" id="nb-saved" onclick="goTab('saved')"><span class="nico">⭐</span><span class="nlbl">收藏</span></button>
   <button class="nbtn" id="nb-info" onclick="goTab('info')"><span class="nico">💡</span><span class="nlbl">說明/聯絡</span></button>
 </div>
 
 <script src="data.js"></script>
+<script>
+// ── tours 資料內嵌（150筆：東京迪士尼64、大阪環球影城55、京奈神31）──
+const tours = [
+  { agency:'雄獅', theme:'東京迪士尼', title:'小資東京旅遊｜東京迪士尼.河口湖.忍野八海.明治神宮.敘敘苑燒肉.溫泉購物七日', days:7, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店'], hasAff:true, url:'https://linkgo.one/s/wP5Ez' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'關東旅遊｜東京迪士尼.河口湖.富士山.忍野八海.明治神宮.溫泉購物六日｜台中出發', days:6, city:'台中', park:'單', family:false, spots:['富士山', '溫泉飯店'], hasAff:true, url:'https://afflink.one/s/FmzLT' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'夢幻東京旅遊｜東京迪士尼雙樂園.涉谷SKY展望台.大石公園.東山舊岸邸.溫泉精選五日', days:5, city:'台北', park:'雙', family:false, spots:['富士山', '溫泉飯店'], hasAff:true, url:'https://afflink.one/s/OmXBi' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'暑假預購折$2000｜東京迪士尼雙樂園.小田原城.十国峠纜車.富士山美景溫泉六日｜台中出發', days:6, city:'台中', park:'雙', family:false, spots:['富士山', '溫泉飯店'], hasAff:true, url:'https://onelink.one/s/kmn3d' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'TTE旅展優惠價｜東京迪士尼.富士山美景.忍野八海.明治神宮.麻布台之丘.超值東京美食六日', days:6, city:'台北', park:'單', family:false, spots:['富士山'], hasAff:true, url:'https://afflink.one/s/U44oc' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'暑假預購折$2000｜東京迪士尼.富士動物園.橫濱纜車.新倉山公園.富士山美景五日｜台中出發', days:5, city:'台中', park:'單', family:false, spots:['富士山'], hasAff:true, url:'https://linkgo.one/s/SMp9x' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京旅遊｜東京迪士尼.奇幻動漫樂園.山中湖白鳥號.富士山美景.淺草寺.上野阿美橫町.精選溫泉五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店', '阿美橫町'], hasAff:true, url:'https://afflink.one/s/LTFUi' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'兒童最高省一萬｜東京親子旅遊｜東京迪士尼.哈利波特.拉麵博物館.上野動物園.江之島電鐵.歡樂東京雙樂園五日', days:5, city:'台北', park:'雙', family:true, spots:[], hasAff:true, url:'https://linkgo.one/s/f1xSi' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'每月一物省很大｜東京迪士尼.西湖合掌村.富士山纜車.淺草寺.上野阿美橫丁.溫泉購物五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店', '阿美橫町'], hasAff:true, url:'https://onelink.one/s/0khKj' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'TTE旅展優惠｜東京迪士尼.小江戶川越.富士山纜車.大石公園.阿美橫町購物六日｜一日自由活動｜高雄來回', days:6, city:'高雄', park:'單', family:false, spots:['富士山', '阿美橫町'], hasAff:true, url:'https://afflink.one/s/KcNI9' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京迪士尼.晴空塔.箱根.海盜船.忍野八海.螃蟹溫泉美食.富士美景五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '箱根溫泉', '溫泉飯店', '晴空塔'], hasAff:true, url:'https://onelink.one/s/fTl5A' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'暑假促銷東京｜迪士尼樂園.古都鎌倉江之島.浪漫橫濱.麻布台.表參道.OUTLET血拚.時尚東京漫遊五日', days:5, city:'台北', park:'單', family:false, spots:['OUTLET', '鎌倉'], hasAff:true, url:'https://linkgo.one/s/cmzXR' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'特選東京｜迪士尼.川越冰川神社.鎌倉古街.晴空塔.橫濱OUTLET.半自由行六日｜高雄來回', days:6, city:'高雄', park:'單', family:false, spots:['OUTLET', '晴空塔', '鎌倉'], hasAff:true, url:'https://afflink.one/s/Wtlhn' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'經典東京旅遊｜東京迪士尼.鎌倉古都漫遊.十国峠展望台.河口湖纜車.橫濱煉瓦倉庫五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '鎌倉'], hasAff:true, url:'https://linkgo.one/s/BQsng' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'特選東京｜迪士尼.山中湖遊船.大石公園.熟成牛吃到飽.溫泉美景.半自由行五日｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['富士山', '溫泉飯店'], hasAff:true, url:'https://afflink.one/s/fHFZK' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'限量出清｜東京｜迪士尼.千客萬來.鎌倉大佛.鎌倉古街散策.涮涮鍋吃到飽五日｜半自由行｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['鎌倉', '豐洲千客萬來'], hasAff:true, url:'https://afflink.one/s/qD8cP' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京悅享之選｜箱根駒之岳.富士山美景.歡樂迪士尼.豐洲千客萬來.東京悅享溫泉5日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '箱根溫泉', '溫泉飯店', '豐洲千客萬來'], hasAff:true, url:'https://linkgo.one/s/P3b4a' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京旅遊｜迪士尼.登上晴空塔.龜戶天神社.燒肉吃到飽五日｜一日自由活動｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['晴空塔'], hasAff:true, url:'https://linkgo.one/s/Gt86D' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京旅遊｜迪士尼雙樂園.上野動物園.阿美橫町購物六日｜不進免稅店｜高雄來回', days:6, city:'高雄', park:'雙', family:false, spots:['阿美橫町'], hasAff:true, url:'https://linkgo.one/s/5uxxP' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京旅遊｜十国峠斜面電車.鶴岡八幡宮.新倉山公園.迪士尼.酒酒井OUTLET.螃蟹五日｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['富士山', 'OUTLET'], hasAff:true, url:'https://onelink.one/s/fcZA2' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京旅遊｜台灣虎航｜迪士尼.豐洲千客萬來.箱根海盜船.御殿場OUTLET.新宿購物五日｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['箱根溫泉', 'OUTLET', '豐洲千客萬來'], hasAff:true, url:'https://afflink.one/s/Yq7Kl' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京旅遊｜迪士尼.箱根空中纜車、登山鐵道.小田原城.御殿場OUTLET.熟成牛吃到飽五日｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['箱根溫泉', 'OUTLET'], hasAff:true, url:'https://linkgo.one/s/s8YhG' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'暑假預購-2000｜東京旅遊｜迪士尼雙樂園.小田原城.十国峠纜車.螃蟹.富士山美景溫泉.阿美橫町六日｜高雄來回', days:6, city:'高雄', park:'雙', family:false, spots:['富士山', '溫泉飯店', '阿美橫町'], hasAff:true, url:'https://linkgo.one/s/XlyEM' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京旅遊｜迪士尼.麗莎＆卡斯柏小鎮.富士山纜車.採果樂.敘敘苑燒肉.晴空塔.螃蟹溫泉五日｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['富士山', '溫泉飯店', '晴空塔'], hasAff:true, url:'https://onelink.one/s/uUW7x' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京旅遊｜迪士尼.富士急樂園.富士山纜車.採果樂.敘敘苑燒肉.螃蟹溫泉五日｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['富士山', '溫泉飯店'], hasAff:true, url:'https://onelink.one/s/b8ngY' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'長榮｜東京迪士尼.西湖合掌村.富士山纜車.淺草寺.上野阿美橫丁.溫泉購物五日｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['富士山', '溫泉飯店', '阿美橫町'], hasAff:true, url:'https://afflink.one/s/mOdTp' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'暑假預購折3000｜長榮｜東京｜迪士尼樂園.銀座藝術水族館.史努比博物館.八景島水族館五日', days:5, city:'高雄', park:'單', family:false, spots:['水族館'], hasAff:true, url:'https://linkgo.one/s/SqFgG' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'暑假預購折3000｜童趣東京｜樂遊迪士尼.銀座藝術水族館.史努比博物館.八景島水族館五日', days:5, city:'台北', park:'單', family:true, spots:['水族館'], hasAff:true, url:'https://onelink.one/s/1XRdv' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'東京親子遊｜玩樂迪士尼.八景島水族館.豐洲千客萬來.橫濱纜車五日', days:5, city:'台北', park:'單', family:true, spots:['豐洲千客萬來', '水族館'], hasAff:true, url:'https://afflink.one/s/AY9r9' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'長榮｜東京｜玩樂迪士尼.富士山美景.忍野八海.明治神宮.麻布台之丘.溫泉美食六日｜高雄來回', days:6, city:'高雄', park:'單', family:false, spots:['富士山', '溫泉飯店'], hasAff:true, url:'https://linkgo.one/s/QAna8' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'限定PLUS東京旅遊｜全程無自理餐.燒肉美食饗宴.居酒屋暢飲.迪士尼暢遊.東京晴空塔五日', days:5, city:'台北', park:'單', family:false, spots:['晴空塔'], hasAff:true, url:'https://linkgo.one/s/5tC3k' },
+  { agency:'雄獅', theme:'東京迪士尼', title:'奇幻東京旅遊｜迪士尼樂園.哈利波特魔法世界.橫濱OUTLET.江之島電鐵.池袋購物城五日', days:5, city:'台北', park:'單', family:false, spots:['OUTLET'], hasAff:true, url:'https://afflink.one/s/bwaZt' },
+  { agency:'東南', theme:'東京迪士尼', title:'【東京悠閒趣】迪士尼、晴空塔、橫濱纜車、燒烤吃到飽、輕旅行5日', days:5, city:'高雄', park:'單', family:false, spots:['晴空塔'], hasAff:true, url:'https://onelink.one/s/I0vsq' },
+  { agency:'東南', theme:'東京迪士尼', title:'限時限量｜8人成行～富士螃蟹溫泉、東京迪士尼、箱根海賊船、澀谷購物5日', days:5, city:'台北', park:'單', family:false, spots:['箱根溫泉', '溫泉飯店'], hasAff:true, url:'https://linkgo.one/s/p6HM8' },
+  { agency:'東南', theme:'東京迪士尼', title:'限時限量｜東京親子暢玩～迪士尼雙樂園×猛獸巴士×富士溫泉×台場購物5日', days:5, city:'台北', park:'雙', family:true, spots:['溫泉飯店'], hasAff:true, url:'https://linkgo.one/s/fHQMI' },
+  { agency:'東南', theme:'東京迪士尼', title:'摩登東京】迪士尼、企鵝空中飛、早雲山、海盜船、小野川、螃蟹、溫泉5日', days:5, city:'高雄', park:'單', family:false, spots:['箱根溫泉', '溫泉飯店'], hasAff:true, url:'https://linkgo.one/s/drseh' },
+  { agency:'東南', theme:'東京迪士尼', title:'精選｜東京奇幻哈利波特＆迪士尼～箱根水族館‧忍者巴士‧溫泉採果樂5日', days:5, city:'台北', park:'單', family:false, spots:['箱根溫泉', '溫泉飯店', '水族館'], hasAff:true, url:'https://linkgo.one/s/l4T7a' },
+  { agency:'東南', theme:'東京迪士尼', title:'精選｜東京五星×迪士尼合作飯店～晴空塔展望×橫濱纜車×富士溫泉螃蟹5日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '晴空塔'], hasAff:true, url:'https://linkgo.one/s/Bek5h' },
+  { agency:'易遊網', theme:'東京迪士尼', title:'KHH嗨玩東京～迪士尼樂園、淺草觀音寺、豐洲千客萬來、富士忍野八海五日', days:5, city:'高雄', park:'單', family:false, spots:['富士山', '豐洲千客萬來'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001838/241292' },
+  { agency:'易遊網', theme:'東京迪士尼', title:'嗨玩東京～迪士尼樂園、豐洲千客萬來、富士大石公園、富士五湖溫泉五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店', '豐洲千客萬來'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001838/228319' },
+  { agency:'易遊網', theme:'東京迪士尼', title:'嗨玩東京～迪士尼樂園、河口湖薰衣草、豐洲千客萬來、富士五湖溫泉五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店', '豐洲千客萬來'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001838/239497' },
+  { agency:'易遊網', theme:'東京迪士尼', title:'親子同樂會♯KHH嗨玩東京～迪士尼樂園、淺草觀音寺、富士忍野八海五日', days:5, city:'高雄', park:'單', family:true, spots:['富士山'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001838/231986' },
+  { agency:'易遊網', theme:'東京迪士尼', title:'【摩登東京】迪士尼、企鵝空中飛、早雲山、海盜船、螃蟹、溫泉5日', days:5, city:'台北', park:'單', family:false, spots:['箱根溫泉', '溫泉飯店'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001925/GFG0000002433' },
+  { agency:'易遊網', theme:'東京迪士尼', title:'親子同樂會♯東京迪士尼.晴空塔.箱根.海盜船.忍野八海.螃蟹溫泉.富士美景五日', days:5, city:'台北', park:'單', family:true, spots:['富士山', '箱根溫泉', '溫泉飯店', '晴空塔'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001846/SJP05TT3BD' },
+  { agency:'易遊網', theme:'東京迪士尼', title:'親子同樂會♯特選東京｜迪士尼.山中湖遊船.大石公園.熟成牛吃到飽.溫泉美景.半自由行五日｜高雄來回', days:5, city:'高雄', park:'單', family:true, spots:['富士山', '溫泉飯店'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001846/25JT05TT34' },
+  { agency:'可樂', theme:'東京迪士尼', title:'東京超值選～迪士尼樂園、淺草明治神宮、御殿場OUTLET、富士忍野八海六日', days:6, city:'台北', park:'單', family:false, spots:['富士山', 'OUTLET'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=235619' },
+  { agency:'可樂', theme:'東京迪士尼', title:'開心FUN東京～登上晴空塔、迪士尼樂園、橫濱空中纜車、箱根鐵道旅行五日', days:5, city:'台北', park:'單', family:false, spots:['箱根溫泉', '晴空塔'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=231719' },
+  { agency:'可樂', theme:'東京迪士尼', title:'TXG東京輕鬆遊～迪士尼樂園、鎌倉古都漫遊、橫濱風情畫、富士海空雙星六日', days:6, city:'台中', park:'單', family:false, spots:['鎌倉'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=236851' },
+  { agency:'可樂', theme:'東京迪士尼', title:'東京逍遙遊～登上晴空塔、迪士尼雙樂園、富士動物園、兩晚東京灣飯店五日', days:5, city:'台北', park:'雙', family:false, spots:['富士山', '晴空塔'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=231623' },
+  { agency:'可樂', theme:'東京迪士尼', title:'KHH東京逍遙遊～登上晴空塔、迪士尼雙樂園、淺草漫遊趣、兩晚星野東京灣五日', days:5, city:'高雄', park:'雙', family:false, spots:['晴空塔'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=223500' },
+  { agency:'可樂', theme:'東京迪士尼', title:'魔法東京～迪士尼樂園、哈利波特世界、箱根山海風情、豐洲光影美術展五日', days:5, city:'台北', park:'單', family:false, spots:['箱根溫泉', '豐洲千客萬來'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=233641' },
+  { agency:'可樂', theme:'東京迪士尼', title:'嗨玩東京～迪士尼樂園、河口湖薰衣草、豐洲千客萬來、富士五湖溫泉五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店', '豐洲千客萬來'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NTZ070805JX6&TourDate=2026/07/08' },
+  { agency:'可樂', theme:'東京迪士尼', title:'嗨玩東京～迪士尼樂園、豐洲千客萬來、富士大石公園、富士五湖溫泉五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店', '豐洲千客萬來'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=228319' },
+  { agency:'可樂', theme:'東京迪士尼', title:'東京FUN暑假～迪士尼樂園、鴨川海洋世界、母親牧場火車、四晚五星飯店五日', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=238527' },
+  { agency:'可樂', theme:'東京迪士尼', title:'【東京FUN暑假、兒童不佔減1萬】迪士尼樂園、水族館海豚秀、水蜜桃摩天輪、長腳蟹溫泉鄉五日', days:5, city:'台北', park:'單', family:true, spots:['溫泉飯店', '水族館'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=227133' },
+  { agency:'可樂', theme:'東京迪士尼', title:'東京玩很大～迪士尼樂園、水蜜桃摩天輪、寶刀鍋麵DIY、長腳蟹溫泉鄉五日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=240771' },
+  { agency:'燦星', theme:'東京迪士尼', title:'【東京星樂園】迪士尼．箱根海賊船．空中景觀纜車．新倉淺間神社．登上晴空塔．螃蟹吃到飽．溫泉5天', days:5, city:'台北', park:'單', family:false, spots:['富士山', '箱根溫泉', '溫泉飯店', '晴空塔'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-TYO05JX04#TYO05260615A' },
+  { agency:'燦星', theme:'東京迪士尼', title:'【東京玩透透】迪士尼．橫濱八景島x可愛海豚秀．KABA河馬巴士．大石公園花爛漫．河口湖採果趣．溫泉美食5天', days:5, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店', '水族館'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-TYO05JX15A#TYO05260609K' },
+  { agency:'燦星', theme:'東京迪士尼', title:'【東京星發現】迪士尼．天上山公園x卡奇山纜車．澀谷天空展望台．OUTLET購物．螃蟹放題．溫泉5天', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', 'OUTLET'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-TYO05IT08#TYO05261004B' },
+  { agency:'燦星', theme:'東京迪士尼', title:'高雄出發【東京星樂園】迪士尼．箱根海賊船．大涌谷纜車．登上晴空塔．螃蟹吃到飽．溫泉5天', days:5, city:'高雄', park:'單', family:false, spots:['箱根溫泉', '溫泉飯店', '晴空塔'], hasAff:true, url:'https://tour.startravel.com.tw/print/00001-NRT05BR01/NRT05260601A' },
+  { agency:'燦星', theme:'東京迪士尼', title:'【關東紫陽花季】東京迪士尼．箱根鐵道漫遊．新倉淺間神社．螃蟹放題．溫泉5天', days:5, city:'台北', park:'單', family:false, spots:['富士山', '箱根溫泉', '溫泉飯店'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-TYO05BR09#TYO05260609F' },
+  { agency:'燦星', theme:'東京迪士尼', title:'【童心玩東京】迪士尼．橫濱麵包超人x夢幻摩天輪．富士野生動物園．河口湖採果趣．OUTLET．溫泉饗宴5天', days:5, city:'台北', park:'單', family:true, spots:['富士山', '溫泉飯店', 'OUTLET'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-TYO05JX08#TYO05260531C' },
+  { agency:'燦星', theme:'東京迪士尼', title:'【暑期限定】東京捷星【迪士尼ｘ輕井澤森林公園】漫遊淺草6日', days:6, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.startravel.com.tw/print/20230-0W7739VR3VEC8Y/8G7V18439VR37EC8Y' },
+  { agency:'燦星', theme:'東京迪士尼', title:'嗨玩東京～迪士尼樂園、豐洲千客萬來、富士大石公園、富士五湖溫泉五日', days:5, city:'台北', park:'單', family:false, spots:['富士山', '溫泉飯店', '豐洲千客萬來'], hasAff:true, url:'https://tour.startravel.com.tw/print/20130-6E805909/3FIU276737KE9Y' },
+  { agency:'雄獅', theme:'大阪環球影城', title:'旅展超值｜神戶須磨海洋世界.大阪環球影城.京都清水寺.奈良小鹿公園.燒肉吃到飽五日', days:5, city:'台北', park:'單', family:false, spots:['京都', '奈良', '神戶'], hasAff:true, url:'https://linkgo.one/s/ta3ER' },
+  { agency:'雄獅', theme:'大阪環球影城', title:'高雄出發｜快閃京阪奈｜大阪環球影城.清水寺.奈良小鹿.嵐山渡月橋.竹林小徑.野宮神社四日', days:4, city:'高雄', park:'單', family:false, spots:['京都', '奈良'], hasAff:true, url:'https://afflink.one/s/U22Lp' },
+  { agency:'雄獅', theme:'大阪環球影城', title:'限量京阪旅遊｜大阪環球影城.清水寺.伏見稻荷大社.錦市場散策.臨空outlet購物趣五日｜一日自由活動', days:5, city:'台北', park:'單', family:false, spots:['OUTLET', '京都'], hasAff:true, url:'https://linkgo.one/s/KlWUJ' },
+  { agency:'雄獅', theme:'大阪環球影城', title:'高雄出發｜秒殺特惠｜京阪旅遊｜大阪環球影城.清水寺.伏見稻荷大社.錦市場散策五日｜一日自由活動', days:5, city:'高雄', park:'單', family:false, spots:['京都'], hasAff:true, url:'https://afflink.one/s/RVOdB' },
+  { agency:'雄獅', theme:'大阪環球影城', title:'高雄出發｜日本大阪｜環球影城瑪利歐來囉.伏見稻荷大社.清水寺.金閣寺.花見小路.梅花鹿公園.HARUKAS展望台五日', days:5, city:'高雄', park:'單', family:false, spots:['京都', '奈良'], hasAff:true, url:'https://onelink.one/s/QEsCm' },
+  { agency:'雄獅', theme:'大阪環球影城', title:'暑假折2千｜客製大阪環球影城.章魚燒DIY.海遊館.達摩不倒翁〈勝尾寺〉迷你小團五日', days:5, city:'高雄', park:'單', family:false, spots:['海遊館'], hasAff:true, url:'https://onelink.one/s/F2hMQ' },
+  { agency:'雄獅', theme:'大阪環球影城', title:'客製｜大阪環球影城、京都貓貓寺、NIFREL活生生的博物館、貓頭鷹咖啡廳.親子迷你小團五日【專屬包車】※不含機票', days:5, city:'不限', park:'單', family:true, spots:['京都'], hasAff:true, url:'https://linkgo.one/s/FByIf' },
+  { agency:'雄獅', theme:'大阪環球影城', title:'大阪旅遊｜日本環球影城瑪利歐.奈良東大寺.抺茶體驗.清水寺.六甲山斜面電車.姬路城6日｜環球影城旁飯店｜高雄來回', days:6, city:'高雄', park:'單', family:false, spots:['京都', '奈良', '姬路城'], hasAff:true, url:'https://afflink.one/s/6IxH3' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'【長榮】大阪環球影城５天～星巴克茶屋、嵐山渡月橋、北野異國風情、瘋購物趣', days:5, city:'台北', park:'單', family:false, spots:['京都', '神戶'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001914/OSA0525-BRD' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'大阪環球影城６天～嵐山渡月橋、星巴克茶屋、奈良鹿公園、摩賽克廣場、京阪神奈遊', days:6, city:'台北', park:'單', family:false, spots:['京都', '奈良'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001914/OSA0626-SL' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'【寶貝省錢專案】星宇神戶大阪環球影城５天～朱紅鳥居、嵐山渡月橋、世界遺產平等院', days:5, city:'台中', park:'單', family:false, spots:['京都', '神戶'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001914/UKB0526-RS' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'親子同樂會♯關西雙樂園溫泉５天～大阪環球影城、志摩西班牙村、多氣町VISON、長腳蟹吃到飽', days:5, city:'台北', park:'單', family:true, spots:['溫泉飯店'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001914/OSA0526-7H' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'親子同樂會♯今夏暑於你｜關東關西制霸三樂園7日富士野生動物園×東京迪士尼×大阪環球影城奈良萌鹿．富士絕景．鮮採水蜜桃吃到飽．兩晚溫泉', days:7, city:'台北', park:'單', family:true, spots:['溫泉飯店', '奈良'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000014138/TYO7CX3' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'親子同樂會♯【暑假限定】名古屋【希爾頓酒店】樂高樂園ｘ大阪環球影城５日', days:5, city:'高雄', park:'單', family:true, spots:['樂高樂園'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001943/NGOK5IT26007' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'親子同樂會♯【暑假限定】名古屋【希爾頓酒店】樂高樂園ｘ大阪環球影城６日', days:6, city:'高雄', park:'單', family:true, spots:['樂高樂園'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001943/NGOK6IT26005' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'早鳥獨家省♯【兒童折萬】北陸關西雙樂園6日.樂高樂園.大阪環球影城.勝尾寺.伊賀忍者村.海鮮龍蝦.伊賀牛.三井OUT購物', days:6, city:'台北', park:'單', family:true, spots:['樂高樂園'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000000522/NGO06-CI150' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'嗨翻關西５天～奈良東大寺萌鹿、京都清水寺嵐山、大阪環球影城', days:5, city:'高雄', park:'單', family:false, spots:['京都', '奈良'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001914/OSA0526-K2' },
+  { agency:'東南', theme:'大阪環球影城', title:'【精選關西】保住環球周邊飯店‧天橋立‧美山町‧伊根舟屋‧龍蝦螃蟹5日', days:5, city:'台北', park:'單', family:false, spots:['天橋立'], hasAff:true, url:'https://linkgo.one/s/tQa5X' },
+  { agency:'東南', theme:'大阪環球影城', title:'【精選關西】三晚溫泉‧環球周邊飯店‧六甲之森‧神戶牛美食關西5日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '神戶'], hasAff:true, url:'https://afflink.one/s/NFs3E' },
+  { agency:'東南', theme:'大阪環球影城', title:'【勁爆丹後】五星大阪環球.京都天橋立 View Land.嵐山伏見5日', days:5, city:'高雄', park:'單', family:false, spots:['京都', '天橋立'], hasAff:true, url:'https://onelink.one/s/vVa74' },
+  { agency:'東南', theme:'大阪環球影城', title:'【精選關西】環球周邊溫泉飯店.京都希爾頓花園.環球特快.美食關西5日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '京都'], hasAff:true, url:'https://onelink.one/s/GGmpk' },
+  { agency:'東南', theme:'大阪環球影城', title:'【珍愛丹後】大阪環球.丹後鐵道.天橋立伊根灣.美山町.嵐山.東大寺5日', days:5, city:'高雄', park:'單', family:false, spots:['京都', '奈良', '天橋立'], hasAff:true, url:'https://onelink.one/s/kguHX' },
+  { agency:'東南', theme:'大阪環球影城', title:'【限時限量】保住三晚溫泉‧和服體驗‧環球影城‧美食海鮮關西5日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店'], hasAff:true, url:'https://onelink.one/s/iYliW' },
+  { agency:'東南', theme:'大阪環球影城', title:'三晚五星【歡暢關西】大阪環球.京都清水寺嵐山金閣寺下鴨.難波神社5日', days:5, city:'高雄', park:'單', family:false, spots:['京都'], hasAff:true, url:'https://afflink.one/s/BNads' },
+  { agency:'東南', theme:'大阪環球影城', title:'【勁樂關西】大阪環球.奈良梅花鹿.京都嵐山嵐電.清水寺.有馬散策5日', days:5, city:'高雄', park:'單', family:false, spots:['京都', '奈良', '有馬溫泉'], hasAff:true, url:'https://linkgo.one/s/MgBbo' },
+  { agency:'東南', theme:'大阪環球影城', title:'【限時限量】8人成行‧大阪環球影城‧神戶牛吃到飽‧半自由行關西5日', days:5, city:'台北', park:'單', family:false, spots:['神戶'], hasAff:true, url:'https://linkgo.one/s/nNllr' },
+  { agency:'燦星', theme:'大阪環球影城', title:'FUN星玩【童心玩關西】大阪環球影城．神戶須磨海洋世界．大小步危峽谷遊船．燒肉吃到飽4天', days:4, city:'台北', park:'單', family:true, spots:['神戶'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-KCZ04IT41A#KCZ04260603U' },
+  { agency:'燦星', theme:'大阪環球影城', title:'【星享關西】日本環球影城．絕景天橋立．海之京都伊根遊船．國寶清水寺．千本鳥居．奈良萌鹿5天', days:5, city:'台北', park:'單', family:false, spots:['京都', '奈良', '天橋立'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-KIX05VZ02#KIX05260929A' },
+  { agency:'燦星', theme:'大阪環球影城', title:'旅展特惠【關西夏令營】大阪環球影城．伊賀流忍者村．童話草屋根．清水寺．奈良餵萌鹿5天', days:5, city:'台中', park:'單', family:false, spots:['京都', '奈良'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-NGO05IT26A#NGO05260601B' },
+  { agency:'燦星', theme:'大阪環球影城', title:'【童心玩關西】大阪環球影城．神戶須磨海洋世界．阿倍野展望台．漩渦觀潮船．燒肉吃到飽5天', days:5, city:'台北', park:'單', family:true, spots:['神戶'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-KCZ05IT36A#KCZ05260620U' },
+  { agency:'燦星', theme:'大阪環球影城', title:'【FUN玩雙樂園】大阪環球影城．樂高樂園+水族館．清水寺．阿倍野展望台．奈良餵萌鹿．童話草根屋．燒肉吃到飽 5天', days:5, city:'台北', park:'單', family:false, spots:['水族館', '京都', '奈良', '樂高樂園'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-NGO05IT25B#NGO05260904B' },
+  { agency:'燦星', theme:'大阪環球影城', title:'線上旅展【童心玩北陸】大阪環球影城．恐龍博物館．伊賀流忍者秀．奈良餵萌鹿．溫泉5天', days:5, city:'台北', park:'單', family:true, spots:['溫泉飯店', '奈良'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-KMQ05IT27#KMQ05260910B' },
+  { agency:'燦星', theme:'大阪環球影城', title:'線上旅展【童心玩北陸】大阪環球影城．哆啦A夢列車．奈良餵萌鹿．童話合掌村．近江八幡5天', days:5, city:'台北', park:'單', family:true, spots:['奈良'], hasAff:true, url:'https://tour.startravel.com.tw/print/00001-NGO05IT24/NGO05260826A' },
+  { agency:'燦星', theme:'大阪環球影城', title:'旅展【童心雙樂園】日本環球影城．F1鈴鹿賽車．清水寺．鯨鯊海遊館．奈良萌鹿6天', days:6, city:'台北', park:'單', family:true, spots:['京都', '奈良', '海遊館'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-NGO06IT35A#NGO06260828B' },
+  { agency:'燦星', theme:'大阪環球影城', title:'【關西之星】日本環球影城．海遊館．天保山摩天輪．美山合掌村．清水寺．奈良萌鹿5天', days:5, city:'台北', park:'單', family:false, spots:['京都', '奈良', '海遊館'], hasAff:true, url:'https://tour.startravel.com.tw/detail/00001-KIX05BR10#KIX05260601A' },
+  { agency:'可樂', theme:'大阪環球影城', title:'萬歲關西瑪利歐～日本環球影城、哈利波特小小兵、米其林景點、愛戀三都物語五日', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOE062105BR6&TourDate=2026/06/21' },
+  { agency:'可樂', theme:'大阪環球影城', title:'關西OMG～日本環球影城、哈利波特小小兵、京阪好自在、日式燒肉吃到飽五日', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOZ062105BR6&TourDate=2026/06/21' },
+  { agency:'可樂', theme:'大阪環球影城', title:'TXG萬歲關西瑪利歐～日本環球影城、世界文化遺產、四都京阪神奈、黑毛和牛吃到飽五日', days:5, city:'台中', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOE062205JX6X&TourDate=2026/06/22' },
+  { agency:'可樂', theme:'大阪環球影城', title:'超級關西瑪利歐～日本環球影城、快速通關四項券、米其林景點、愛戀三都物語五日', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOK062305BR6&TourDate=2026/06/23' },
+  { agency:'可樂', theme:'大阪環球影城', title:'KHH關西OMG～日本環球影城、哈利波特小小兵、京阪好自在、日式燒肉吃到飽四日', days:4, city:'高雄', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOX062304BR6K&TourDate=2026/06/23' },
+  { agency:'可樂', theme:'大阪環球影城', title:'萬歲關西瑪利歐～日本環球影城、哈利波特小小兵、米其林景點、愛戀京阪神奈六日', days:6, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=234777' },
+  { agency:'可樂', theme:'大阪環球影城', title:'日本雙樂園～日本環球影城、樂高樂園、名花之里OUTLET、中部福朋喜來登六日', days:6, city:'台北', park:'單', family:false, spots:['OUTLET', '樂高樂園'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=235562' },
+  { agency:'可樂', theme:'大阪環球影城', title:'萬歲關西瑪利歐～日本環球影城、世界文化遺產、四都京阪神奈、黑毛和牛吃到飽六日', days:6, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=227114' },
+  { agency:'可樂', theme:'大阪環球影城', title:'【北陸FUN暑假、兒童不佔減1萬】日本環球影城、樂高樂園、姬路城心齋橋、熱田神宮六日', days:6, city:'台北', park:'單', family:true, spots:['姬路城', '樂高樂園'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=241424' },
+  { agency:'可樂', theme:'大阪環球影城', title:'TXG【關西FUN暑假、兒童不佔減1萬】日本環球影城、須磨海洋世界、神戶動物王國、京都和服五日', days:5, city:'台中', park:'單', family:true, spots:['京都', '神戶'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=238396' },
+  { agency:'可樂', theme:'大阪環球影城', title:'【關西FUN暑假、兒童不佔減1萬】日本環球影城、快速通關四項券、園區包場派對、影城外圍飯店五日', days:5, city:'台北', park:'單', family:true, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOK070205BR6A&TourDate=2026/07/02' },
+  { agency:'可樂', theme:'大阪環球影城', title:'TXG【關西FUN暑假、兒童不佔減1萬】日本環球影城、快速通關四項券、園區包場派對、影城外圍飯店五日', days:5, city:'台中', park:'單', family:true, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOE070405JX6X&TourDate=2026/07/04' },
+  { agency:'可樂', theme:'大阪環球影城', title:'關西幸運星～日本環球影城、快速通關四項券、達摩勝尾寺、嵐山故事旅行五日', days:5, city:'台北', park:'單', family:false, spots:['京都'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOE070305JX6&TourDate=2026/07/03' },
+  { agency:'可樂', theme:'大阪環球影城', title:'甲子園職棒體驗～日本環球影城、愛戀三都物語、嵐山故事旅行、黑毛和牛吃到飽五日', days:5, city:'台北', park:'單', family:false, spots:['京都'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?TourCode=NOK070405JX6&TourDate=2026/07/04' },
+  { agency:'可樂', theme:'大阪環球影城', title:'萬歲關西瑪利歐～日本環球影城、世界文化遺產、四都京阪神奈、黑毛和牛吃到飽五日', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=237107' },
+  { agency:'可樂', theme:'大阪環球影城', title:'KHH關西揪好康～日本環球影城、美山町合掌村、伊根灣遊覽船、影城外圍飯店五日', days:5, city:'高雄', park:'單', family:false, spots:[], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=238515' },
+  { agency:'雄獅', theme:'京奈神', title:'日本關西好食在｜京阪神奈,二條城,和服體驗,酒香散策,嵐山屋形船,高瀨川日料,鰻魚三吃,龍蝦神戶牛五日', days:5, city:'台北', park:'單', family:false, spots:['京都', '神戶'], hasAff:true, url:'https://onelink.one/s/oUNVk' },
+  { agency:'雄獅', theme:'京奈神', title:'日本關西好食在｜京阪神奈.和服體驗.伏見酒香散策.神戶港海上巡航.近江牛明太子.長腳蟹五日｜高雄', days:5, city:'高雄', park:'單', family:false, spots:['京都', '神戶'], hasAff:true, url:'https://linkgo.one/s/BACAk' },
+  { agency:'雄獅', theme:'京奈神', title:'關西京阪神奈旅遊｜伏見稻荷大社.金閣寺.京都廚房錦市場.奈良小鹿.神戶港燈塔.美學átoa水族館五日', days:5, city:'台北', park:'單', family:false, spots:['水族館', '京都', '奈良', '神戶'], hasAff:true, url:'https://linkgo.one/s/JmqZY' },
+  { agency:'雄獅', theme:'京奈神', title:'限定關西四都旅遊｜全程無自理餐｜京阪神奈.梅花鹿公園.嵐山渡月橋.生田神社.北野異人館.OUTLET五日', days:5, city:'台北', park:'單', family:false, spots:['OUTLET', '京都', '奈良', '神戶'], hasAff:true, url:'https://linkgo.one/s/iVZiZ' },
+  { agency:'雄獅', theme:'京奈神', title:'限量出清｜大阪｜京阪神三都.世界遺產清水寺.嵐山渡月橋.有馬溫泉散策.宇治川遊船五日｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['溫泉飯店', '京都', '有馬溫泉'], hasAff:true, url:'https://onelink.one/s/4hzzq' },
+  { agency:'雄獅', theme:'京奈神', title:'樂遊京阪神旅遊│森之美山町合掌村.海之天橋立.伊根舟屋.茶之平等院.有馬溫泉.雙DIY體驗五日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '有馬溫泉', '天橋立'], hasAff:true, url:'https://linkgo.one/s/Aast4' },
+  { agency:'雄獅', theme:'京奈神', title:'關西京阪神奈│海之天橋立.伊根舟屋.療癒三千院.平等院.奈良梅花鹿.須磨海洋世界.溫泉螃蟹五日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '奈良', '神戶', '天橋立'], hasAff:true, url:'https://linkgo.one/s/FjBO8' },
+  { agency:'雄獅', theme:'京奈神', title:'初心遊｜丹後鐵道黑松海上列車｜京都三重奏x海森茶．天橋立伊根舟屋．大阪五星1晚．開運勝尾寺５日', days:5, city:'台北', park:'單', family:false, spots:['京都', '天橋立'], hasAff:true, url:'https://afflink.one/s/eWBh2' },
+  { agency:'雄獅', theme:'京奈神', title:'高雄出發｜旅展限量｜漫遊京阪神三都.宇治平等院.嵐山渡月橋.大阪城.黑門市場.神戶港散策五日', days:5, city:'高雄', park:'單', family:false, spots:['京都', '神戶'], hasAff:true, url:'https://onelink.one/s/Lgjtf' },
+  { agency:'雄獅', theme:'京奈神', title:'京阪神奈│環球影城.嵐山渡月橋.勝尾寺.奈良梅花鹿.下鴨神社.錦市場.神戶港灣美景六日', days:6, city:'台北', park:'單', family:false, spots:['京都', '奈良', '神戶'], hasAff:true, url:'https://onelink.one/s/eCDNf' },
+  { agency:'雄獅', theme:'京奈神', title:'京阪神奈｜環球影城.神戶動物王國.清水寺.奈良小鹿.海遊館五日｜保住兩晚環球旁飯店', days:5, city:'台北', park:'單', family:false, spots:['京都', '奈良', '神戶', '海遊館'], hasAff:true, url:'https://onelink.one/s/QPxD6' },
+  { agency:'雄獅', theme:'京奈神', title:'經典大阪旅遊｜京阪神奈四都.清水寺.和服體驗.有馬溫泉.環球影城超級任天堂世界.神戶摩賽克.溫泉美食五日｜兩晚環球影城旁飯店｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['溫泉飯店', '京都', '神戶', '有馬溫泉'], hasAff:true, url:'https://onelink.one/s/BhtcH' },
+  { agency:'雄獅', theme:'京奈神', title:'大阪旅遊｜京阪神奈四都.環球影城超級任天堂世界.虎鯨海洋世界.神戶動物園.鐵道博物館五日｜兩晚環球影城旁飯店｜高雄來回', days:5, city:'高雄', park:'單', family:false, spots:['神戶'], hasAff:true, url:'https://afflink.one/s/FxgfM' },
+  { agency:'雄獅', theme:'京奈神', title:'特選關西五都京阪神奈和歌山｜和歌山小玉電鐵.黑潮市場.小鹿巡禮.水豚君親密接觸.日本環球影城.長腳蟹章魚燒DIY五日', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://onelink.one/s/V5WNz' },
+  { agency:'雄獅', theme:'京奈神', title:'兒童最高省1萬｜親子樂園｜日本環球影城.樂高主題樂園.水族館.勇闖恐龍世界.LaCollina甜點.螃蟹溫泉六日(阪名)', days:6, city:'台北', park:'單', family:true, spots:['溫泉飯店', '水族館', '樂高樂園'], hasAff:true, url:'https://afflink.one/s/q3Rwq' },
+  { agency:'東南', theme:'京奈神', title:'【限時限量】小資關西‧三都京阪奈‧超值優惠‧關西半自由行5日', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://linkgo.one/s/8oXaf' },
+  { agency:'東南', theme:'京奈神', title:'【限時限量】8人成行‧四晚溫泉‧姬路城‧關西半自由行5日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '姬路城'], hasAff:true, url:'https://afflink.one/s/6D9UU' },
+  { agency:'東南', theme:'京奈神', title:'【關西輕旅行】京都清水金閣.奈良東大寺.和牛龍蝦拼盤.大阪自由散策5日', days:5, city:'高雄', park:'單', family:false, spots:['京都', '奈良'], hasAff:true, url:'https://afflink.one/s/mFTrS' },
+  { agency:'東南', theme:'京奈神', title:'【限時限量】10人成行‧國際五星大阪W飯店‧超值優惠‧關西半自由行5日', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://afflink.one/s/sCdU6' },
+  { agency:'東南', theme:'京奈神', title:'【限時限量】漫步京阪奈‧大阪海遊館‧和服體驗‧關西半自由行5日', days:5, city:'台北', park:'單', family:false, spots:['海遊館'], hasAff:true, url:'https://linkgo.one/s/8AN8S' },
+  { agency:'東南', theme:'京奈神', title:'【蔬式旅行】關西素食旅遊｜琵琶湖溫泉‧嵐山‧心齋橋‧遊船5日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '京都'], hasAff:true, url:'https://onelink.one/s/FMJ9A' },
+  { agency:'易遊網', theme:'京奈神', title:'《經典關西天橋立全覽5日》京阪神五都暢遊', days:5, city:'台北', park:'單', family:false, spots:['天橋立'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001943/OSA05CI15157' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'【小資遊關西四都影城5日】京阪神（和牛燒肉）', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001943/OSA05BRBR178' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'【睡飽再出發！京阪神關西影城5日】長腳蟹吃到飽', days:5, city:'台北', park:'單', family:false, spots:[], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001943/OSA5BR176175' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'【經典京阪神奈四都影城5日】兵庫(神戶或大阪)、清水寺、祇園‧江戶時代藝伎小街、伏見稻荷大社、日本環球影城', days:5, city:'台北', park:'單', family:false, spots:['京都', '神戶'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001943/OSA5JX262221' },
+  { agency:'易遊網', theme:'大阪環球影城', title:'【泰好玩限量京阪神關西影城5日】伏見稻荷大社、梅花鹿公園、北野異人館、免稅店、日本環球影城', days:5, city:'台北', park:'單', family:false, spots:['京都', '奈良', '神戶'], hasAff:true, url:'https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001943/OSA05VZ54068' },
+  { agency:'可樂', theme:'京奈神', title:'關西花月夜～三都京阪神、世界文化遺產、有馬溫泉老街、長腳蟹吃到飽五日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '有馬溫泉'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=235413' },
+  { agency:'可樂', theme:'京奈神', title:'關西秘境～天空竹田城跡、美山合掌村、伊根灣遊覽船、姬路美饌溫泉五日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '姬路城'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=235213' },
+  { agency:'可樂', theme:'京奈神', title:'KHH關西漫遊～美山町合掌村、伊根灣觀光船、平等宇治茶香、有馬溫泉老街五日', days:5, city:'高雄', park:'單', family:false, spots:['溫泉飯店', '有馬溫泉'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=220970' },
+  { agency:'可樂', theme:'京奈神', title:'【限量出清】關西超值選、京都醉風情、宇治抹茶香、大阪燒肉吃到飽五日', days:5, city:'台北', park:'單', family:false, spots:['京都'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=238995' },
+  { agency:'可樂', theme:'京奈神', title:'關西遇到愛～三都京阪神、日式和服體驗、華麗夜晚餐、乙晚溫泉飯店五日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=224225' },
+  { agency:'可樂', theme:'京奈神', title:'關西秘境～天空竹田城跡、美山合掌村、伊根灣遊覽船、姬路美饌溫泉六日', days:6, city:'台北', park:'單', family:false, spots:['溫泉飯店', '姬路城'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=227016' },
+  { agency:'可樂', theme:'京奈神', title:'北陸嬉遊～立山黑部、京都風情漫遊、上高地兼六園、若狹松葉蟹溫泉六日', days:6, city:'台北', park:'單', family:false, spots:['溫泉飯店', '京都'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=241426' },
+  { agency:'可樂', theme:'京奈神', title:'88節省很大～關西三都風情、伏見稻荷大社、有馬溫泉老街、黑毛和牛吃到飽五日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '京都', '有馬溫泉'], hasAff:true, url:'https://tour.colatour.com.tw/itinerary?PatternNo=241118' },
+  { agency:'燦星', theme:'京奈神', title:'關西花月夜～三都京阪神、世界文化遺產、有馬溫泉老街、長腳蟹吃到飽五日', days:5, city:'台北', park:'單', family:false, spots:['溫泉飯店', '有馬溫泉'], hasAff:true, url:'https://tour.startravel.com.tw/detail/20130-9A726009#3WCM277098PZ5Y' },
+];
+</script>
 <script>
 const TYPE_CLS={"交通運輸":"tb-transport","景點門票":"tb-ticket","活動體驗":"tb-activity","一日遊":"tb-tour","套票":"tb-bundle"};
 const SUB_TYPE_MAP={
@@ -168,16 +430,21 @@ const SUB_ACTIVE_CLS={"交通運輸":"active-transport","景點門票":"active-t
 
 let selCountry="",selCity="",selType="",selSubtype="",selPlatform="",maxPrice=0,tab="tickets";
 
+// ── 團體行狀態 ──
+let tourTheme='東京迪士尼',tourCity='',tourPark='',tourDays='',tourFamily=false,tourSpots=[],tourAgency='',tourSort='default';
+
 function getSaved(){try{return JSON.parse(localStorage.getItem('ivy_tickets')||'[]')}catch{return[]}}
 function setSaved(arr){try{localStorage.setItem('ivy_tickets',JSON.stringify(arr))}catch{}}
 function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2000)}
 
 function goTab(t){
   tab=t;
-  ['tickets','saved','info'].forEach(x=>{
+  ['tickets','tours','saved','info'].forEach(x=>{
     const el=document.getElementById('nb-'+x);
     if(el)el.className='nbtn'+(x===t?' on':'');
   });
+  // 更新網址 hash
+  history.replaceState(null,'','#'+t);
   render();
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -399,6 +666,7 @@ function renderInfo(){
 function render(){
   if(tab==='saved'){renderSaved();return;}
   if(tab==='info'){renderInfo();return;}
+  if(tab==='tours'){renderTours();return;}
   const mc=document.getElementById('mc');
   mc.innerHTML=`
     <div class="fpanel">
@@ -460,6 +728,426 @@ function render(){
   buildCityPills();
   buildSubtypePills();
   renderTickets();
+}
+
+// ════════════════════════════════════
+// 團體行懶人包
+// ════════════════════════════════════
+const THEME_META = {
+  '東京迪士尼': { icon:'🎡', color:'#3B5BDB', dk:'#2F4AC9', tabCls:'on-disney',
+    spots:['富士山','箱根溫泉','OUTLET','溫泉飯店','鎌倉','晴空塔','阿美橫町','豐洲千客萬來','水族館'] },
+  '大阪環球影城': { icon:'🎠', color:'#CC3300', dk:'#AA2200', tabCls:'on-usj',
+    spots:['京都','奈良','神戶','有馬溫泉','海遊館','OUTLET','樂高樂園','溫泉飯店'] },
+  '京奈神': { icon:'⛩️', color:'#2D6A4F', dk:'#1B4332', tabCls:'on-kansai',
+    spots:['京都','奈良','神戶','有馬溫泉','姬路城','OUTLET','天橋立','溫泉飯店'] },
+};
+const AGENCY_BADGE = {
+  '雄獅':'badge-lion','東南':'badge-settour','易遊網':'badge-eztravel','可樂':'badge-cola','燦星':'badge-star'
+};
+const AGENCY_STRIPE = {
+  '雄獅':'#3B5BDB','東南':'#EA580C','易遊網':'#059669','可樂':'#7C3AED','燦星':'#D97706'
+};
+
+function setTourTheme(theme){
+  tourTheme=theme; tourCity=''; tourPark=''; tourDays=''; tourFamily=false; tourSpots=[]; tourAgency=''; tourSort='default';
+  renderTours();
+}
+function toggleTourCity(v){
+  // v='' 代表不限，直接清空；否則切換該城市
+  tourCity=(tourCity===v&&v!==''?'':v);
+  renderTours();
+}
+function toggleTourPark(v){ tourPark=(tourPark===v?'':v); renderTours(); }
+function toggleTourDays(v){ tourDays=(tourDays===v?'':v); renderTours(); }
+function toggleTourFamily(){ tourFamily=!tourFamily; renderTours(); }
+function toggleTourSpot(v){
+  const i=tourSpots.indexOf(v);
+  if(i>-1) tourSpots.splice(i,1); else tourSpots.push(v);
+  renderTours();
+}
+function toggleTourAgency(v){ tourAgency=(tourAgency===v?'':v); renderTours(); }
+function setTourSort(v){ tourSort=v; renderTours(); }
+function clearTourFilters(){ tourCity='';tourPark='';tourDays='';tourFamily=false;tourSpots=[];tourAgency='';tourSort='default'; renderTours(); }
+
+function getTourFiltered(){
+  let result = tours.filter(t=>{
+    if(t.theme!==tourTheme) return false;
+    if(tourCity && t.city!==tourCity) return false;
+    if(tourPark && t.park!==tourPark) return false;
+    if(tourDays && t.days!==parseInt(tourDays)) return false;
+    if(tourFamily && !t.family) return false;
+    if(tourAgency && t.agency!==tourAgency) return false;
+    return true;
+  });
+
+  // 排序
+  if(tourSort==='days_asc') result.sort((a,b)=>a.days-b.days);
+  else if(tourSort==='days_desc') result.sort((a,b)=>b.days-a.days);
+  else if(tourSpots.length>0) {
+    result.sort((a,b)=>{
+      const am=tourSpots.filter(s=>a.spots.includes(s)).length;
+      const bm=tourSpots.filter(s=>b.spots.includes(s)).length;
+      return bm-am||a.price-b.price;
+    });
+  }
+  return result;
+}
+
+// ════════════════════════════════════
+// Quiz 問答流程
+// ════════════════════════════════════
+const QUIZ_STEPS = {
+  '東京迪士尼': [
+    { id:'city', label:'Q1 / 5', q:'你從哪裡出發？', type:'single', opts:[
+      {v:'',l:'🌐 不限／都可以'},{v:'台北',l:'🛫 台北／桃園'},{v:'台中',l:'🛫 台中'},{v:'高雄',l:'🛫 高雄'}
+    ]},
+    { id:'park', label:'Q2 / 5', q:'想玩單樂園還是雙樂園？', type:'single', opts:[
+      {v:'單',l:'🎡 單樂園\n（擇一）'},{v:'雙',l:'🎡🎡 雙樂園\n（兩個都玩）'}
+    ]},
+    { id:'days', label:'Q3 / 5', q:'幾天的行程比較適合？', type:'single', opts:[
+      {v:'5',l:'5天'},{v:'6',l:'6天'},{v:'7',l:'7天'},{v:'',l:'都可以'}
+    ]},
+    { id:'family', label:'Q4 / 5', q:'有帶小孩嗎？', type:'single', opts:[
+      {v:'yes',l:'👨‍👩‍👧 有，想找親子行程'},{v:'no',l:'🙋 沒有 / 不限'}
+    ]},
+    { id:'spots', label:'Q5 / 5', q:'除了迪士尼，還有哪裡想去？', type:'multi',
+      opts:['富士山','箱根溫泉','OUTLET','溫泉飯店','鎌倉','晴空塔','阿美橫町','豐洲千客萬來','水族館']
+    },
+  ],
+  '大阪環球影城': [
+    { id:'city', label:'Q1 / 4', q:'你從哪裡出發？', type:'single', opts:[
+      {v:'',l:'🌐 不限／都可以'},{v:'台北',l:'🛫 台北／桃園'},{v:'台中',l:'🛫 台中'},{v:'高雄',l:'🛫 高雄'}
+    ]},
+    { id:'days', label:'Q2 / 4', q:'幾天的行程比較適合？', type:'single', opts:[
+      {v:'4',l:'4天'},{v:'5',l:'5天'},{v:'6',l:'6天'},{v:'',l:'都可以'}
+    ]},
+    { id:'family', label:'Q3 / 4', q:'有帶小孩嗎？', type:'single', opts:[
+      {v:'yes',l:'👨‍👩‍👧 有，想找親子行程'},{v:'no',l:'🙋 沒有 / 不限'}
+    ]},
+    { id:'spots', label:'Q4 / 4', q:'除了環球影城，還有哪裡想去？', type:'multi',
+      opts:['京都','奈良','神戶','有馬溫泉','海遊館','OUTLET','樂高樂園','溫泉飯店']
+    },
+  ],
+  '京奈神': [
+    { id:'city', label:'Q1 / 4', q:'你從哪裡出發？', type:'single', opts:[
+      {v:'',l:'🌐 不限／都可以'},{v:'台北',l:'🛫 台北／桃園'},{v:'台中',l:'🛫 台中'},{v:'高雄',l:'🛫 高雄'}
+    ]},
+    { id:'days', label:'Q2 / 4', q:'幾天的行程比較適合？', type:'single', opts:[
+      {v:'5',l:'5天'},{v:'6',l:'6天'},{v:'7',l:'7天'},{v:'',l:'都可以'}
+    ]},
+    { id:'family', label:'Q3 / 4', q:'有帶小孩嗎？', type:'single', opts:[
+      {v:'yes',l:'👨‍👩‍👧 有，想找親子行程'},{v:'no',l:'🙋 沒有 / 不限'}
+    ]},
+    { id:'spots', label:'Q4 / 4', q:'這次想重點去哪裡？', type:'multi',
+      opts:['京都','奈良','神戶','有馬溫泉','姬路城','OUTLET','天橋立','溫泉飯店']
+    },
+  ],
+};
+
+let quizOpen = false;
+let quizStep = 0;
+let quizAns = { city:'', park:'單', days:'', family:false, spots:[] };
+
+function toggleQuiz(){
+  quizOpen = !quizOpen;
+  quizStep = 0;
+  quizAns = { city:'', park:'單', days:'', family:false, spots:[] };
+  // 展開quiz時收起篩選器，關閉時展開
+  const filterEl = document.getElementById('tour-filter-anchor');
+  if(filterEl) filterEl.style.display = quizOpen ? 'none' : '';
+  renderTours();
+  if(quizOpen) setTimeout(()=>{ document.querySelector('.quiz-box')?.scrollIntoView({behavior:'smooth',block:'nearest'}); },100);
+}
+
+function quizSelectSingle(stepId, val){
+  if(stepId==='city') quizAns.city=val;
+  else if(stepId==='park') quizAns.park=val;
+  else if(stepId==='days') quizAns.days=val;
+  else if(stepId==='family') quizAns.family=(val==='yes');
+  document.querySelectorAll('.quiz-opt').forEach(el=>el.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  document.querySelector('.quiz-next').disabled=false;
+}
+
+function quizToggleSpot(el, spot){
+  el.classList.toggle('selected');
+  const i=quizAns.spots.indexOf(spot);
+  if(i>-1) quizAns.spots.splice(i,1); else quizAns.spots.push(spot);
+}
+
+function quizNext(){
+  const steps=QUIZ_STEPS[tourTheme];
+  if(quizStep<steps.length-1){ quizStep++; renderQuizSteps(); }
+  else { renderQuizDone(); }
+}
+
+function quizBack(){
+  if(quizStep>0){ quizStep--; renderQuizSteps(); }
+  else { quizOpen=false; renderTours(); }
+}
+
+function quizSkip(){
+  const steps=QUIZ_STEPS[tourTheme];
+  if(quizStep<steps.length-1){ quizStep++; renderQuizSteps(); }
+  else { renderQuizDone(); }
+}
+
+function applyQuizResults(){
+  tourCity=quizAns.city;
+  if(tourTheme==='東京迪士尼') tourPark=quizAns.park||'';
+  tourDays=quizAns.days;
+  tourFamily=quizAns.family;
+  tourSpots=[...quizAns.spots];
+  quizOpen=false;
+  // 展開篩選器和結果列表
+  const filterEl = document.getElementById('tour-filter-anchor');
+  if(filterEl) filterEl.style.display = '';
+  renderTours();
+  setTimeout(()=>{ document.getElementById('tour-filter-anchor')?.scrollIntoView({behavior:'smooth',block:'start'}); },150);
+}
+
+function resetQuiz(){
+  quizStep=0;
+  quizAns={ city:'', park:'單', days:'', family:false, spots:[] };
+  renderQuizSteps();
+}
+
+function renderQuizSteps(){
+  const steps=QUIZ_STEPS[tourTheme];
+  const step=steps[quizStep];
+  const pct=Math.round((quizStep/steps.length)*100);
+  const box=document.querySelector('.quiz-box');
+  if(!box) return;
+
+  const isLast=quizStep===steps.length-1;
+  const isSpotsStep=step.type==='multi';
+
+  let optsHTML='';
+  if(isSpotsStep){
+    optsHTML=`<div class="quiz-spot-grid">${step.opts.map(s=>
+      `<div class="quiz-spot ${quizAns.spots.includes(s)?'selected':''}" onclick="quizToggleSpot(this,'${s}')">${s}</div>`
+    ).join('')}</div>`;
+  } else {
+    const isSingle=(step.opts.length<=2);
+    optsHTML=`<div class="quiz-opts ${isSingle?'single-col':''}">${step.opts.map(o=>{
+      const cur=(step.id==='city'&&quizAns.city===o.v)||(step.id==='park'&&quizAns.park===o.v)||(step.id==='days'&&quizAns.days===o.v)||(step.id==='family'&&((o.v==='yes'&&quizAns.family)||(o.v==='no'&&!quizAns.family)));
+      return `<div class="quiz-opt ${cur?'selected':''}" onclick="quizSelectSingle('${step.id}','${o.v}')">${o.l.replace(/\n/g,'<br>')}</div>`;
+    }).join('')}</div>`;
+  }
+
+  box.innerHTML=`
+    <div class="quiz-progress"><div class="quiz-progress-bar" style="width:${pct}%"></div></div>
+    <div class="quiz-inner">
+      <div class="quiz-step active">
+        <div class="quiz-qlabel">${step.label}</div>
+        <div class="quiz-q">${step.q}</div>
+        ${optsHTML}
+        <div class="quiz-nav">
+          <button class="quiz-back" onclick="quizBack()">← 上一題</button>
+          <button class="quiz-next" ${isSpotsStep?'':'disabled'} onclick="quizNext()">${isLast?'看結果 →':'下一題 →'}</button>
+          ${isSpotsStep?'':`<button class="quiz-skip" onclick="quizSkip()">跳過</button>`}
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderQuizDone(){
+  const steps=QUIZ_STEPS[tourTheme];
+  // 預估結果筆數
+  const preview=tours.filter(t=>{
+    if(t.theme!==tourTheme) return false;
+    if(quizAns.city && t.city!==quizAns.city) return false;
+    if(tourTheme==='東京迪士尼' && quizAns.park && t.park!==quizAns.park) return false;
+    if(quizAns.days && t.days!==parseInt(quizAns.days)) return false;
+    if(quizAns.family && !t.family) return false;
+    return true;
+  });
+  const box=document.querySelector('.quiz-box');
+  box.innerHTML=`
+    <div class="quiz-progress"><div class="quiz-progress-bar" style="width:100%"></div></div>
+    <div class="quiz-inner">
+      <div class="quiz-done">
+        <div class="quiz-done-ico">🎉</div>
+        <div class="quiz-done-txt">找到 ${preview.length} 個符合行程！</div>
+        <div class="quiz-done-sub">幫你套用到篩選器，還可以再微調</div>
+        <button class="quiz-apply-btn" onclick="applyQuizResults()">套用結果，看行程 →</button>
+        <button class="quiz-reset" onclick="resetQuiz()">重新回答</button>
+      </div>
+    </div>`;
+}
+
+function renderTours(){
+  const mc=document.getElementById('mc');
+  const meta=THEME_META[tourTheme];
+  const filtered=getTourFiltered();
+
+  const tabsHTML=Object.entries(THEME_META).map(([name,m])=>
+    `<div class="ttab ${tourTheme===name?m.tabCls:''}" onclick="setTourTheme('${name}')">${m.icon} ${name}</div>`
+  ).join('');
+
+  const cities=['台北','台中','高雄'];
+  const cityPills=[
+    // 不限選項，tourCity='' 時就是不限
+    `<div class="tpill ${tourCity===''?'on':''}" style="${tourCity===''?'background:#475569;color:#fff;border-color:#334155':''}" onclick="toggleTourCity('')">🌐 不限</div>`,
+    ...cities.map(c=>{
+      const cls=tourCity===c?`on tpill-on on-city-${c==='台北'?'taipei':c==='台中'?'taichung':'kaohsiung'}`:'';
+      return `<div class="tpill ${cls}" onclick="toggleTourCity('${c}')">🛫 ${c}</div>`;
+    })
+  ].join('');
+
+  // 旅行社篩選（只顯示該主題有的旅行社）
+  const availAgencies=[...new Set(tours.filter(t=>t.theme===tourTheme).map(t=>t.agency))];
+  const agencyColors={'雄獅':'#3B5BDB','東南':'#EA580C','易遊網':'#059669','可樂':'#7C3AED','燦星':'#D97706'};
+  const agencyPills=availAgencies.map(a=>{
+    const isOn=tourAgency===a;
+    const color=agencyColors[a]||'#333';
+    return `<div class="tpill" style="${isOn?`background:${color};color:#fff;border-color:${color}`:''}; transition:all .15s" onclick="toggleTourAgency('${a}')">${a}</div>`;
+  }).join('');
+
+  // 排序按鈕
+  const sortOpts=[
+    {v:'default',l:'預設'},
+    {v:'days_asc',l:'📅 天數少→多'},
+    {v:'days_desc',l:'📅 天數多→少'},
+  ];
+  const sortBtns=sortOpts.map(o=>
+    `<div class="tpill ${tourSort===o.v?'on':''}" style="${tourSort===o.v?'background:#475569;color:#fff;border-color:#334155':''}" onclick="setTourSort('${o.v}')">${o.l}</div>`
+  ).join('');
+
+
+
+  const parkHTML=tourTheme==='東京迪士尼'?`
+    <div class="tfsec">
+      <div class="tftitle"><span class="fdot" style="background:#7C3AED"></span>樂園</div>
+      <div class="tour-pills">
+        <div class="tpill ${tourPark==='單'?'on tpill-on on-park-single':''}" onclick="toggleTourPark('單')">🎡 單樂園</div>
+        <div class="tpill ${tourPark==='雙'?'on tpill-on on-park-double':''}" onclick="toggleTourPark('雙')">🎡🎡 雙樂園</div>
+      </div>
+    </div>`:'';
+
+  const allDays=[...new Set(tours.filter(t=>t.theme===tourTheme).map(t=>t.days))].sort((a,b)=>a-b);
+  const dayPills=allDays.map(d=>{
+    const on=tourDays===String(d)?'on tpill-on on-days':'';
+    return `<div class="tpill ${on}" onclick="toggleTourDays('${d}')">${d}天</div>`;
+  }).join('');
+
+  const spotChips=meta.spots.map(s=>{
+    const on=tourSpots.includes(s)?'on':'';
+    return `<span class="spot-chip ${on}" onclick="toggleTourSpot('${s}')">${s}</span>`;
+  }).join('');
+
+  const familyOn=tourFamily?'on tpill-on on-family':'';
+
+  const cardsHTML=filtered.length?filtered.map((t,i)=>{
+    const matched=tourSpots.filter(s=>t.spots.includes(s));
+    const stripe=AGENCY_STRIPE[t.agency]||'#2D6A4F';
+    const badge=AGENCY_BADGE[t.agency]||'badge-lion';
+    const cityTag=`ttag-city-${t.city==='台北'?'taipei':t.city==='台中'?'taichung':'kaohsiung'}`;
+    const parkTag=t.park==='雙'?'ttag-park-double':'ttag-park-single';
+    const matchHTML=matched.length?`<div class="spot-match-row">${matched.map(s=>`<span class="spot-match-chip">✓ ${s}</span>`).join('')}</div>`:'';
+    const familyTag=t.family?'<span class="ttag ttag-family">👨‍👩‍👧 親子</span>':'';
+    const parkLabel=tourTheme==='東京迪士尼'?`<span class="ttag ${parkTag}">${t.park}樂園</span>`:'';
+    return `<a class="tour-card" href="${t.url}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;animation-delay:${i*0.04}s">
+      <div class="tour-stripe" style="background:${stripe}"></div>
+      <div class="tour-cbody">
+        <div class="tour-agency-badge ${badge}">${t.agency}</div>
+        <div class="tour-title">${t.title}</div>
+        <div class="tour-tags">
+          <span class="ttag ttag-city-${t.city==='台北'?'taipei':t.city==='台中'?'taichung':'kaohsiung'}">${t.city}</span>
+          ${parkLabel}
+          <span class="ttag ttag-days">${t.days}天</span>
+          ${familyTag}
+        </div>
+        ${matchHTML}
+        <div class="${t.hasAff?'tour-goto-btn':'tour-goto-btn-noaff'}">查看出團日期與價格 →</div>
+      </div>
+    </a>`;
+  }).join(''):`<div class="empty"><div class="empty-ico">🔍</div><div class="empty-txt">沒有符合條件的行程<br>試試調整篩選條件</div></div>`;
+
+  mc.innerHTML=`
+    <div class="tour-hero">
+      <div class="tour-hero-label">軟糖媽咪Ivy精選</div>
+      <div class="tour-hero-title">海外團體行懶人包</div>
+      <div class="tour-hero-sub">幫你找到最適合的行程 · 點卡片直接看最新價格</div>
+    </div>
+    <div class="tour-theme-tabs">${tabsHTML}</div>
+    <div class="tour-entry-wrap">
+      <button class="tour-entry-btn tour-entry-quiz ${quizOpen?'active':''}" onclick="toggleQuiz()">
+        <div class="tour-entry-ico">✨</div>
+        <div class="tour-entry-txt">幫我推薦</div>
+        <div class="tour-entry-sub">回答幾題找到最適合的</div>
+      </button>
+      <button class="tour-entry-btn tour-entry-filter" onclick="document.getElementById('tour-filter-anchor').scrollIntoView({behavior:'smooth',block:'start'})">
+        <div class="tour-entry-ico">🔍</div>
+        <div class="tour-entry-txt">直接篩選</div>
+        <div class="tour-entry-sub">我已經知道想找什麼</div>
+      </button>
+    </div>
+    <div class="quiz-box ${quizOpen?'open':''}"></div>
+    <div class="tour-filter" id="tour-filter-anchor">
+      <div class="tfsec">
+        <div class="tftitle"><span class="fdot" style="background:#0f3460"></span>出發城市</div>
+        <div class="tour-pills">${cityPills}</div>
+      </div>
+      ${parkHTML}
+      <div class="tfsec">
+        <div class="tftitle"><span class="fdot" style="background:#0369A1"></span>天數</div>
+        <div class="tour-pills">${dayPills}</div>
+      </div>
+      <div class="tfsec">
+        <div class="tftitle"><span class="fdot" style="background:#6B21A8"></span>旅行社</div>
+        <div class="tour-pills">${agencyPills}</div>
+      </div>
+
+      <div class="tfsec">
+        <div class="tftitle"><span class="fdot" style="background:#BE185D"></span>親子行程</div>
+        <div class="tour-pills">
+          <div class="tpill ${familyOn}" onclick="toggleTourFamily()">👨‍👩‍👧 有兒童優惠</div>
+        </div>
+      </div>
+      <div class="tfsec">
+        <div class="tftitle"><span class="fdot" style="background:#475569"></span>排序</div>
+        <div class="tour-pills">${sortBtns}</div>
+      </div>
+      <div class="tfsec">
+        <div class="tftitle" style="cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'flex':'none';this.querySelector('.fold-arrow').textContent=this.nextElementSibling.style.display==='none'?'▶':'▼'">
+          <span class="fdot" style="background:#0D7247"></span>想去的景點（可多選）<span class="fold-arrow" style="margin-left:auto;font-size:10px;color:var(--muted)">▼</span>
+        </div>
+        <div class="tour-pills" style="gap:6px;flex-wrap:wrap">${spotChips}</div>
+      </div>
+      <button class="tclear-btn" onclick="clearTourFilters()">✕ 清除篩選</button>
+    </div>
+    <div class="tour-rbar">
+      <span class="rtxt">搜尋結果</span>
+      <span class="tour-rcnt">${filtered.length} 筆</span>
+    </div>
+    <div class="clist">${cardsHTML}</div>
+    <div class="footer">
+      軟糖媽咪Ivy的旅遊筆記 | travel.wunaitw.com<br>
+      行程資料來源：各旅行社官方網站<br>
+      價格以官網當日為準，僅供參考
+    </div>`;
+
+  // 初始化quiz
+  if(quizOpen){
+    renderQuizSteps();
+    // 隱藏結果列表
+    const rbar = document.querySelector('.tour-rbar');
+    const clist = document.querySelector('.clist');
+    if(rbar) rbar.style.display = 'none';
+    if(clist) clist.style.display = 'none';
+  } else {
+    const rbar = document.querySelector('.tour-rbar');
+    const clist = document.querySelector('.clist');
+    if(rbar) rbar.style.display = '';
+    if(clist) clist.style.display = '';
+  }
+}
+
+// 讀取網址 hash 決定初始 tab
+const initHash = location.hash.replace('#','');
+if(['tickets','tours','saved','info'].includes(initHash)){
+  tab = initHash;
 }
 
 render();
