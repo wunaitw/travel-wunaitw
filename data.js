@@ -129,5 +129,7 @@ const tickets = [
   { attraction:'東映太秦映画村門票', platform:'Klook', name:'京都東映太秦映画村入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'觀光景點', price:401, url:'https://onelink.one/s/CaUHY' },
   { attraction:'京都鐵道博物館門票', platform:'KKday', name:'京都鐵道博物館入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'博物館', price:302, url:'https://linkgo.one/s/9cPqk' },
   { attraction:'京都水族館門票', platform:'KKday', name:'京都水族館入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'水族館', price:524, url:'https://afflink.one/s/HeHeW' },
-  { attraction:'京都水族館門票', platform:'Klook', name:'京都水族館入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'水族館', price:524, url:'https://onelink.one/s/HMUBt' }
+  { attraction:'京都水族館門票', platform:'Klook', name:'京都水族館入場門票', country:'日本', city:'京都', type:'景點門票', subtype:'水族館', price:524, url:'https://onelink.one/s/HMUBt' },
+  { attraction:'天橋立&伊根舟屋一日遊', platform:'Klook', name:'日本三景之天橋立&伊根舟屋&伊根灣一日遊（大阪或京都出發）', country:'日本', city:'京都', type:'活動體驗', subtype:'一日遊', price:2163, url:'https://afflink.one/s/T5wNT' },
+  { attraction:'天橋立&伊根舟屋一日遊', platform:'KKday', name:'【1人成團】日本京都天橋立一日遊｜伊根灣遊船・伊根舟屋/美山茅草屋之里｜可選鮑魚或半蟹海鮮鍋｜大阪難波／京都出發', country:'日本', city:'京都', type:'活動體驗', subtype:'一日遊', price:1982, url:'https://linkgo.one/s/XKUA5' }
 ];
