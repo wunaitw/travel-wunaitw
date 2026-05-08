@@ -852,9 +852,11 @@ function toggleQuiz(){
   quizOpen = !quizOpen;
   quizStep = 0;
   quizAns = { city:'', park:'單', days:'', family:false, spots:[] };
-  // 展開quiz時收起篩選器，關閉時展開
+  // 展開quiz時收起篩選器、主題tabs；關閉時展開
   const filterEl = document.getElementById('tour-filter-anchor');
+  const tabsEl = document.getElementById('tour-theme-tabs');
   if(filterEl) filterEl.style.display = quizOpen ? 'none' : '';
+  if(tabsEl) tabsEl.style.display = quizOpen ? 'none' : '';
   renderTours();
   if(quizOpen) setTimeout(()=>{ document.querySelector('.quiz-box')?.scrollIntoView({behavior:'smooth',block:'nearest'}); },100);
 }
@@ -899,11 +901,13 @@ function applyQuizResults(){
   tourFamily=quizAns.family;
   tourSpots=[...quizAns.spots];
   quizOpen=false;
-  // 展開篩選器和結果列表
+  // 展開篩選器、主題tabs和結果列表
   const filterEl = document.getElementById('tour-filter-anchor');
+  const tabsEl = document.getElementById('tour-theme-tabs');
   if(filterEl) filterEl.style.display = '';
+  if(tabsEl) tabsEl.style.display = '';
   renderTours();
-  setTimeout(()=>{ document.getElementById('tour-filter-anchor')?.scrollIntoView({behavior:'smooth',block:'start'}); },150);
+  setTimeout(()=>{ document.getElementById('tour-theme-tabs')?.scrollIntoView({behavior:'smooth',block:'start'}); },150);
 }
 
 function resetQuiz(){
@@ -1070,7 +1074,6 @@ function renderTours(){
       <div class="tour-hero-title">海外團體行懶人包</div>
       <div class="tour-hero-sub">幫你找到最適合的行程 · 點卡片直接看最新價格</div>
     </div>
-    <div class="tour-theme-tabs">${tabsHTML}</div>
     <div class="tour-entry-wrap">
       <button class="tour-entry-btn tour-entry-quiz ${quizOpen?'active':''}" onclick="toggleQuiz()">
         <div class="tour-entry-ico">✨</div>
@@ -1084,6 +1087,7 @@ function renderTours(){
       </button>
     </div>
     <div class="quiz-box ${quizOpen?'open':''}"></div>
+    <div class="tour-theme-tabs" id="tour-theme-tabs">${tabsHTML}</div>
     <div class="tour-filter" id="tour-filter-anchor">
       <div class="tfsec">
         <div class="tftitle"><span class="fdot" style="background:#0f3460"></span>出發城市</div>
