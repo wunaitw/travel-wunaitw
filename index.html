@@ -210,6 +210,9 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
 .quiz-toggle-sub{font-size:10px;font-weight:700;opacity:.85;margin-top:2px}
 .quiz-box{background:var(--white);margin:10px 12px 0;border-radius:var(--r);border:2px solid #DDD6FE;box-shadow:0 4px 0 rgba(118,75,162,.15);overflow:hidden;display:none}
 .quiz-box.open{display:block}
+.quiz-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 0}
+.quiz-cancel{background:none;border:none;font-family:"Nunito",sans-serif;font-size:12px;font-weight:900;color:var(--muted);cursor:pointer;padding:4px 8px;border-radius:999px;border:1.5px solid var(--border)}
+.quiz-cancel:active{background:var(--sky)}
 .quiz-progress{height:4px;background:#F3F0FF}
 .quiz-progress-bar{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);transition:width .3s}
 .quiz-inner{padding:16px 14px 14px}
@@ -250,11 +253,6 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;hei
     </div>
   </div>
 </div>
-
-<a href="https://lin.ee/pQDyYmZ" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:linear-gradient(90deg,#06C755 0%,#00A54A 100%);color:#fff;padding:9px 16px;font-size:13px;font-weight:600;text-decoration:none;width:100%;box-sizing:border-box;">
-  🎉 加入官方 LINE！票券優惠＋旅遊資訊不漏接
-  <span style="background:#fff;color:#06C755;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:700;white-space:nowrap;">加入好友 →</span>
-</a>
 
 <div id="mc"></div>
 <div class="toast" id="toast"></div>
@@ -921,6 +919,17 @@ function resetQuiz(){
   renderQuizSteps();
 }
 
+function cancelQuiz(){
+  quizOpen=false;
+  quizStep=0;
+  quizAns={ city:'', park:'單', days:'', family:false, spots:[] };
+  const filterEl = document.getElementById('tour-filter-anchor');
+  const tabsEl = document.getElementById('tour-theme-tabs');
+  if(filterEl) filterEl.style.display = '';
+  if(tabsEl) tabsEl.style.display = '';
+  renderTours();
+}
+
 function renderQuizSteps(){
   const steps=QUIZ_STEPS[tourTheme];
   const step=steps[quizStep];
@@ -946,9 +955,12 @@ function renderQuizSteps(){
 
   box.innerHTML=`
     <div class="quiz-progress"><div class="quiz-progress-bar" style="width:${pct}%"></div></div>
+    <div class="quiz-header">
+      <span style="font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;color:#7C3AED">${step.label}</span>
+      <button class="quiz-cancel" onclick="cancelQuiz()">✕ 離開問答</button>
+    </div>
     <div class="quiz-inner">
       <div class="quiz-step active">
-        <div class="quiz-qlabel">${step.label}</div>
         <div class="quiz-q">${step.q}</div>
         ${optsHTML}
         <div class="quiz-nav">
@@ -974,6 +986,10 @@ function renderQuizDone(){
   const box=document.querySelector('.quiz-box');
   box.innerHTML=`
     <div class="quiz-progress"><div class="quiz-progress-bar" style="width:100%"></div></div>
+    <div class="quiz-header">
+      <span style="font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;color:#7C3AED">完成！</span>
+      <button class="quiz-cancel" onclick="cancelQuiz()">✕ 離開問答</button>
+    </div>
     <div class="quiz-inner">
       <div class="quiz-done">
         <div class="quiz-done-ico">🎉</div>
